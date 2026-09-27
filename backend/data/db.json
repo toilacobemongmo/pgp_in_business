@@ -1,0 +1,161 @@
+{
+  "ca_config": {
+    "name": "Enterprise Corporate Root CA",
+    "email": "ca-root@enterprise-security.internal",
+    "keyID": "01E1E51024976D03",
+    "fingerprint": "6abebd3203d73c402b8f5eaf01e1e51024976d03",
+    "algorithm": "eddsaLegacy",
+    "createdAt": "2026-09-27T03:42:54.000Z",
+    "expiresAt": "Never (Corporate Master)",
+    "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdAZpiyVPFXFrygLjkga/NhLpMxCQq7cy01\nvdtvcWOFeRTNQ0VudGVycHJpc2UgQ29ycG9yYXRlIFJvb3QgQ0EgPGNhLXJv\nb3RAZW50ZXJwcmlzZS1zZWN1cml0eS5pbnRlcm5hbD7CwBMEExYKAIUFgmq4\nkL4DCwkHCRAB4eUQJJdtA0UUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVu\ncGdwanMub3Jn4NJsVtxt1azP0c40ilqo+RjbYxLeWD+rH4zcON+TCc8FFQoI\nDgwEFgACAQIZAQKbAwIeARYhBGq+vTID1zxAK49erwHh5RAkl20DAAAmJgEA\n9YU45EqMgJIJrzifsrvj6H6vqd5702yJUqm8MmVDqsAA/0f/sltwNvzh1d3i\nvGf1jvQAIiyWktTWFAH4pWDIjHABzjgEariQvhIKKwYBBAGXVQEFAQEHQKQ/\nENAKL1ihGC8xR5xhrJYSA1yXlwwUiYuaqOAPWXB7AwEIB8K+BBgWCgBwBYJq\nuJC+CRAB4eUQJJdtA0UUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVucGdw\nanMub3JnNReSVFrWsSvyCP0P141wWmBK42+9895KWaLMLNOINRoCmwwWIQRq\nvr0yA9c8QCuPXq8B4eUQJJdtAwAA680BAPsodF581E2lW7nLkqjn74ZVKTFt\nksHxiTTXyuwZs0xGAQDMBN0jgleJAVNiDKcRSbEiKHtAUq+Y41nDT9C35NpX\nBQ==\n=ZiYS\n-----END PGP PUBLIC KEY BLOCK-----\n",
+    "privateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxYYEariQvhYJKwYBBAHaRw8BAQdAZpiyVPFXFrygLjkga/NhLpMxCQq7cy01\nvdtvcWOFeRT+CQMIhkQuTASN/HXgneummtayq6J3XdI+lHd6k+18i7tNlz43\nSSR4qmWnG5ZIQVCjH6UJ+r2k2jqLnbf9tBG6kZJJLO79H5BFiThPcNNKLuD6\ncs1DRW50ZXJwcmlzZSBDb3Jwb3JhdGUgUm9vdCBDQSA8Y2Etcm9vdEBlbnRl\ncnByaXNlLXNlY3VyaXR5LmludGVybmFsPsLAEwQTFgoAhQWCariQvgMLCQcJ\nEAHh5RAkl20DRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5v\ncmfg0mxW3G3VrM/RzjSKWqj5GNtjEt5YP6sfjNw435MJzwUVCggODAQWAAIB\nAhkBApsDAh4BFiEEar69MgPXPEArj16vAeHlECSXbQMAACYmAQD1hTjkSoyA\nkgmvOJ+yu+Pofq+p3nvTbIlSqbwyZUOqwAD/R/+yW3A2/OHV3eK8Z/WO9AAi\nLJaS1NYUAfilYMiMcAHHiwRquJC+EgorBgEEAZdVAQUBAQdApD8Q0AovWKEY\nLzFHnGGslhIDXJeXDBSJi5qo4A9ZcHsDAQgH/gkDCOyNxiEdiDVF4P9M4P+A\nYl9xvU/7xTy57LhRFg6fBxRDEZZkb0h7xuF4LuLLH6P5CQmgPAzz9QQZzZBy\n9V7PMKaDBCnthnMgXsb1rzMFDnPCvgQYFgoAcAWCariQvgkQAeHlECSXbQNF\nFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZzUXklRa1rEr\n8gj9D9eNcFpgSuNvvfPeSlmizCzTiDUaApsMFiEEar69MgPXPEArj16vAeHl\nECSXbQMAAOvNAQD7KHRefNRNpVu5y5Ko5++GVSkxbZLB8Yk018rsGbNMRgEA\nzATdI4JXiQFTYgynEUmxIih7QFKvmONZw0/Qt+TaVwU=\n=xoQu\n-----END PGP PRIVATE KEY BLOCK-----\n",
+    "revocationCertificateArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\nComment: This is a revocation certificate\n\nwr4EIBYKAHAFgmq4kL4JEAHh5RAkl20DRRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcmfyblD+AjJ5/HabgKYWPtrMwYbiM7e8KPKt9RKh\nBvYwQAKdABYhBGq+vTID1zxAK49erwHh5RAkl20DAACcxgEA1XY/D2jZSmvW\nMMj4KUc9rLeH8pY71XeavtgI1EzA31sA/1aF4Rqo1JmfcuTYh/AiO+9+SeRf\nayeYQ4j5iYxF2GsC\n=S3Ea\n-----END PGP PUBLIC KEY BLOCK-----\n"
+  },
+  "certificates": [
+    {
+      "id": "cert_1790480574164_13wm",
+      "name": "Trần Thị Mai",
+      "email": "mai.tran@enterprise.internal",
+      "department": "Ban Pháp chế & Tuân thủ",
+      "role": "Trưởng ban Pháp chế",
+      "fingerprint": "c17b5437f07bec173d97b656b054ab55212f1cbe",
+      "keyID": "B054AB55212F1CBE",
+      "algorithm": "eddsaLegacy",
+      "issuedAt": "2026-09-27T03:42:54.164Z",
+      "expiresAt": "2027-09-27T03:42:54.164Z",
+      "status": "active",
+      "caIssuer": "Enterprise Corporate Root CA",
+      "caKeyID": "01E1E51024976D03",
+      "certifiedPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdA3w2SnFGy8fQC9PC6ZE8ObKBSQvCoAJx/\n2voNRMBaYbPNL1Ry4bqnbiBUaOG7iyBNYWkgPG1haS50cmFuQGVudGVycHJp\nc2UuaW50ZXJuYWw+wsATBBMWCgCFBYJquJC+AwsJBwkQsFSrVSEvHL5FFAAA\nAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZytECJfYuvWO/1t4\nPzInoj89iIwoesJlM0AqPOPddN0+BRUKCA4MBBYAAgECGQECmwMCHgEWIQTB\ne1Q38HvsFz2XtlawVKtVIS8cvgAAtT0BAPp3inuePXekb9BLGCrl9fK0cmwh\nKkaHf936AlUkrOxDAP9mnS0XGhAFwALxbyKzRkckF4R9b+5Q6xSpy02VwYWu\nBcK+BBAWCgBwBYJquJC+CRAB4eUQJJdtA0UUAAAAAAAcACBzYWx0QG5vdGF0\naW9ucy5vcGVucGdwanMub3JnkVsKpWu4j8w18Lzs0FUa2MEvg/CkLw04/zDL\n0/uQfAYCmwMWIQRqvr0yA9c8QCuPXq8B4eUQJJdtAwAAOfsBALuNIYzNARFh\nu51RInLZi1+gJkxww+44wb18lyEh66MkAP4gZ7k2KXQmAHTkuZCb7rRpxhG9\ndd9aHGhnA5zhziKZC844BGq4kL4SCisGAQQBl1UBBQEBB0BvJvhl4XZXzR9k\nhOIFYcuC9lVLSuZl2dtxWWyyU/7gaAMBCAfCvgQYFgoAcAWCariQvgkQsFSr\nVSEvHL5FFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZ3HG\nul2KiQeqG4ZYiXpphdbqMrAhQXed1jKGYndpKB4xApsMFiEEwXtUN/B77Bc9\nl7ZWsFSrVSEvHL4AAEAXAQCVgvx6SQQFdclFiA7ERXjW8qtWfpzSJ/59q25E\n6Y63OAEA1+DOxBqmg3iTi7kZaZkQR6fulI0KDhoGiP3zyC1QegY=\n=pwex\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "originalPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdA3w2SnFGy8fQC9PC6ZE8ObKBSQvCoAJx/\n2voNRMBaYbPNL1Ry4bqnbiBUaOG7iyBNYWkgPG1haS50cmFuQGVudGVycHJp\nc2UuaW50ZXJuYWw+wsATBBMWCgCFBYJquJC+AwsJBwkQsFSrVSEvHL5FFAAA\nAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZytECJfYuvWO/1t4\nPzInoj89iIwoesJlM0AqPOPddN0+BRUKCA4MBBYAAgECGQECmwMCHgEWIQTB\ne1Q38HvsFz2XtlawVKtVIS8cvgAAtT0BAPp3inuePXekb9BLGCrl9fK0cmwh\nKkaHf936AlUkrOxDAP9mnS0XGhAFwALxbyKzRkckF4R9b+5Q6xSpy02VwYWu\nBc44BGq4kL4SCisGAQQBl1UBBQEBB0BvJvhl4XZXzR9khOIFYcuC9lVLSuZl\n2dtxWWyyU/7gaAMBCAfCvgQYFgoAcAWCariQvgkQsFSrVSEvHL5FFAAAAAAA\nHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZ3HGul2KiQeqG4ZYiXpp\nhdbqMrAhQXed1jKGYndpKB4xApsMFiEEwXtUN/B77Bc9l7ZWsFSrVSEvHL4A\nAEAXAQCVgvx6SQQFdclFiA7ERXjW8qtWfpzSJ/59q25E6Y63OAEA1+DOxBqm\ng3iTi7kZaZkQR6fulI0KDhoGiP3zyC1QegY=\n=AJiC\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEariQvhYJKwYBBAHaRw8BAQdA3w2SnFGy8fQC9PC6ZE8ObKBSQvCoAJx/\n2voNRMBaYbMAAP97THUpE2fwa7e1QhkJjbdHgXh/Lo7Wla6SGLkw5yCpoQ/F\nzS9UcuG6p24gVGjhu4sgTWFpIDxtYWkudHJhbkBlbnRlcnByaXNlLmludGVy\nbmFsPsLAEwQTFgoAhQWCariQvgMLCQcJELBUq1UhLxy+RRQAAAAAABwAIHNh\nbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmcrRAiX2Lr1jv9beD8yJ6I/PYiM\nKHrCZTNAKjzj3XTdPgUVCggODAQWAAIBAhkBApsDAh4BFiEEwXtUN/B77Bc9\nl7ZWsFSrVSEvHL4AALU9AQD6d4p7nj13pG/QSxgq5fXytHJsISpGh3/d+gJV\nJKzsQwD/Zp0tFxoQBcAC8W8is0ZHJBeEfW/uUOsUqctNlcGFrgXHXQRquJC+\nEgorBgEEAZdVAQUBAQdAbyb4ZeF2V80fZITiBWHLgvZVS0rmZdnbcVlsslP+\n4GgDAQgHAAD/YryfOkmcu4g9F7DY7fgJKt9G4c+humr4mMdmpHPNRKgTOcK+\nBBgWCgBwBYJquJC+CRCwVKtVIS8cvkUUAAAAAAAcACBzYWx0QG5vdGF0aW9u\ncy5vcGVucGdwanMub3Jncca6XYqJB6obhliJemmF1uoysCFBd53WMoZid2ko\nHjECmwwWIQTBe1Q38HvsFz2XtlawVKtVIS8cvgAAQBcBAJWC/HpJBAV1yUWI\nDsRFeNbyq1Z+nNIn/n2rbkTpjrc4AQDX4M7EGqaDeJOLuRlpmRBHp+6UjQoO\nGgaI/fPILVB6Bg==\n=qCMk\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "notes": "Ký số hợp đồng thương mại và văn bản pháp lý"
+    },
+    {
+      "id": "cert_1790480574127_8i5j",
+      "name": "Nguyễn Văn An",
+      "email": "an.nguyen@enterprise.internal",
+      "department": "Phòng Kế toán & Tài chính",
+      "role": "Kế toán trưởng",
+      "fingerprint": "0f57adfde2ca8dcd726013924a2f45484b72853e",
+      "keyID": "4A2F45484B72853E",
+      "algorithm": "eddsaLegacy",
+      "issuedAt": "2026-09-27T03:42:54.127Z",
+      "expiresAt": "2027-09-27T03:42:54.127Z",
+      "status": "active",
+      "caIssuer": "Enterprise Corporate Root CA",
+      "caKeyID": "01E1E51024976D03",
+      "certifiedPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdAWrp5O/Bl8UbLsK5Cis6U2t4J6grgmS/m\nxzt+knX21qDNME5ndXnhu4VuIFbEg24gQW4gPGFuLm5ndXllbkBlbnRlcnBy\naXNlLmludGVybmFsPsLAEwQTFgoAhQWCariQvgMLCQcJEEovRUhLcoU+RRQA\nAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmfkID6tibpEAr4j\nz78L1etBQl+jgw0N+dzwNX9UcUTz+gUVCggODAQWAAIBAhkBApsDAh4BFiEE\nD1et/eLKjc1yYBOSSi9FSEtyhT4AAOUcAQDdgvX9pG3umuxDWjPTCmoMO+cg\nQT0Y8V+NdkM59OdmhQEAmmZabv2JJiaae/mPddNDvHHRDtVrcSRLCci/aj7a\nxwPCvgQQFgoAcAWCariQvgkQAeHlECSXbQNFFAAAAAAAHAAgc2FsdEBub3Rh\ndGlvbnMub3BlbnBncGpzLm9yZwpR6vfXhC4kL+xIJOpeJqJAqdlyFuv1Xv4q\nJw1m6m1nApsDFiEEar69MgPXPEArj16vAeHlECSXbQMAACvRAP9hlXYfIkSh\nWzk2598YK7uuml4yuUs+jyIbnqBnX2XwQgEA8HvDNrfIP4vqqTpjfauR6QS4\n6F4nXyehBTgw96ao4QfOOARquJC+EgorBgEEAZdVAQUBAQdAvSvlp6ZWien7\nFLIvt81BxD11O0DdbBDwsaa902VDG3MDAQgHwr4EGBYKAHAFgmq4kL4JEEov\nRUhLcoU+RRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmfB\nhcEaqiHCoyNCPrHbnJ+p/Jh6LQytjB+DRhc/jrQYIQKbDBYhBA9Xrf3iyo3N\ncmATkkovRUhLcoU+AAAmAAD+MuiJlE62HtijANx6ho2Vwu6cJThclPnK4eqc\n0iiaXxABAPohGHbFFQTnvHGe6F/cSz0v3VMXsPLZ64yDmT6nm2EA\n=LkYH\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "originalPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdAWrp5O/Bl8UbLsK5Cis6U2t4J6grgmS/m\nxzt+knX21qDNME5ndXnhu4VuIFbEg24gQW4gPGFuLm5ndXllbkBlbnRlcnBy\naXNlLmludGVybmFsPsLAEwQTFgoAhQWCariQvgMLCQcJEEovRUhLcoU+RRQA\nAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmfkID6tibpEAr4j\nz78L1etBQl+jgw0N+dzwNX9UcUTz+gUVCggODAQWAAIBAhkBApsDAh4BFiEE\nD1et/eLKjc1yYBOSSi9FSEtyhT4AAOUcAQDdgvX9pG3umuxDWjPTCmoMO+cg\nQT0Y8V+NdkM59OdmhQEAmmZabv2JJiaae/mPddNDvHHRDtVrcSRLCci/aj7a\nxwPOOARquJC+EgorBgEEAZdVAQUBAQdAvSvlp6ZWien7FLIvt81BxD11O0Dd\nbBDwsaa902VDG3MDAQgHwr4EGBYKAHAFgmq4kL4JEEovRUhLcoU+RRQAAAAA\nABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmfBhcEaqiHCoyNCPrHb\nnJ+p/Jh6LQytjB+DRhc/jrQYIQKbDBYhBA9Xrf3iyo3NcmATkkovRUhLcoU+\nAAAmAAD+MuiJlE62HtijANx6ho2Vwu6cJThclPnK4eqc0iiaXxABAPohGHbF\nFQTnvHGe6F/cSz0v3VMXsPLZ64yDmT6nm2EA\n=vfVX\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEariQvhYJKwYBBAHaRw8BAQdAWrp5O/Bl8UbLsK5Cis6U2t4J6grgmS/m\nxzt+knX21qAAAPwLAFj7+LixUnBxJkiqU90WPgnFVDD8szWggStTPOXcaA/E\nzTBOZ3V54buFbiBWxINuIEFuIDxhbi5uZ3V5ZW5AZW50ZXJwcmlzZS5pbnRl\ncm5hbD7CwBMEExYKAIUFgmq4kL4DCwkHCRBKL0VIS3KFPkUUAAAAAAAcACBz\nYWx0QG5vdGF0aW9ucy5vcGVucGdwanMub3Jn5CA+rYm6RAK+I8+/C9XrQUJf\no4MNDfnc8DV/VHFE8/oFFQoIDgwEFgACAQIZAQKbAwIeARYhBA9Xrf3iyo3N\ncmATkkovRUhLcoU+AADlHAEA3YL1/aRt7prsQ1oz0wpqDDvnIEE9GPFfjXZD\nOfTnZoUBAJpmWm79iSYmmnv5j3XTQ7xx0Q7Va3EkSwnIv2o+2scDx10EariQ\nvhIKKwYBBAGXVQEFAQEHQL0r5aemVonp+xSyL7fNQcQ9dTtA3WwQ8LGmvdNl\nQxtzAwEIBwAA/3Qf0Cs+KtrvAvRf7E8nVHFL6vgxy9aMRB7Q+xju4oDIEiLC\nvgQYFgoAcAWCariQvgkQSi9FSEtyhT5FFAAAAAAAHAAgc2FsdEBub3RhdGlv\nbnMub3BlbnBncGpzLm9yZ8GFwRqqIcKjI0I+sducn6n8mHotDK2MH4NGFz+O\ntBghApsMFiEED1et/eLKjc1yYBOSSi9FSEtyhT4AACYAAP4y6ImUTrYe2KMA\n3HqGjZXC7pwlOFyU+crh6pzSKJpfEAEA+iEYdsUVBOe8cZ7oX9xLPS/dUxew\n8tnrjIOZPqebYQA=\n=mmuo\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "notes": "Cấp chữ ký số để duyệt chi ngân sách và hóa đơn điện tử"
+    }
+  ],
+  "key_directory": [
+    {
+      "id": "key_ca_root",
+      "organizationName": "Tập đoàn An ninh Doanh nghiệp (Internal CA)",
+      "contactName": "Corporate Security Officer",
+      "contactEmail": "ca-root@enterprise-security.internal",
+      "department": "Trung tâm Chứng thực CA Gốc",
+      "keyType": "internal_ca",
+      "fingerprint": "6abebd3203d73c402b8f5eaf01e1e51024976d03",
+      "keyID": "01E1E51024976D03",
+      "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdAZpiyVPFXFrygLjkga/NhLpMxCQq7cy01\nvdtvcWOFeRTNQ0VudGVycHJpc2UgQ29ycG9yYXRlIFJvb3QgQ0EgPGNhLXJv\nb3RAZW50ZXJwcmlzZS1zZWN1cml0eS5pbnRlcm5hbD7CwBMEExYKAIUFgmq4\nkL4DCwkHCRAB4eUQJJdtA0UUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVu\ncGdwanMub3Jn4NJsVtxt1azP0c40ilqo+RjbYxLeWD+rH4zcON+TCc8FFQoI\nDgwEFgACAQIZAQKbAwIeARYhBGq+vTID1zxAK49erwHh5RAkl20DAAAmJgEA\n9YU45EqMgJIJrzifsrvj6H6vqd5702yJUqm8MmVDqsAA/0f/sltwNvzh1d3i\nvGf1jvQAIiyWktTWFAH4pWDIjHABzjgEariQvhIKKwYBBAGXVQEFAQEHQKQ/\nENAKL1ihGC8xR5xhrJYSA1yXlwwUiYuaqOAPWXB7AwEIB8K+BBgWCgBwBYJq\nuJC+CRAB4eUQJJdtA0UUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVucGdw\nanMub3JnNReSVFrWsSvyCP0P141wWmBK42+9895KWaLMLNOINRoCmwwWIQRq\nvr0yA9c8QCuPXq8B4eUQJJdtAwAA680BAPsodF581E2lW7nLkqjn74ZVKTFt\nksHxiTTXyuwZs0xGAQDMBN0jgleJAVNiDKcRSbEiKHtAUq+Y41nDT9C35NpX\nBQ==\n=ZiYS\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "trustLevel": "corporate_root",
+      "isCA": true,
+      "notes": "Khóa gốc tin cậy tối cao (Root of Trust) của toàn bộ doanh nghiệp.",
+      "createdAt": "2026-09-27T03:42:54.073Z"
+    },
+    {
+      "id": "dir_cert_1790480574127_8i5j",
+      "organizationName": "Nội bộ Doanh nghiệp",
+      "contactName": "Nguyễn Văn An",
+      "contactEmail": "an.nguyen@enterprise.internal",
+      "department": "Phòng Kế toán & Tài chính",
+      "keyType": "internal_employee",
+      "fingerprint": "0f57adfde2ca8dcd726013924a2f45484b72853e",
+      "keyID": "4A2F45484B72853E",
+      "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdAWrp5O/Bl8UbLsK5Cis6U2t4J6grgmS/m\nxzt+knX21qDNME5ndXnhu4VuIFbEg24gQW4gPGFuLm5ndXllbkBlbnRlcnBy\naXNlLmludGVybmFsPsLAEwQTFgoAhQWCariQvgMLCQcJEEovRUhLcoU+RRQA\nAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmfkID6tibpEAr4j\nz78L1etBQl+jgw0N+dzwNX9UcUTz+gUVCggODAQWAAIBAhkBApsDAh4BFiEE\nD1et/eLKjc1yYBOSSi9FSEtyhT4AAOUcAQDdgvX9pG3umuxDWjPTCmoMO+cg\nQT0Y8V+NdkM59OdmhQEAmmZabv2JJiaae/mPddNDvHHRDtVrcSRLCci/aj7a\nxwPCvgQQFgoAcAWCariQvgkQAeHlECSXbQNFFAAAAAAAHAAgc2FsdEBub3Rh\ndGlvbnMub3BlbnBncGpzLm9yZwpR6vfXhC4kL+xIJOpeJqJAqdlyFuv1Xv4q\nJw1m6m1nApsDFiEEar69MgPXPEArj16vAeHlECSXbQMAACvRAP9hlXYfIkSh\nWzk2598YK7uuml4yuUs+jyIbnqBnX2XwQgEA8HvDNrfIP4vqqTpjfauR6QS4\n6F4nXyehBTgw96ao4QfOOARquJC+EgorBgEEAZdVAQUBAQdAvSvlp6ZWien7\nFLIvt81BxD11O0DdbBDwsaa902VDG3MDAQgHwr4EGBYKAHAFgmq4kL4JEEov\nRUhLcoU+RRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmfB\nhcEaqiHCoyNCPrHbnJ+p/Jh6LQytjB+DRhc/jrQYIQKbDBYhBA9Xrf3iyo3N\ncmATkkovRUhLcoU+AAAmAAD+MuiJlE62HtijANx6ho2Vwu6cJThclPnK4eqc\n0iiaXxABAPohGHbFFQTnvHGe6F/cSz0v3VMXsPLZ64yDmT6nm2EA\n=LkYH\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEariQvhYJKwYBBAHaRw8BAQdAWrp5O/Bl8UbLsK5Cis6U2t4J6grgmS/m\nxzt+knX21qAAAPwLAFj7+LixUnBxJkiqU90WPgnFVDD8szWggStTPOXcaA/E\nzTBOZ3V54buFbiBWxINuIEFuIDxhbi5uZ3V5ZW5AZW50ZXJwcmlzZS5pbnRl\ncm5hbD7CwBMEExYKAIUFgmq4kL4DCwkHCRBKL0VIS3KFPkUUAAAAAAAcACBz\nYWx0QG5vdGF0aW9ucy5vcGVucGdwanMub3Jn5CA+rYm6RAK+I8+/C9XrQUJf\no4MNDfnc8DV/VHFE8/oFFQoIDgwEFgACAQIZAQKbAwIeARYhBA9Xrf3iyo3N\ncmATkkovRUhLcoU+AADlHAEA3YL1/aRt7prsQ1oz0wpqDDvnIEE9GPFfjXZD\nOfTnZoUBAJpmWm79iSYmmnv5j3XTQ7xx0Q7Va3EkSwnIv2o+2scDx10EariQ\nvhIKKwYBBAGXVQEFAQEHQL0r5aemVonp+xSyL7fNQcQ9dTtA3WwQ8LGmvdNl\nQxtzAwEIBwAA/3Qf0Cs+KtrvAvRf7E8nVHFL6vgxy9aMRB7Q+xju4oDIEiLC\nvgQYFgoAcAWCariQvgkQSi9FSEtyhT5FFAAAAAAAHAAgc2FsdEBub3RhdGlv\nbnMub3BlbnBncGpzLm9yZ8GFwRqqIcKjI0I+sducn6n8mHotDK2MH4NGFz+O\ntBghApsMFiEED1et/eLKjc1yYBOSSi9FSEtyhT4AACYAAP4y6ImUTrYe2KMA\n3HqGjZXC7pwlOFyU+crh6pzSKJpfEAEA+iEYdsUVBOe8cZ7oX9xLPS/dUxew\n8tnrjIOZPqebYQA=\n=mmuo\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "trustLevel": "corporate_certified",
+      "isCA": false,
+      "notes": "Kế toán trưởng - Phòng Kế toán & Tài chính",
+      "createdAt": "2026-09-27T03:42:54.127Z"
+    },
+    {
+      "id": "dir_cert_1790480574164_13wm",
+      "organizationName": "Nội bộ Doanh nghiệp",
+      "contactName": "Trần Thị Mai",
+      "contactEmail": "mai.tran@enterprise.internal",
+      "department": "Ban Pháp chế & Tuân thủ",
+      "keyType": "internal_employee",
+      "fingerprint": "c17b5437f07bec173d97b656b054ab55212f1cbe",
+      "keyID": "B054AB55212F1CBE",
+      "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdA3w2SnFGy8fQC9PC6ZE8ObKBSQvCoAJx/\n2voNRMBaYbPNL1Ry4bqnbiBUaOG7iyBNYWkgPG1haS50cmFuQGVudGVycHJp\nc2UuaW50ZXJuYWw+wsATBBMWCgCFBYJquJC+AwsJBwkQsFSrVSEvHL5FFAAA\nAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZytECJfYuvWO/1t4\nPzInoj89iIwoesJlM0AqPOPddN0+BRUKCA4MBBYAAgECGQECmwMCHgEWIQTB\ne1Q38HvsFz2XtlawVKtVIS8cvgAAtT0BAPp3inuePXekb9BLGCrl9fK0cmwh\nKkaHf936AlUkrOxDAP9mnS0XGhAFwALxbyKzRkckF4R9b+5Q6xSpy02VwYWu\nBcK+BBAWCgBwBYJquJC+CRAB4eUQJJdtA0UUAAAAAAAcACBzYWx0QG5vdGF0\naW9ucy5vcGVucGdwanMub3JnkVsKpWu4j8w18Lzs0FUa2MEvg/CkLw04/zDL\n0/uQfAYCmwMWIQRqvr0yA9c8QCuPXq8B4eUQJJdtAwAAOfsBALuNIYzNARFh\nu51RInLZi1+gJkxww+44wb18lyEh66MkAP4gZ7k2KXQmAHTkuZCb7rRpxhG9\ndd9aHGhnA5zhziKZC844BGq4kL4SCisGAQQBl1UBBQEBB0BvJvhl4XZXzR9k\nhOIFYcuC9lVLSuZl2dtxWWyyU/7gaAMBCAfCvgQYFgoAcAWCariQvgkQsFSr\nVSEvHL5FFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZ3HG\nul2KiQeqG4ZYiXpphdbqMrAhQXed1jKGYndpKB4xApsMFiEEwXtUN/B77Bc9\nl7ZWsFSrVSEvHL4AAEAXAQCVgvx6SQQFdclFiA7ERXjW8qtWfpzSJ/59q25E\n6Y63OAEA1+DOxBqmg3iTi7kZaZkQR6fulI0KDhoGiP3zyC1QegY=\n=pwex\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEariQvhYJKwYBBAHaRw8BAQdA3w2SnFGy8fQC9PC6ZE8ObKBSQvCoAJx/\n2voNRMBaYbMAAP97THUpE2fwa7e1QhkJjbdHgXh/Lo7Wla6SGLkw5yCpoQ/F\nzS9UcuG6p24gVGjhu4sgTWFpIDxtYWkudHJhbkBlbnRlcnByaXNlLmludGVy\nbmFsPsLAEwQTFgoAhQWCariQvgMLCQcJELBUq1UhLxy+RRQAAAAAABwAIHNh\nbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmcrRAiX2Lr1jv9beD8yJ6I/PYiM\nKHrCZTNAKjzj3XTdPgUVCggODAQWAAIBAhkBApsDAh4BFiEEwXtUN/B77Bc9\nl7ZWsFSrVSEvHL4AALU9AQD6d4p7nj13pG/QSxgq5fXytHJsISpGh3/d+gJV\nJKzsQwD/Zp0tFxoQBcAC8W8is0ZHJBeEfW/uUOsUqctNlcGFrgXHXQRquJC+\nEgorBgEEAZdVAQUBAQdAbyb4ZeF2V80fZITiBWHLgvZVS0rmZdnbcVlsslP+\n4GgDAQgHAAD/YryfOkmcu4g9F7DY7fgJKt9G4c+humr4mMdmpHPNRKgTOcK+\nBBgWCgBwBYJquJC+CRCwVKtVIS8cvkUUAAAAAAAcACBzYWx0QG5vdGF0aW9u\ncy5vcGVucGdwanMub3Jncca6XYqJB6obhliJemmF1uoysCFBd53WMoZid2ko\nHjECmwwWIQTBe1Q38HvsFz2XtlawVKtVIS8cvgAAQBcBAJWC/HpJBAV1yUWI\nDsRFeNbyq1Z+nNIn/n2rbkTpjrc4AQDX4M7EGqaDeJOLuRlpmRBHp+6UjQoO\nGgaI/fPILVB6Bg==\n=qCMk\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "trustLevel": "corporate_certified",
+      "isCA": false,
+      "notes": "Trưởng ban Pháp chế - Ban Pháp chế & Tuân thủ",
+      "createdAt": "2026-09-27T03:42:54.164Z"
+    },
+    {
+      "id": "partner_fincorp",
+      "organizationName": "Tập đoàn Tài chính & Ngân hàng FINCORP",
+      "contactName": "Trưởng phòng Hợp tác B2B",
+      "contactEmail": "b2b-gateway@fincorp.partner",
+      "department": "Cổng giao dịch B2B Đối ngoại",
+      "keyType": "external_partner",
+      "fingerprint": "e0e4f86243558d02730c28ec23b2d3dc94ef3b77",
+      "keyID": "23B2D3DC94EF3B77",
+      "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEariQvhYJKwYBBAHaRw8BAQdAC1aCcWLvGT8uQriYePo3c8qJYwBDS43/\nrhSKcZSNCnrNQcSQ4buRaSB0w6FjIFTDoGkgY2jDrW5oIEZJTkNPUlAgSlND\nIDxiMmItZ2F0ZXdheUBmaW5jb3JwLnBhcnRuZXI+wsATBBMWCgCFBYJquJC+\nAwsJBwkQI7LT3JTvO3dFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBn\ncGpzLm9yZ0+P2stF599Pq/4957Cbt2RQ80FExnMCciDJARiztuhCBRUKCA4M\nBBYAAgECGQECmwMCHgEWIQTg5PhiQ1WNAnMMKOwjstPclO87dwAAgwwA/1Ux\nmHeFq0DKXq0ppFJyfTyeez9uJ89OR8pXO/NwkfGyAQCBh+2DgeghmTb76kvv\nSA+eFPd2+ylZKx2KU8uicel+Ac44BGq4kL4SCisGAQQBl1UBBQEBB0ArIOuA\nyh+0OFK8EWsf6wE8Wa9clY0taCtoZQyglb8EKQMBCAfCvgQYFgoAcAWCariQ\nvgkQI7LT3JTvO3dFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpz\nLm9yZ+/ofNHmBS3PqbH7k7WszB1vaFh8QLH9YBbQ7pIxuEcCApsMFiEE4OT4\nYkNVjQJzDCjsI7LT3JTvO3cAAOhhAP47znqBCsmR4Pk5jItvhrr3P+byGqS9\n1vD9mw8+EIrU2QEA6eeJ3IvzVkzTklgDziifIcrM3AzrEj7JHHigmyj68gA=\n=h707\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "privateKeyArmoredDemo": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEariQvhYJKwYBBAHaRw8BAQdAC1aCcWLvGT8uQriYePo3c8qJYwBDS43/\nrhSKcZSNCnoAAP4lX3eDxd9WKB0LQ4ESmNTW3CHLT1iEpSgs/j9a8aKcDg+e\nzUHEkOG7kWkgdMOhYyBUw6BpIGNow61uaCBGSU5DT1JQIEpTQyA8YjJiLWdh\ndGV3YXlAZmluY29ycC5wYXJ0bmVyPsLAEwQTFgoAhQWCariQvgMLCQcJECOy\n09yU7zt3RRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmdP\nj9rLReffT6v+Peewm7dkUPNBRMZzAnIgyQEYs7boQgUVCggODAQWAAIBAhkB\nApsDAh4BFiEE4OT4YkNVjQJzDCjsI7LT3JTvO3cAAIMMAP9VMZh3hatAyl6t\nKaRScn08nns/bifPTkfKVzvzcJHxsgEAgYftg4HoIZk2++pL70gPnhT3dvsp\nWSsdilPLonHpfgHHXQRquJC+EgorBgEEAZdVAQUBAQdAKyDrgMoftDhSvBFr\nH+sBPFmvXJWNLWgraGUMoJW/BCkDAQgHAAD/f3wOmIrlMqaeXUOKIZQJAGJV\neuYU2gRAE5aHmxuzk8gOqsK+BBgWCgBwBYJquJC+CRAjstPclO87d0UUAAAA\nAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVucGdwanMub3Jn7+h80eYFLc+psfuT\ntazMHW9oWHxAsf1gFtDukjG4RwICmwwWIQTg5PhiQ1WNAnMMKOwjstPclO87\ndwAA6GEA/jvOeoEKyZHg+TmMi2+Guvc/5vIapL3W8P2bDz4QitTZAQDp54nc\ni/NWTNOSWAPOKJ8hyszcDOsSPskceKCbKPryAA==\n=KPYI\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "trustLevel": "verified_partner",
+      "isCA": false,
+      "notes": "Đối tác cung ứng vốn và dịch vụ thanh toán quốc tế đã xác thực danh tính.",
+      "createdAt": "2026-09-27T03:42:54.173Z"
+    }
+  ],
+  "signed_documents": [],
+  "b2b_messages": [
+    {
+      "id": "msg_demo_01",
+      "senderOrg": "Tập đoàn Tài chính & Ngân hàng FINCORP",
+      "senderEmail": "b2b-gateway@fincorp.partner",
+      "senderKeyID": "23B2D3DC94EF3B77",
+      "recipientOrg": "Tập đoàn An ninh Doanh nghiệp",
+      "recipientEmail": "ca-root@enterprise-security.internal",
+      "recipientKeyID": "01E1E51024976D03",
+      "subject": "[MẬT & KÝ SỐ] Xác nhận hạn mức tín dụng dự án Q3/2026",
+      "encryptedPayloadArmored": "-----BEGIN PGP MESSAGE-----\n\nwV4D/RrKZh8Dak8SAQdA2U2OTOk07HWoq/nC0fJa9Sd4wnBaNGEfhxGW3G4o\nMTAwScRqCt0WTUMLT6g3SgOenpPRyZ+B3cww5YMis2RJsL7e5rexVkdHRmer\nskrrRaE20sHBAS65RvIKxZqROeJH8xhtreT88M4ldmRVJqDUKQ5MhyyzW/nq\nqpBBGJ8Xec2dU2TOf2Qn68TkqET0y6ziMc96hzEnX+wkhoiFjYOb9fKz3Qio\nzhRaJQiQ/xtOXKKKzpjDazy/ynCSwDbdp/unwB401x8wtaUG7w2z65OIafP8\nS9X7xj47dEFsbXOZzK2wjVIF54maLmpxVR7Kl7egEavNRobVZF6waasLiCEs\n2Dg88a/2xCrDxnW10C7eWYY5/tzHW3sXS4DG7qOTJdNq6R/xrlNzNKZYkF+F\nwLoGnS6LmfX9yS/Il1efEjlCaVPuSfEegmFJdAvIIWVkdMK8PRDO3dCpoO4Z\nnmv8zCFe7nUxhTEB3hujF24KRY6pUkD7og92oq4PilWxCfxTqfzqE8PpOxG/\nperVyduZ+XLvpsFYGVt6rbeOuaq3vHO8XcYd6aMQijW/yEq+d4KqplxI8l2z\nA0i3gD3DFMABb5uxcYvz/qpsfwzFFGvXypMmCOGvFAJbcFjTxE6TPIxbUSsY\n1C9sw92MmrfsAZi7exCD4aBkSrJZLHGz/tM4RsdXpG8CVag03EykckNnozAr\n2YoVIMoLeBkASE1QmOJeC9hqLGpopDtjE/sC8BLUsQI+2x8/CHq8YrqZXs66\nFsA/sOz2lcVLkciL8ZYrnkrTzkp/7QjCYust8uS8pF9ENMt/MQi47cCSxRbD\nnTfVuRWNC0SxWwPjb4Qm80Ch2oHSHolpRSyL1b375UAqZnnk6KSJ9QN6Excu\nBbd8yxpXLW7e9eiWWPAMQeTe8l34QVEBk9zFWpk/SWRy0fgm43TuuqG9Cro/\nj3l8CYitVTVeU9Q2vqkF2SnXCyA=\n=VCDQ\n-----END PGP MESSAGE-----\n",
+      "sentAt": "2026-09-26T23:42:54.210Z",
+      "isRead": false
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": "log_1790480574167_5948a",
+      "action": "ISSUE_CERTIFICATE",
+      "actor": "Corporate CA Administrator",
+      "details": "Cấp chứng chỉ OpenPGP cho [Trần Thị Mai] <mai.tran@enterprise.internal> (Trưởng ban Pháp chế, Ban Pháp chế & Tuân thủ) - KeyID: B054AB55212F1CBE",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-27T03:42:54.167Z"
+    },
+    {
+      "id": "log_1790480574129_fhjf2",
+      "action": "ISSUE_CERTIFICATE",
+      "actor": "Corporate CA Administrator",
+      "details": "Cấp chứng chỉ OpenPGP cho [Nguyễn Văn An] <an.nguyen@enterprise.internal> (Kế toán trưởng, Phòng Kế toán & Tài chính) - KeyID: 4A2F45484B72853E",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-27T03:42:54.129Z"
+    },
+    {
+      "id": "log_1790480574074_8yvhp",
+      "action": "INIT_ROOT_CA",
+      "actor": "System Boot",
+      "details": "Khởi tạo Corporate Root CA thành công với KeyID: 01E1E51024976D03",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-27T03:42:54.074Z"
+    }
+  ]
+}
