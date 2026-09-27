@@ -1,98 +1,184 @@
 # 🛡️ Enterprise OpenPGP Certificate Authority (CA) & B2B Secure Exchange
 
-Hệ thống **Trung tâm Chứng thực Chữ ký số OpenPGP & Cổng Giao dịch Doanh nghiệp (Corporate CA & B2B Portal)** được thiết kế chuyên biệt cho môi trường doanh nghiệp. Hệ thống giải quyết trọn vẹn bài toán xây dựng hạ tầng khóa công khai (PKI) dựa trên tiêu chuẩn OpenPGP (RFC 4880), chứng thực danh tính cán bộ, ký số văn bản/tài liệu và trao đổi thông tin mật liên tổ chức.
+> **Hạ tầng Trung tâm Chứng thực Chữ ký số OpenPGP & Cổng Giao dịch Trao đổi Doanh nghiệp (Enterprise Trust Center)**  
+> Tuân thủ chuẩn mật mã mở **RFC 4880 (OpenPGP)** & Thuật toán đường cong elliptic hiện đại **ECC Curve25519 (Ed25519)**.
 
 ---
 
-## 🏛️ Kiến trúc & Mô hình Nghiệp vụ
+## 🏛️ Giới Thiệu Hệ Thống
 
-```
-                          ┌─────────────────────────────────────┐
-                          │   🏢 CORPORATE ROOT CA MASTER KEY   │
-                          │   (Khóa Gốc Tin Cậy Của Doanh Nghiệp)│
-                          └──────────────────┬──────────────────┘
-                                             │ Ký chứng thực (Certify Key)
-                    ┌────────────────────────┴────────────────────────┐
-                    ▼                                                 ▼
-     ┌─────────────────────────────┐                   ┌─────────────────────────────┐
-     │ 👤 Cán bộ / Phòng ban nội bộ │                   │ 🏢 Đối tác B2B (External)    │
-     │ - Kế toán trưởng (Duyệt chi)│                   │ - Tập đoàn Tài chính FINCORP│
-     │ - Trưởng ban Pháp chế (HĐ)  │                   │ - Tập đoàn Logistics LOGIX  │
-     └──────────────┬──────────────┘                   └──────────────┬──────────────┘
-                    │                                                 │
-                    │   Trao đổi B2B Secure Messaging                 │
-                    │   (Mã hóa E2E + Ký số OpenPGP)                  │
-                    └─────────────────────────────────────────────────┘
-```
-
-### 1. Corporate Root CA (Khóa gốc Doanh nghiệp)
-- Hệ thống tự sinh và lưu trữ khóa gốc **Enterprise Corporate Root CA** với thuật toán hiện đại **ECC Ed25519 (Curve25519)** chuẩn RFC 4880.
-- Root CA đóng vai trò "Root of Trust" (Nguồn gốc tin cậy tối cao), ký chứng thực (Corporate Certification Signature) lên các Public Key của cán bộ, nhân viên và phòng ban.
-
-### 2. Cấp phát & Chứng thực Khóa (Key Issuance & Certification)
-Hỗ trợ đầy đủ **2 phương thức chuẩn doanh nghiệp**:
-1. **CA Tự động sinh khóa (Key Generation)**: CA tự sinh cặp khóa OpenPGP an toàn, ký chứng thực và cung cấp Private Key cho nhân viên tải về lưu trữ an toàn.
-2. **Người dùng tự nộp Public Key (CSR - Certificate Signing Request)**: Cán bộ tự sinh khóa trên máy tính cá nhân bằng GnuPG / Kleopatra và chỉ gửi Public Key lên để CA ký chứng thực. Đảm bảo Private Key **không bao giờ** rời khỏi thiết bị người dùng.
-
-### 3. Danh bạ Public Key Tập trung & Mạng lưới B2B (Key Directory)
-- Quản lý tập trung Public Key của toàn bộ nhân viên nội bộ và các đối tác bên ngoài.
-- Dễ dàng tra cứu theo Tên, Email, Phòng ban, Tổ chức hoặc Key ID / Dấu vân tay số (Fingerprint).
-- Hỗ trợ nhập (Import) Public Key của doanh nghiệp đối tác để giao dịch an toàn.
-
-### 4. Ký số & Xác thực Tài liệu Điện tử (Document Signing & Verification)
-- **Ký văn bản trực tiếp**: Sinh chữ ký bảo mật inline clearsigned (`-----BEGIN PGP SIGNED MESSAGE-----`).
-- **Ký tệp tin rời (Detached Signature)**: Ký mọi định dạng tài liệu (PDF, DOCX, ZIP, v.v.), xuất file chữ ký số rời (`.sig.asc`).
-- **Xác thực toàn vẹn & Kiểm tra chuỗi CA**: Kiểm tra dữ liệu có bị chỉnh sửa hay không, đồng thời đối chiếu khóa của người ký có được bảo chứng bởi Corporate Root CA hay không.
-- Cảnh báo tức thì nếu chứng chỉ của người ký đã bị **Thu hồi (Revoked)**.
-
-### 5. Trao đổi Mật Liên Doanh nghiệp (B2B Secure Messaging)
-- **Mã hóa đầu cuối (E2E Encryption)**: Nội dung và tài liệu được mã hóa bằng **Public Key của doanh nghiệp đối tác**. Chỉ bên nhận sở hữu Private Key mới giải mã được.
-- **Ký số chứng thực (Digital Signature)**: Thông điệp đồng thời được ký bằng **Private Key của doanh nghiệp gửi**.
-- **Giải mã & Tem chứng nhận**: Bên nhận mở khóa và nhận được tem xác thực danh tính: *"Chữ ký của Đối tác HỢP LỆ và xác thực danh tính 100%"*.
-
-### 6. Nhật ký Kiểm toán Bất biến (Audit Trail)
-- Tự động ghi vết toàn bộ sự kiện: Khởi tạo Root CA, Cấp chứng chỉ, Thu hồi khóa, Ký văn bản, Xác thực, Gửi nhận tin B2B.
+Dự án được xây dựng nhằm giải quyết toàn diện bài toán bảo mật và chữ ký số trong môi trường doanh nghiệp hiện đại:
+- **Trung tâm CA Gốc Doanh nghiệp (Corporate Root CA)**: Khởi tạo và bảo trợ nguồn gốc tin cậy (Root of Trust), ký chứng thực danh tính cho cán bộ, nhân viên và các phòng ban.
+- **Chứng thực Danh tính Số (Corporate Certification Signature)**: Nhúng trực tiếp chữ ký của CA lên Public Key của nhân viên theo chuẩn OpenPGP Web of Trust.
+- **Ký số & Thẩm định Toàn vẹn Tài liệu**: Hỗ trợ ký văn bản (Inline Clearsign) và tệp tin rời (Detached Signature cho PDF, DOCX, ZIP). Thẩm định tính toàn vẹn 100% kèm mộc chứng nhận CA.
+- **Trao đổi Mật Liên Doanh nghiệp (B2B Secure Messaging)**: Lưu trữ danh bạ Public Key của các doanh nghiệp đối tác ngoài (FINCORP, Logistics, v.v.), mã hóa đầu cuối (E2E) và ký số chống giả mạo khi trao đổi báo giá, hợp đồng nhạy cảm.
+- **Nhật ký Kiểm toán Bất biến (Audit Trail)**: Ghi vết toàn bộ hành vi an ninh, hỗ trợ xuất báo cáo kiểm toán JSON.
 
 ---
 
-## 🚀 Khởi chạy Ứng dụng
+## 👥 4 Góc Nhìn Người Dùng (Role-Based Architecture)
 
-Hệ thống đã cài đặt sẵn các package cần thiết. Bạn chỉ cần chạy lệnh sau từ thư mục dự án:
+Hệ thống tích hợp sẵn **Bộ Chuyển Đổi Góc Nhìn (Role Switcher)** ngay trên thanh điều hướng để phục vụ từng đối tượng:
 
-```powershell
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       ENTERPRISE PGP TRUST CENTER                           │
+├───────────────────┬───────────────────┬───────────────────┬─────────────────┤
+│ 👑 CA Admin       │ 👩‍💻 Cán bộ Nội bộ │ 🏢 Đối tác B2B    │ 🔍 Thẩm tra     │
+│ (Quản trị toàn    │ (Employee Portal: │ (Partner Gateway: │ (Public Portal: │
+│ quyền, cấp/thu    │ Quản lý khóa tôi, │ Tải Root CA, gửi  │ Kéo thả kiểm tra│
+│ hồi chứng chỉ)    │ ký số văn bản)    │ báo giá mật E2E)  │ tính toàn vẹn)  │
+└───────────────────┴───────────────────┴───────────────────┴─────────────────┘
+```
+
+1. **👑 CA Administrator**: Quản lý Root CA Master Key, duyệt cấp và thu hồi chứng chỉ, xem danh bạ toàn diện và nhật ký kiểm toán.
+2. **👩‍💻 Cán bộ Doanh nghiệp (Employee Workspace)**: Tự phục vụ (Self-service), xem thẻ danh tính số cá nhân, tải cặp khóa của mình, ký nhanh các phiếu trình/hợp đồng phòng ban.
+3. **🏢 Doanh nghiệp Đối tác ngoài (B2B Partner Gateway)**: Đối tác ngoài tải Corporate Root CA Certificate đưa vào Trust Store, tra cứu cán bộ có thẩm quyền và gửi thông điệp mã hóa E2E vào công ty.
+4. **🔍 Thẩm tra viên Công khai (Public Verifier)**: Bất kỳ ai bên ngoài cũng có thể kéo thả tài liệu để thẩm định chữ ký và kiểm tra mộc chứng nhận CA một chạm mà không cần đăng nhập.
+
+---
+
+## 🏗️ Kiến Trúc Kỹ Thuật
+
+```mermaid
+flowchart TB
+    subgraph UI ["Giao diện Doanh nghiệp (React 19 + Tailwind CSS + Lucide Icons)"]
+        Dashboard["📊 Dashboard & Trạng thái Root Key"]
+        CAModule["📜 Trung tâm Cấp & Thu hồi Chứng chỉ"]
+        SignModule["✍️ Ký số & Thẩm định Tính Toàn vẹn"]
+        DirectoryModule["🏢 Danh bạ Public Key Doanh nghiệp & Đối tác"]
+        MsgModule["🔐 B2B Secure Messaging (Mã hóa E2E & Ký số)"]
+        AuditModule["📝 Nhật ký Kiểm toán (Audit Trail)"]
+        GuideModule["📖 Trung tâm Tích hợp Máy trạm (GnuPG, Git, Email)"]
+    end
+
+    subgraph Backend ["Enterprise CA Server (Node.js + Express + OpenPGP.js Core)"]
+        RootCA["🔑 Corporate Root CA Engine (Ed25519)"]
+        CertService["🛡️ Key Certification & Issuance Service"]
+        DocService["📑 Digital Document Signature Service"]
+        B2BService["💬 B2B Encryption & Decryption Pipeline"]
+        Store[("💾 Database & Key Ring Store")]
+    end
+
+    UI <--> Backend
+    CertService --> RootCA
+    DocService --> RootCA
+    B2BService --> Store
+    RootCA --> Store
+```
+
+---
+
+## 🚀 Hướng Dẫn Cài Đặt & Khởi Chạy
+
+### Yêu Cầu Môi Trường
+- **Node.js**: >= 18.x (khuyên dùng Node.js 20.x hoặc 24.x)
+- **NPM**: >= 9.x
+
+### Cài Đặt Dependencies
+Từ thư mục gốc dự án:
+```bash
+# Cài đặt thư viện cho backend
+npm install --prefix backend
+
+# Cài đặt thư viện cho frontend
+npm install --prefix frontend
+
+# Cài đặt root runner
+npm install
+```
+
+### Khởi Chạy Hệ Thống
+Chạy đồng thời cả Backend (port 5000) và Frontend (port 5173):
+```bash
 npm run dev
 ```
 
-- **Frontend UI**: [http://localhost:5173](http://localhost:5173) (Giao diện React + Tailwind CSS phong cách Enterprise Cyber Security).
-- **Backend CA Server**: [http://localhost:5000](http://localhost:5000) (REST API Express + OpenPGP.js Core).
+- **Frontend Portal**: [http://localhost:5173](http://localhost:5173)
+- **Backend API**: [http://localhost:5000/api/ca/status](http://localhost:5000/api/ca/status)
 
 ---
 
-## 📁 Cấu trúc Thư mục
+## 📖 Hướng Dẫn Tích Hợp Công Cụ Máy Trạm (Integration Hub)
+
+Hệ thống cho phép người dùng sử dụng cặp khóa được cấp trên các phần mềm phổ biến:
+
+### 1. GnuPG / Gpg4win / Kleopatra (Windows/Linux)
+```bash
+# Nhập khóa cá nhân và khóa Root CA:
+gpg --import my_private_key.asc
+gpg --import corporate-root-ca.asc
+
+# Ký số văn bản:
+gpg --clearsign hop_dong.txt
+
+# Ký số file nhị phân (PDF, DOCX):
+gpg --armor --detach-sign bang_ke.pdf
+
+# Xác thực chữ ký tài liệu:
+gpg --verify hop_dong.txt.asc
+```
+
+### 2. Ký Số Email (Mozilla Thunderbird / Microsoft Outlook)
+1. Tải Private Key cá nhân (`.asc`) từ Cổng Nhân viên.
+2. Mở Thunderbird &rarr; `Account Settings` &rarr; `End-to-End Encryption` &rarr; `Add Key` &rarr; `Import an existing OpenPGP Key`.
+3. Bật tùy chọn tự động ký số (*Digitally sign unencrypted messages*) để đối tác nhận diện danh tính công ty.
+
+### 3. Ký Số Code / Git Commit Signing (Kỹ sư phần mềm)
+```bash
+git config --global user.signingkey <YOUR_KEY_ID>
+git config --global commit.gpgsign true
+git commit -S -m "feat: triển khai module bảo mật mới"
+```
+
+### 4. Tích Hợp REST API Vào ERP / CRM
+```bash
+curl -X POST http://localhost:5000/api/documents/sign \
+  -H "Content-Type: application/json" \
+  -d '{
+    "textContent": "Ủy nhiệm chi số #UNC-2026",
+    "signerPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n...",
+    "signerPassphrase": ""
+  }'
+```
+
+---
+
+## 📁 Cấu Trúc Thư Mục Dự Án
 
 ```
 pgp_in_business_environment/
-├── package.json               # Root scripts chạy đồng thời backend & frontend
+├── package.json               # Root scripts khởi chạy song song backend & frontend
+├── .gitignore                 # Cấu hình loại trừ file rác và node_modules
+├── README.md                  # Tài liệu hướng dẫn sử dụng và kiến trúc
 ├── backend/
 │   ├── server.js              # REST API Express (CA, Certificates, Directory, Signing, B2B)
-│   ├── pgp-service.js         # Core OpenPGP.js (Generate, Certify, Sign, Verify, Encrypt)
+│   ├── pgp-service.js         # Core OpenPGP Engine (Sign, Verify, Encrypt, Decrypt)
 │   ├── store.js               # JSON Database & Audit Logger
-│   └── data/
-│       └── db.json            # Cơ sở dữ liệu trạng thái CA, Khóa & Tin nhắn
+│   └── data/                  # Thư mục lưu trữ database cục bộ
 └── frontend/
-    ├── src/
-    │   ├── App.jsx            # Ứng dụng trung tâm & Điều hướng phân hệ
-    │   ├── api.js             # API Client Axios
-    │   └── components/
-    │       ├── Navbar.jsx              # Header & Trạng thái Root CA
-    │       ├── DashboardView.jsx       # Bảng điều khiển tổng quan CA
-    │       ├── CertificatesView.jsx    # Phân hệ Quản lý Chứng chỉ
-    │       ├── KeyDirectoryView.jsx    # Danh bạ Public Key Nội bộ & Đối tác
-    │       ├── DocumentSigningView.jsx # Phân hệ Ký & Xác thực số
-    │       ├── B2BMessagingView.jsx    # Cổng trao đổi Mật B2B E2E
-    │       ├── AuditLogsView.jsx       # Nhật ký Kiểm toán An ninh
-    │       ├── IssueCertModal.jsx      # Modal Cấp chứng chỉ
-    │       ├── ImportKeyModal.jsx      # Modal Thêm khóa đối tác
-    │       ├── RevokeCertModal.jsx     # Modal Thu hồi chứng chỉ
-    │       └── KeyDetailModal.jsx      # Modal Xem chi tiết khóa & Fingerprint
+    ├── vite.config.js         # Cấu hình Vite & TailwindCSS proxy
+    └── src/
+        ├── App.jsx            # Điều phối Router và Role Switcher
+        ├── api.js             # API Client Axios
+        └── components/
+            ├── Navbar.jsx              # Header & Role Switcher
+            ├── DashboardView.jsx       # Bảng điều khiển Quản trị CA
+            ├── CertificatesView.jsx    # Quản lý Chứng chỉ Cán bộ
+            ├── KeyDirectoryView.jsx    # Danh bạ Public Key & Đối tác
+            ├── DocumentSigningView.jsx # Phân hệ Ký số & Xác thực
+            ├── B2BMessagingView.jsx    # Cổng trao đổi Mật B2B E2E
+            ├── EmployeePortalView.jsx  # Cổng Nhân viên tự phục vụ
+            ├── PartnerPortalView.jsx   # Cổng Đối tác B2B ngoài
+            ├── PublicVerifierView.jsx  # Cổng Thẩm tra Công khai
+            ├── IntegrationGuideView.jsx# Trung tâm Hướng dẫn Tích hợp
+            ├── IssueCertModal.jsx      # Modal Cấp chứng chỉ
+            ├── ImportKeyModal.jsx      # Modal Thêm đối tác B2B
+            ├── RevokeCertModal.jsx     # Modal Thu hồi chứng chỉ
+            └── KeyDetailModal.jsx      # Modal Xem chi tiết khóa
 ```
+
+---
+
+## 📄 Bản Quyền & Giấy Phép
+Dự án được phát triển phục vụ mục đích nghiên cứu, triển khai bảo mật thông tin và hạ tầng chữ ký số trong môi trường doanh nghiệp. Tuân thủ tiêu chuẩn mã nguồn mở MIT.
