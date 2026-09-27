@@ -36,9 +36,16 @@ Hệ thống tích hợp sẵn **Bộ Chuyển Đổi Góc Nhìn (Role Switcher)
 3. **🏢 Doanh nghiệp Đối tác ngoài (B2B Partner Gateway)**: Đối tác ngoài tải Corporate Root CA Certificate đưa vào Trust Store, tra cứu cán bộ có thẩm quyền và gửi thông điệp mã hóa E2E vào công ty.
 4. **🔍 Thẩm tra viên Công khai (Public Verifier)**: Bất kỳ ai bên ngoài cũng có thể kéo thả tài liệu để thẩm định chữ ký và kiểm tra mộc chứng nhận CA một chạm mà không cần đăng nhập.
 
----
+## 🏗️ Kiến Trúc Kỹ Thuật & Sơ Đồ Quy Trình
 
-## 🏗️ Kiến Trúc Kỹ Thuật
+### 1. Sơ Đồ Toàn Cảnh Kiến Trúc Hệ Thống (System Architecture)
+![System Architecture](./diagrams/system_architecture.png)
+
+### 2. Quy Trình Cấp Chứng Chỉ & Ký Số Xác Thực Toàn Vẹn
+![CA & Signing Workflow](./diagrams/ca_and_signing_flow.png)
+
+### 3. Quy Trình Trao Đổi Thông Điệp Mật B2B (Sign-then-Encrypt Pipeline)
+![B2B Secure Messaging Pipeline](./diagrams/b2b_e2e_messaging.png)
 
 ```mermaid
 flowchart TB
