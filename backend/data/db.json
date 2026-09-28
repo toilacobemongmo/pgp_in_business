@@ -13,6 +13,63 @@
   },
   "certificates": [
     {
+      "id": "cert_1790565539641_s7gq",
+      "name": "ntduong",
+      "email": "ab@gmail.com",
+      "department": "Phòng Công nghệ Thông tin",
+      "role": "Kỹ sư Bảo mật",
+      "fingerprint": "e24d3d08621e3aaa1ad5f027d8f2f0a528833b60",
+      "keyID": "D8F2F0A528833B60",
+      "algorithm": "eddsaLegacy",
+      "issuedAt": "2026-09-28T03:18:59.641Z",
+      "expiresAt": "2027-09-28T03:18:59.641Z",
+      "status": "active",
+      "caIssuer": "Enterprise Corporate Root CA",
+      "caKeyID": "01E1E51024976D03",
+      "certifiedPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarncoxYJKwYBBAHaRw8BAQdANTD+DmLCFMsqMu/jYqY/2XDWt8HIKqQq\nG/Gz6Jjg85PNFm50ZHVvbmcgPGFiQGdtYWlsLmNvbT7CwBMEExYKAIUFgmq5\n3KMDCwkHCRDY8vClKIM7YEUUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVu\ncGdwanMub3Jn8/syvaMcVyn8o3oAd40WSWyb1rv63HOOlKtUXoMWhLcFFQoI\nDgwEFgACAQIZAQKbAwIeARYhBOJNPQhiHjqqGtXwJ9jy8KUogztgAAAu3wD/\nTYu8Yw/KpFNwlXat3SEFg8jR9Rqr0lyLRGV5tl/RzjABANlOOyNNs+9Hx4bz\ncGPk6js41DKTGbcJLQmZ2yPekTkPwr4EEBYKAHAFgmq53KMJEAHh5RAkl20D\nRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmfgyNrPkUsp\nYzUoUcHOJ58whIuwJYsPIAXfsSfi0wV22gKbAxYhBGq+vTID1zxAK49erwHh\n5RAkl20DAAA/tQEAyM15XrqbY+u+Jb5L5frpm5arX/YJ7iWeXKVCshs6GSwB\nAOcL4gFK1mdnUMBJb8oCR6e8fJbex9RqfpseFSo83BEPzjgEarncoxIKKwYB\nBAGXVQEFAQEHQNjWyWURWJgnq6rtqI5beCW7QsK9nvWSn8OrrGRBI99LAwEI\nB8K+BBgWCgBwBYJqudyjCRDY8vClKIM7YEUUAAAAAAAcACBzYWx0QG5vdGF0\naW9ucy5vcGVucGdwanMub3Jn95hVsTcs1knUzZVXUcfJrcY7leCrRzQ9CBVG\nsO0zdvMCmwwWIQTiTT0IYh46qhrV8CfY8vClKIM7YAAAmScBAP4ZN0NeOt5g\nf6/nk0OM/J5uUb7FFOaIcnTARo69aOPzAP4/qMdSWEdm+096EQU3WBtf6rlG\n2Chuxj97NcYi51voCQ==\n=exB/\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "originalPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarncoxYJKwYBBAHaRw8BAQdANTD+DmLCFMsqMu/jYqY/2XDWt8HIKqQq\nG/Gz6Jjg85PNFm50ZHVvbmcgPGFiQGdtYWlsLmNvbT7CwBMEExYKAIUFgmq5\n3KMDCwkHCRDY8vClKIM7YEUUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVu\ncGdwanMub3Jn8/syvaMcVyn8o3oAd40WSWyb1rv63HOOlKtUXoMWhLcFFQoI\nDgwEFgACAQIZAQKbAwIeARYhBOJNPQhiHjqqGtXwJ9jy8KUogztgAAAu3wD/\nTYu8Yw/KpFNwlXat3SEFg8jR9Rqr0lyLRGV5tl/RzjABANlOOyNNs+9Hx4bz\ncGPk6js41DKTGbcJLQmZ2yPekTkPzjgEarncoxIKKwYBBAGXVQEFAQEHQNjW\nyWURWJgnq6rtqI5beCW7QsK9nvWSn8OrrGRBI99LAwEIB8K+BBgWCgBwBYJq\nudyjCRDY8vClKIM7YEUUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVucGdw\nanMub3Jn95hVsTcs1knUzZVXUcfJrcY7leCrRzQ9CBVGsO0zdvMCmwwWIQTi\nTT0IYh46qhrV8CfY8vClKIM7YAAAmScBAP4ZN0NeOt5gf6/nk0OM/J5uUb7F\nFOaIcnTARo69aOPzAP4/qMdSWEdm+096EQU3WBtf6rlG2Chuxj97NcYi51vo\nCQ==\n=nGX5\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEarncoxYJKwYBBAHaRw8BAQdANTD+DmLCFMsqMu/jYqY/2XDWt8HIKqQq\nG/Gz6Jjg85MAAQDli82VFOVle0yA/bS5EhYFfx7S3OxBMh8n7WFxcLoGog+Q\nzRZudGR1b25nIDxhYkBnbWFpbC5jb20+wsATBBMWCgCFBYJqudyjAwsJBwkQ\n2PLwpSiDO2BFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9y\nZ/P7Mr2jHFcp/KN6AHeNFklsm9a7+txzjpSrVF6DFoS3BRUKCA4MBBYAAgEC\nGQECmwMCHgEWIQTiTT0IYh46qhrV8CfY8vClKIM7YAAALt8A/02LvGMPyqRT\ncJV2rd0hBYPI0fUaq9Jci0RlebZf0c4wAQDZTjsjTbPvR8eG83Bj5Oo7ONQy\nkxm3CS0Jmdsj3pE5D8ddBGq53KMSCisGAQQBl1UBBQEBB0DY1sllEViYJ6uq\n7aiOW3glu0LCvZ71kp/Dq6xkQSPfSwMBCAcAAP99F9rVAIpcFEtflGWDdNXJ\nrzVEJTafSydI3S7Eis3NCA9Lwr4EGBYKAHAFgmq53KMJENjy8KUogztgRRQA\nAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmf3mFWxNyzWSdTN\nlVdRx8mtxjuV4KtHND0IFUaw7TN28wKbDBYhBOJNPQhiHjqqGtXwJ9jy8KUo\ngztgAACZJwEA/hk3Q1463mB/r+eTQ4z8nm5RvsUU5ohydMBGjr1o4/MA/j+o\nx1JYR2b7T3oRBTdYG1/quUbYKG7GP3s1xiLnW+gJ\n=pThB\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "notes": "Chứng chỉ chữ ký số nội bộ cấp bởi Corporate CA"
+    },
+    {
+      "id": "cert_1790565361876_m95n",
+      "name": "Đỗ Huy Quan",
+      "email": "anhham@ber.com",
+      "department": "Phòng Công nghệ Thông tin",
+      "role": "Lốp ",
+      "fingerprint": "c5204ecd511e87f91faae91cfff2e94df63162e9",
+      "keyID": "FFF2E94DF63162E9",
+      "algorithm": "eddsaLegacy",
+      "issuedAt": "2026-09-28T03:16:01.876Z",
+      "expiresAt": "2027-09-28T03:16:01.876Z",
+      "status": "active",
+      "caIssuer": "Enterprise Corporate Root CA",
+      "caKeyID": "01E1E51024976D03",
+      "certifiedPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarnb8RYJKwYBBAHaRw8BAQdAApWtqGIuTDlCm9C0baIoZ4h4hcEnF47P\nb72KoWREmGrNH8SQ4buXIEh1eSBRdWFuIDxhbmhoYW1AYmVyLmNvbT7CwBME\nExYKAIUFgmq52/EDCwkHCRD/8ulN9jFi6UUUAAAAAAAcACBzYWx0QG5vdGF0\naW9ucy5vcGVucGdwanMub3JnNPczh3I2J8yI4+1ZO9LZZM8YEtxoK5fs1Phs\noP5zz7QFFQoIDgwEFgACAQIZAQKbAwIeARYhBMUgTs1RHof5H6rpHP/y6U32\nMWLpAACJawD9GIoIqan6t7XEm0QJUvPu50/CcHKGT/cE2i0daRQk3g4BALYC\nbgM6KmzHz7nIZzoajP8LPER/+qGL3QWC7SqJvZ8Ewr4EEBYKAHAFgmq52/EJ\nEAHh5RAkl20DRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5v\ncmfDC91Db+4HCSLkqsZWyXbM5h4laztBMpZU9cIELDXYMQKbAxYhBGq+vTID\n1zxAK49erwHh5RAkl20DAACn/QD+KDwKvG9DrmRAZ7mSg/lyQG1i4ljZOimH\nSuo2ljsUXmUBANcJWlP/1+bT4OPrtK61pUVUY0SFMVoxeVtDZdViRasKzjgE\narnb8RIKKwYBBAGXVQEFAQEHQAKWjVYysCB5DGP6IwnDQ9Qc4wuPZcBImaN3\nRvf/ahchAwEIB8K+BBgWCgBwBYJqudvxCRD/8ulN9jFi6UUUAAAAAAAcACBz\nYWx0QG5vdGF0aW9ucy5vcGVucGdwanMub3JnFF3FSfjq0sq4kHKAZN7eSZR3\nsPS2rW1jXE3zytpeCqUCmwwWIQTFIE7NUR6H+R+q6Rz/8ulN9jFi6QAAK3QB\nAIGBqZf49M15cQBYy1an4Y8go/YvaXOAInV9sp2pLHU3AP0exFUoDqKq1KVc\nIOE3AJDTWoRr7v0CG2RIOmJIZ4MuDQ==\n=hXav\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "originalPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarnb8RYJKwYBBAHaRw8BAQdAApWtqGIuTDlCm9C0baIoZ4h4hcEnF47P\nb72KoWREmGrNH8SQ4buXIEh1eSBRdWFuIDxhbmhoYW1AYmVyLmNvbT7CwBME\nExYKAIUFgmq52/EDCwkHCRD/8ulN9jFi6UUUAAAAAAAcACBzYWx0QG5vdGF0\naW9ucy5vcGVucGdwanMub3JnNPczh3I2J8yI4+1ZO9LZZM8YEtxoK5fs1Phs\noP5zz7QFFQoIDgwEFgACAQIZAQKbAwIeARYhBMUgTs1RHof5H6rpHP/y6U32\nMWLpAACJawD9GIoIqan6t7XEm0QJUvPu50/CcHKGT/cE2i0daRQk3g4BALYC\nbgM6KmzHz7nIZzoajP8LPER/+qGL3QWC7SqJvZ8EzjgEarnb8RIKKwYBBAGX\nVQEFAQEHQAKWjVYysCB5DGP6IwnDQ9Qc4wuPZcBImaN3Rvf/ahchAwEIB8K+\nBBgWCgBwBYJqudvxCRD/8ulN9jFi6UUUAAAAAAAcACBzYWx0QG5vdGF0aW9u\ncy5vcGVucGdwanMub3JnFF3FSfjq0sq4kHKAZN7eSZR3sPS2rW1jXE3zytpe\nCqUCmwwWIQTFIE7NUR6H+R+q6Rz/8ulN9jFi6QAAK3QBAIGBqZf49M15cQBY\ny1an4Y8go/YvaXOAInV9sp2pLHU3AP0exFUoDqKq1KVcIOE3AJDTWoRr7v0C\nG2RIOmJIZ4MuDQ==\n=zjfS\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEarnb8RYJKwYBBAHaRw8BAQdAApWtqGIuTDlCm9C0baIoZ4h4hcEnF47P\nb72KoWREmGoAAP9/qgC3xiXDejdi+N8S+Vh7N+GGhr1MpQiY/gP4TNUkgxGI\nzR/EkOG7lyBIdXkgUXVhbiA8YW5oaGFtQGJlci5jb20+wsATBBMWCgCFBYJq\nudvxAwsJBwkQ//LpTfYxYulFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3Bl\nbnBncGpzLm9yZzT3M4dyNifMiOPtWTvS2WTPGBLcaCuX7NT4bKD+c8+0BRUK\nCA4MBBYAAgECGQECmwMCHgEWIQTFIE7NUR6H+R+q6Rz/8ulN9jFi6QAAiWsA\n/RiKCKmp+re1xJtECVLz7udPwnByhk/3BNotHWkUJN4OAQC2Am4DOipsx8+5\nyGc6Goz/CzxEf/qhi90Fgu0qib2fBMddBGq52/ESCisGAQQBl1UBBQEBB0AC\nlo1WMrAgeQxj+iMJw0PUHOMLj2XASJmjd0b3/2oXIQMBCAcAAP9m5MkZXEjt\nk2KLKc5HJ64IeDHSNBu5Z/1HYF4XnwczmA7Lwr4EGBYKAHAFgmq52/EJEP/y\n6U32MWLpRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmcU\nXcVJ+OrSyriQcoBk3t5JlHew9LatbWNcTfPK2l4KpQKbDBYhBMUgTs1RHof5\nH6rpHP/y6U32MWLpAAArdAEAgYGpl/j0zXlxAFjLVqfhjyCj9i9pc4AidX2y\nnaksdTcA/R7EVSgOoqrUpVwg4TcAkNNahGvu/QIbZEg6Ykhngy4N\n=H0F1\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "notes": "Chứng chỉ chữ ký số nội bộ cấp bởi Corporate CA"
+    },
+    {
+      "id": "cert_1790564028638_63uu",
+      "name": "Lê Minh Quaa",
+      "email": "minhqia@gmail.com",
+      "department": "Phòng Công nghệ Thông tin",
+      "role": "Kỹ sư Bảo mật",
+      "fingerprint": "ca56d962a88a5aac445f8c010e280e4f7caae605",
+      "keyID": "0E280E4F7CAAE605",
+      "algorithm": "eddsaLegacy",
+      "issuedAt": "2026-09-28T02:53:48.638Z",
+      "expiresAt": "2027-09-28T02:53:48.638Z",
+      "status": "active",
+      "caIssuer": "Enterprise Corporate Root CA",
+      "caKeyID": "01E1E51024976D03",
+      "certifiedPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarnWvBYJKwYBBAHaRw8BAQdAUsIUby+r3JlejnCtaaPedaDu4owI99mM\nyUT7gy9ZnNTNIUzDqiBNaW5oIFF1YWEgPG1pbmhxaWFAZ21haWwuY29tPsLA\nEwQTFgoAhQWCarnWvAMLCQcJEA4oDk98quYFRRQAAAAAABwAIHNhbHRAbm90\nYXRpb25zLm9wZW5wZ3Bqcy5vcmdufiw/SyFDbxmv2k9lQli2oOPq+3AQhWE1\njgoqVm23ygUVCggODAQWAAIBAhkBApsDAh4BFiEEylbZYqiKWqxEX4wBDigO\nT3yq5gUAAOoaAP9dezp7nz12F08yNCxAjrlz3GPL/HxkNjKL6xQTYO2W7AEA\no51QnWklr6pprqT9h0WlLGGcqiuKfZ/zrf6XwyzgLQrCvgQQFgoAcAWCarnW\nvAkQAeHlECSXbQNFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpz\nLm9yZ+Pkq6Y1g7qS2m2wKwxKlGZ/wajuJtJ4a7IyYzmMZ2TnApsDFiEEar69\nMgPXPEArj16vAeHlECSXbQMAAHpBAP4tId57KlHDhU7F7YlBrUASrhg9kEFi\nI/5KPKrFpRdDDgD+IdBbS7YbZUAXT86EE03LgRI86pl8GaL6e8jZFmqs1wbO\nOARquda8EgorBgEEAZdVAQUBAQdAWB4NxhlP1NEH82l5tSJAgxojX8ZsTWeW\nSW0MKf0P+zUDAQgHwr4EGBYKAHAFgmq51rwJEA4oDk98quYFRRQAAAAAABwA\nIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmf8eJuycbNjAnQO7+WW8BZE\nxNOSwMyvi/+d4XoiK7FVPAKbDBYhBMpW2WKoilqsRF+MAQ4oDk98quYFAAAY\nEgEAnKhkC1fxjnDQukdZCEedTLXVzodnu7wTCusoRzK72VsBANHdxogC5BdN\nvWkIrQeLncu+n3yXT1AFAVEvPV/0GK4L\n=NHTY\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "originalPublicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarnWvBYJKwYBBAHaRw8BAQdAUsIUby+r3JlejnCtaaPedaDu4owI99mM\nyUT7gy9ZnNTNIUzDqiBNaW5oIFF1YWEgPG1pbmhxaWFAZ21haWwuY29tPsLA\nEwQTFgoAhQWCarnWvAMLCQcJEA4oDk98quYFRRQAAAAAABwAIHNhbHRAbm90\nYXRpb25zLm9wZW5wZ3Bqcy5vcmdufiw/SyFDbxmv2k9lQli2oOPq+3AQhWE1\njgoqVm23ygUVCggODAQWAAIBAhkBApsDAh4BFiEEylbZYqiKWqxEX4wBDigO\nT3yq5gUAAOoaAP9dezp7nz12F08yNCxAjrlz3GPL/HxkNjKL6xQTYO2W7AEA\no51QnWklr6pprqT9h0WlLGGcqiuKfZ/zrf6XwyzgLQrOOARquda8EgorBgEE\nAZdVAQUBAQdAWB4NxhlP1NEH82l5tSJAgxojX8ZsTWeWSW0MKf0P+zUDAQgH\nwr4EGBYKAHAFgmq51rwJEA4oDk98quYFRRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcmf8eJuycbNjAnQO7+WW8BZExNOSwMyvi/+d4Xoi\nK7FVPAKbDBYhBMpW2WKoilqsRF+MAQ4oDk98quYFAAAYEgEAnKhkC1fxjnDQ\nukdZCEedTLXVzodnu7wTCusoRzK72VsBANHdxogC5BdNvWkIrQeLncu+n3yX\nT1AFAVEvPV/0GK4L\n=YUL0\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEarnWvBYJKwYBBAHaRw8BAQdAUsIUby+r3JlejnCtaaPedaDu4owI99mM\nyUT7gy9ZnNQAAP0c9/INPhcjY2bpIsZANSCW7zWGRYQJ/UbONzY5fZqvWg6f\nzSFMw6ogTWluaCBRdWFhIDxtaW5ocWlhQGdtYWlsLmNvbT7CwBMEExYKAIUF\ngmq51rwDCwkHCRAOKA5PfKrmBUUUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5v\ncGVucGdwanMub3Jnbn4sP0shQ28Zr9pPZUJYtqDj6vtwEIVhNY4KKlZtt8oF\nFQoIDgwEFgACAQIZAQKbAwIeARYhBMpW2WKoilqsRF+MAQ4oDk98quYFAADq\nGgD/XXs6e589dhdPMjQsQI65c9xjy/x8ZDYyi+sUE2DtluwBAKOdUJ1pJa+q\naa6k/YdFpSxhnKorin2f863+l8Ms4C0Kx10EarnWvBIKKwYBBAGXVQEFAQEH\nQFgeDcYZT9TRB/NpebUiQIMaI1/GbE1nlkltDCn9D/s1AwEIBwAA/1wnsJcL\nv+S76h5bBWKO0KxRM34YWm6gmC1fJGJTP+xgDxDCvgQYFgoAcAWCarnWvAkQ\nDigOT3yq5gVFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9y\nZ/x4m7Jxs2MCdA7v5ZbwFkTE05LAzK+L/53heiIrsVU8ApsMFiEEylbZYqiK\nWqxEX4wBDigOT3yq5gUAABgSAQCcqGQLV/GOcNC6R1kIR51MtdXOh2e7vBMK\n6yhHMrvZWwEA0d3GiALkF029aQitB4udy76ffJdPUAUBUS89X/QYrgs=\n=IRsm\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "notes": "xin cjap"
+    },
+    {
       "id": "cert_1790480574164_13wm",
       "name": "Trần Thị Mai",
       "email": "mai.tran@enterprise.internal",
@@ -114,9 +171,129 @@
       "isCA": false,
       "notes": "Đối tác cung ứng vốn và dịch vụ thanh toán quốc tế đã xác thực danh tính.",
       "createdAt": "2026-09-27T03:42:54.173Z"
+    },
+    {
+      "id": "dir_cert_1790563909933_thp0",
+      "organizationName": "Nội bộ Doanh nghiệp",
+      "contactName": "Nguyen Van Test",
+      "contactEmail": "test@company.com",
+      "department": "IT",
+      "keyType": "internal_employee",
+      "fingerprint": "138480dbfc8f88a28bbc1ada574d7fb071d4839b",
+      "keyID": "574D7FB071D4839B",
+      "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarnWRRYJKwYBBAHaRw8BAQdA/DUm5m+XbpChHspLM+BMJvJM+Br26mgI\nnvXfbpGQftfNIk5ndXllbiBWYW4gVGVzdCA8dGVzdEBjb21wYW55LmNvbT7C\nwBMEExYKAIUFgmq51kUDCwkHCRBXTX+wcdSDm0UUAAAAAAAcACBzYWx0QG5v\ndGF0aW9ucy5vcGVucGdwanMub3JnQyLHvbPNdFBPRYvlHi6/lbgcw/GmbasX\nTaJ+/cKeEUkFFQoIDgwEFgACAQIZAQKbAwIeARYhBBOEgNv8j4iii7wa2ldN\nf7Bx1IObAADQVQD/XEmTVedLr+EL1iHqLu7klywwuiN+Q/nVeUdhPo5GOWkB\nAKI/QSJxkbwPReeuckZqcwfVHTUTom76hFj1pV+o66wNwr4EEBYKAHAFgmq5\n1kUJEAHh5RAkl20DRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bq\ncy5vcmf+ePhojnSTBdsWJsoEW4YMC+6Cau45HCCOaaQBksjKCwKbAxYhBGq+\nvTID1zxAK49erwHh5RAkl20DAAAdcQD/RYVRLuAb7Dn+fLgM3VvD2pjec6bn\n2EELOqgXpfwL8KEBAOPFFGjBdHu3lL56Xz5qdRa9IpBMiGJleg5mkonNEiMH\nzjgEarnWRRIKKwYBBAGXVQEFAQEHQCe10F4Y2FnNBO4vlSaCD1AJNOtEhPnp\nKjY8NVt1J+IKAwEIB8K+BBgWCgBwBYJqudZFCRBXTX+wcdSDm0UUAAAAAAAc\nACBzYWx0QG5vdGF0aW9ucy5vcGVucGdwanMub3JnmhwCCweRTtdnmVrN0Y8A\ngp8y9K97A4YwDBTPiLHI6sYCmwwWIQQThIDb/I+Ioou8GtpXTX+wcdSDmwAA\n3WMA/1lj1ORvFTJtwa/TFEzzAS1Q51AqKfpE+E/om6uC48w8AP9nOYm7r/i1\n8gnI2QFzcNRY5Ftx+KtYkILax2wBN9XFDA==\n=2RLD\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEarnWRRYJKwYBBAHaRw8BAQdA/DUm5m+XbpChHspLM+BMJvJM+Br26mgI\nnvXfbpGQftcAAQDqLuaM2YdzrNXkHtg8gunb1XvYTqYyC7hSzbbJxTjbAxLF\nzSJOZ3V5ZW4gVmFuIFRlc3QgPHRlc3RAY29tcGFueS5jb20+wsATBBMWCgCF\nBYJqudZFAwsJBwkQV01/sHHUg5tFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMu\nb3BlbnBncGpzLm9yZ0Mix72zzXRQT0WL5R4uv5W4HMPxpm2rF02ifv3CnhFJ\nBRUKCA4MBBYAAgECGQECmwMCHgEWIQQThIDb/I+Ioou8GtpXTX+wcdSDmwAA\n0FUA/1xJk1XnS6/hC9Yh6i7u5JcsMLojfkP51XlHYT6ORjlpAQCiP0EicZG8\nD0XnrnJGanMH1R01E6Ju+oRY9aVfqOusDcddBGq51kUSCisGAQQBl1UBBQEB\nB0AntdBeGNhZzQTuL5Umgg9QCTTrRIT56So2PDVbdSfiCgMBCAcAAP95f/ww\nN+Hsu/2yiD+Pd2xSnyTZHNFKotqVUt31PN4ioBMAwr4EGBYKAHAFgmq51kUJ\nEFdNf7Bx1IObRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5v\ncmeaHAILB5FO12eZWs3RjwCCnzL0r3sDhjAMFM+IscjqxgKbDBYhBBOEgNv8\nj4iii7wa2ldNf7Bx1IObAADdYwD/WWPU5G8VMm3Br9MUTPMBLVDnUCop+kT4\nT+ibq4LjzDwA/2c5ibuv+LXyCcjZAXNw1FjkW3H4q1iQgtrHbAE31cUM\n=ASeP\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "trustLevel": "corporate_certified",
+      "isCA": false,
+      "notes": "Engineer - IT",
+      "createdAt": "2026-09-28T02:51:49.933Z"
+    },
+    {
+      "id": "dir_cert_1790564028638_63uu",
+      "organizationName": "Nội bộ Doanh nghiệp",
+      "contactName": "Lê Minh Quaa",
+      "contactEmail": "minhqia@gmail.com",
+      "department": "Phòng Công nghệ Thông tin",
+      "keyType": "internal_employee",
+      "fingerprint": "ca56d962a88a5aac445f8c010e280e4f7caae605",
+      "keyID": "0E280E4F7CAAE605",
+      "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarnWvBYJKwYBBAHaRw8BAQdAUsIUby+r3JlejnCtaaPedaDu4owI99mM\nyUT7gy9ZnNTNIUzDqiBNaW5oIFF1YWEgPG1pbmhxaWFAZ21haWwuY29tPsLA\nEwQTFgoAhQWCarnWvAMLCQcJEA4oDk98quYFRRQAAAAAABwAIHNhbHRAbm90\nYXRpb25zLm9wZW5wZ3Bqcy5vcmdufiw/SyFDbxmv2k9lQli2oOPq+3AQhWE1\njgoqVm23ygUVCggODAQWAAIBAhkBApsDAh4BFiEEylbZYqiKWqxEX4wBDigO\nT3yq5gUAAOoaAP9dezp7nz12F08yNCxAjrlz3GPL/HxkNjKL6xQTYO2W7AEA\no51QnWklr6pprqT9h0WlLGGcqiuKfZ/zrf6XwyzgLQrCvgQQFgoAcAWCarnW\nvAkQAeHlECSXbQNFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpz\nLm9yZ+Pkq6Y1g7qS2m2wKwxKlGZ/wajuJtJ4a7IyYzmMZ2TnApsDFiEEar69\nMgPXPEArj16vAeHlECSXbQMAAHpBAP4tId57KlHDhU7F7YlBrUASrhg9kEFi\nI/5KPKrFpRdDDgD+IdBbS7YbZUAXT86EE03LgRI86pl8GaL6e8jZFmqs1wbO\nOARquda8EgorBgEEAZdVAQUBAQdAWB4NxhlP1NEH82l5tSJAgxojX8ZsTWeW\nSW0MKf0P+zUDAQgHwr4EGBYKAHAFgmq51rwJEA4oDk98quYFRRQAAAAAABwA\nIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmf8eJuycbNjAnQO7+WW8BZE\nxNOSwMyvi/+d4XoiK7FVPAKbDBYhBMpW2WKoilqsRF+MAQ4oDk98quYFAAAY\nEgEAnKhkC1fxjnDQukdZCEedTLXVzodnu7wTCusoRzK72VsBANHdxogC5BdN\nvWkIrQeLncu+n3yXT1AFAVEvPV/0GK4L\n=NHTY\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEarnWvBYJKwYBBAHaRw8BAQdAUsIUby+r3JlejnCtaaPedaDu4owI99mM\nyUT7gy9ZnNQAAP0c9/INPhcjY2bpIsZANSCW7zWGRYQJ/UbONzY5fZqvWg6f\nzSFMw6ogTWluaCBRdWFhIDxtaW5ocWlhQGdtYWlsLmNvbT7CwBMEExYKAIUF\ngmq51rwDCwkHCRAOKA5PfKrmBUUUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5v\ncGVucGdwanMub3Jnbn4sP0shQ28Zr9pPZUJYtqDj6vtwEIVhNY4KKlZtt8oF\nFQoIDgwEFgACAQIZAQKbAwIeARYhBMpW2WKoilqsRF+MAQ4oDk98quYFAADq\nGgD/XXs6e589dhdPMjQsQI65c9xjy/x8ZDYyi+sUE2DtluwBAKOdUJ1pJa+q\naa6k/YdFpSxhnKorin2f863+l8Ms4C0Kx10EarnWvBIKKwYBBAGXVQEFAQEH\nQFgeDcYZT9TRB/NpebUiQIMaI1/GbE1nlkltDCn9D/s1AwEIBwAA/1wnsJcL\nv+S76h5bBWKO0KxRM34YWm6gmC1fJGJTP+xgDxDCvgQYFgoAcAWCarnWvAkQ\nDigOT3yq5gVFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9y\nZ/x4m7Jxs2MCdA7v5ZbwFkTE05LAzK+L/53heiIrsVU8ApsMFiEEylbZYqiK\nWqxEX4wBDigOT3yq5gUAABgSAQCcqGQLV/GOcNC6R1kIR51MtdXOh2e7vBMK\n6yhHMrvZWwEA0d3GiALkF029aQitB4udy76ffJdPUAUBUS89X/QYrgs=\n=IRsm\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "trustLevel": "corporate_certified",
+      "isCA": false,
+      "notes": "Kỹ sư Bảo mật - Phòng Công nghệ Thông tin",
+      "createdAt": "2026-09-28T02:53:48.638Z"
+    },
+    {
+      "id": "dir_cert_1790565361876_m95n",
+      "organizationName": "Nội bộ Doanh nghiệp",
+      "contactName": "Đỗ Huy Quan",
+      "contactEmail": "anhham@ber.com",
+      "department": "Phòng Công nghệ Thông tin",
+      "keyType": "internal_employee",
+      "fingerprint": "c5204ecd511e87f91faae91cfff2e94df63162e9",
+      "keyID": "FFF2E94DF63162E9",
+      "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarnb8RYJKwYBBAHaRw8BAQdAApWtqGIuTDlCm9C0baIoZ4h4hcEnF47P\nb72KoWREmGrNH8SQ4buXIEh1eSBRdWFuIDxhbmhoYW1AYmVyLmNvbT7CwBME\nExYKAIUFgmq52/EDCwkHCRD/8ulN9jFi6UUUAAAAAAAcACBzYWx0QG5vdGF0\naW9ucy5vcGVucGdwanMub3JnNPczh3I2J8yI4+1ZO9LZZM8YEtxoK5fs1Phs\noP5zz7QFFQoIDgwEFgACAQIZAQKbAwIeARYhBMUgTs1RHof5H6rpHP/y6U32\nMWLpAACJawD9GIoIqan6t7XEm0QJUvPu50/CcHKGT/cE2i0daRQk3g4BALYC\nbgM6KmzHz7nIZzoajP8LPER/+qGL3QWC7SqJvZ8Ewr4EEBYKAHAFgmq52/EJ\nEAHh5RAkl20DRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5v\ncmfDC91Db+4HCSLkqsZWyXbM5h4laztBMpZU9cIELDXYMQKbAxYhBGq+vTID\n1zxAK49erwHh5RAkl20DAACn/QD+KDwKvG9DrmRAZ7mSg/lyQG1i4ljZOimH\nSuo2ljsUXmUBANcJWlP/1+bT4OPrtK61pUVUY0SFMVoxeVtDZdViRasKzjgE\narnb8RIKKwYBBAGXVQEFAQEHQAKWjVYysCB5DGP6IwnDQ9Qc4wuPZcBImaN3\nRvf/ahchAwEIB8K+BBgWCgBwBYJqudvxCRD/8ulN9jFi6UUUAAAAAAAcACBz\nYWx0QG5vdGF0aW9ucy5vcGVucGdwanMub3JnFF3FSfjq0sq4kHKAZN7eSZR3\nsPS2rW1jXE3zytpeCqUCmwwWIQTFIE7NUR6H+R+q6Rz/8ulN9jFi6QAAK3QB\nAIGBqZf49M15cQBYy1an4Y8go/YvaXOAInV9sp2pLHU3AP0exFUoDqKq1KVc\nIOE3AJDTWoRr7v0CG2RIOmJIZ4MuDQ==\n=hXav\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEarnb8RYJKwYBBAHaRw8BAQdAApWtqGIuTDlCm9C0baIoZ4h4hcEnF47P\nb72KoWREmGoAAP9/qgC3xiXDejdi+N8S+Vh7N+GGhr1MpQiY/gP4TNUkgxGI\nzR/EkOG7lyBIdXkgUXVhbiA8YW5oaGFtQGJlci5jb20+wsATBBMWCgCFBYJq\nudvxAwsJBwkQ//LpTfYxYulFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3Bl\nbnBncGpzLm9yZzT3M4dyNifMiOPtWTvS2WTPGBLcaCuX7NT4bKD+c8+0BRUK\nCA4MBBYAAgECGQECmwMCHgEWIQTFIE7NUR6H+R+q6Rz/8ulN9jFi6QAAiWsA\n/RiKCKmp+re1xJtECVLz7udPwnByhk/3BNotHWkUJN4OAQC2Am4DOipsx8+5\nyGc6Goz/CzxEf/qhi90Fgu0qib2fBMddBGq52/ESCisGAQQBl1UBBQEBB0AC\nlo1WMrAgeQxj+iMJw0PUHOMLj2XASJmjd0b3/2oXIQMBCAcAAP9m5MkZXEjt\nk2KLKc5HJ64IeDHSNBu5Z/1HYF4XnwczmA7Lwr4EGBYKAHAFgmq52/EJEP/y\n6U32MWLpRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmcU\nXcVJ+OrSyriQcoBk3t5JlHew9LatbWNcTfPK2l4KpQKbDBYhBMUgTs1RHof5\nH6rpHP/y6U32MWLpAAArdAEAgYGpl/j0zXlxAFjLVqfhjyCj9i9pc4AidX2y\nnaksdTcA/R7EVSgOoqrUpVwg4TcAkNNahGvu/QIbZEg6Ykhngy4N\n=H0F1\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "trustLevel": "corporate_certified",
+      "isCA": false,
+      "notes": "Lốp  - Phòng Công nghệ Thông tin",
+      "createdAt": "2026-09-28T03:16:01.876Z"
+    },
+    {
+      "id": "dir_cert_1790565539641_s7gq",
+      "organizationName": "Nội bộ Doanh nghiệp",
+      "contactName": "ntduong",
+      "contactEmail": "ab@gmail.com",
+      "department": "Phòng Công nghệ Thông tin",
+      "keyType": "internal_employee",
+      "fingerprint": "e24d3d08621e3aaa1ad5f027d8f2f0a528833b60",
+      "keyID": "D8F2F0A528833B60",
+      "publicKeyArmored": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEarncoxYJKwYBBAHaRw8BAQdANTD+DmLCFMsqMu/jYqY/2XDWt8HIKqQq\nG/Gz6Jjg85PNFm50ZHVvbmcgPGFiQGdtYWlsLmNvbT7CwBMEExYKAIUFgmq5\n3KMDCwkHCRDY8vClKIM7YEUUAAAAAAAcACBzYWx0QG5vdGF0aW9ucy5vcGVu\ncGdwanMub3Jn8/syvaMcVyn8o3oAd40WSWyb1rv63HOOlKtUXoMWhLcFFQoI\nDgwEFgACAQIZAQKbAwIeARYhBOJNPQhiHjqqGtXwJ9jy8KUogztgAAAu3wD/\nTYu8Yw/KpFNwlXat3SEFg8jR9Rqr0lyLRGV5tl/RzjABANlOOyNNs+9Hx4bz\ncGPk6js41DKTGbcJLQmZ2yPekTkPwr4EEBYKAHAFgmq53KMJEAHh5RAkl20D\nRRQAAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmfgyNrPkUsp\nYzUoUcHOJ58whIuwJYsPIAXfsSfi0wV22gKbAxYhBGq+vTID1zxAK49erwHh\n5RAkl20DAAA/tQEAyM15XrqbY+u+Jb5L5frpm5arX/YJ7iWeXKVCshs6GSwB\nAOcL4gFK1mdnUMBJb8oCR6e8fJbex9RqfpseFSo83BEPzjgEarncoxIKKwYB\nBAGXVQEFAQEHQNjWyWURWJgnq6rtqI5beCW7QsK9nvWSn8OrrGRBI99LAwEI\nB8K+BBgWCgBwBYJqudyjCRDY8vClKIM7YEUUAAAAAAAcACBzYWx0QG5vdGF0\naW9ucy5vcGVucGdwanMub3Jn95hVsTcs1knUzZVXUcfJrcY7leCrRzQ9CBVG\nsO0zdvMCmwwWIQTiTT0IYh46qhrV8CfY8vClKIM7YAAAmScBAP4ZN0NeOt5g\nf6/nk0OM/J5uUb7FFOaIcnTARo69aOPzAP4/qMdSWEdm+096EQU3WBtf6rlG\n2Chuxj97NcYi51voCQ==\n=exB/\n-----END PGP PUBLIC KEY BLOCK-----\n",
+      "demoPrivateKeyArmored": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nxVgEarncoxYJKwYBBAHaRw8BAQdANTD+DmLCFMsqMu/jYqY/2XDWt8HIKqQq\nG/Gz6Jjg85MAAQDli82VFOVle0yA/bS5EhYFfx7S3OxBMh8n7WFxcLoGog+Q\nzRZudGR1b25nIDxhYkBnbWFpbC5jb20+wsATBBMWCgCFBYJqudyjAwsJBwkQ\n2PLwpSiDO2BFFAAAAAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9y\nZ/P7Mr2jHFcp/KN6AHeNFklsm9a7+txzjpSrVF6DFoS3BRUKCA4MBBYAAgEC\nGQECmwMCHgEWIQTiTT0IYh46qhrV8CfY8vClKIM7YAAALt8A/02LvGMPyqRT\ncJV2rd0hBYPI0fUaq9Jci0RlebZf0c4wAQDZTjsjTbPvR8eG83Bj5Oo7ONQy\nkxm3CS0Jmdsj3pE5D8ddBGq53KMSCisGAQQBl1UBBQEBB0DY1sllEViYJ6uq\n7aiOW3glu0LCvZ71kp/Dq6xkQSPfSwMBCAcAAP99F9rVAIpcFEtflGWDdNXJ\nrzVEJTafSydI3S7Eis3NCA9Lwr4EGBYKAHAFgmq53KMJENjy8KUogztgRRQA\nAAAAABwAIHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmf3mFWxNyzWSdTN\nlVdRx8mtxjuV4KtHND0IFUaw7TN28wKbDBYhBOJNPQhiHjqqGtXwJ9jy8KUo\ngztgAACZJwEA/hk3Q1463mB/r+eTQ4z8nm5RvsUU5ohydMBGjr1o4/MA/j+o\nx1JYR2b7T3oRBTdYG1/quUbYKG7GP3s1xiLnW+gJ\n=pThB\n-----END PGP PRIVATE KEY BLOCK-----\n",
+      "trustLevel": "corporate_certified",
+      "isCA": false,
+      "notes": "Kỹ sư Bảo mật - Phòng Công nghệ Thông tin",
+      "createdAt": "2026-09-28T03:18:59.641Z"
     }
   ],
-  "signed_documents": [],
+  "signed_documents": [
+    {
+      "id": "doc_1790565666155_iic5",
+      "documentName": "ndungg.docx",
+      "fileHash": "7287ea2d3cee3dae10b7a0ebad6650d707131a3d61ce1adcd082f534c9f5d7a7",
+      "fileSize": 1585169,
+      "signType": "detached_signature",
+      "signerKeyID": "D8F2F0A528833B60",
+      "signerUser": "D8F2F0A528833B60",
+      "signedAt": "2026-09-28T03:21:06.155Z",
+      "signatureArmored": "-----BEGIN PGP SIGNATURE-----\n\nwrsEABYKAG0Fgmq53SIJENjy8KUogztgRRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcmdJi8EocUEAvsMhbbTFYO2BsaAuuTg3uDPSIsys\nfzbXMRYhBOJNPQhiHjqqGtXwJ9jy8KUogztgAACTdwD+O3/HWGa9pJ2HMHlr\n13XU7yODAeJhTcLNN7qlPfyowJAA/22snbwKDhVnqwHlD618EIkShSwAQsYA\ndv6kzaOzzvsD\n=hjrM\n-----END PGP SIGNATURE-----\n"
+    },
+    {
+      "id": "doc_1790565598355_koa7",
+      "documentName": "van_ban_ky_so_2026-09-28.txt",
+      "fileHash": "fdf785d0415ec441e0a3b9a782445371cde422d1cd782f4d7d36a8cadf6ddd8d",
+      "fileSize": 236,
+      "signType": "clearsigned",
+      "signerKeyID": "D8F2F0A528833B60",
+      "signerUser": "D8F2F0A528833B60",
+      "signedAt": "2026-09-28T03:19:58.355Z",
+      "signatureArmored": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA512\n\nPHIẾU DUYỆT ĐỀ XUẤT MUA SẮM TRANG THIẾT BỊ CNTT\r\nKính gửi: Ban Giám Đốc\r\nNội dung: Phê duyệt mua 05 máy tính trạm chuyên dụng và thiết bị token bảo mật PGP.\r\nTổng dự toán: 180,000,000 VND.\n-----BEGIN PGP SIGNATURE-----\n\nwrsEARYKAG0Fgmq53N4JENjy8KUogztgRRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcmcuP183NK9lBD3RZOpsJM1IEcEpy1p0imXd+wkt\nK2hErRYhBOJNPQhiHjqqGtXwJ9jy8KUogztgAAA9DgEAjWauruAEXFuyvK+P\npvRk1lvAnV8y0RqkJnKsfGB6IwIBAID3yRgMjBkahQWoWU1+mmcaJLkk1ayC\n/vSFj1oCUsII\n=z+/z\n-----END PGP SIGNATURE-----\n"
+    },
+    {
+      "id": "doc_1790565596972_m96h",
+      "documentName": "van_ban_ky_so_2026-09-28.txt",
+      "fileHash": "fdf785d0415ec441e0a3b9a782445371cde422d1cd782f4d7d36a8cadf6ddd8d",
+      "fileSize": 236,
+      "signType": "clearsigned",
+      "signerKeyID": "D8F2F0A528833B60",
+      "signerUser": "D8F2F0A528833B60",
+      "signedAt": "2026-09-28T03:19:56.972Z",
+      "signatureArmored": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA512\n\nPHIẾU DUYỆT ĐỀ XUẤT MUA SẮM TRANG THIẾT BỊ CNTT\r\nKính gửi: Ban Giám Đốc\r\nNội dung: Phê duyệt mua 05 máy tính trạm chuyên dụng và thiết bị token bảo mật PGP.\r\nTổng dự toán: 180,000,000 VND.\n-----BEGIN PGP SIGNATURE-----\n\nwrsEARYKAG0Fgmq53NwJENjy8KUogztgRRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcmf0voDnAYYbbtRwFUvfz2KgYVrgfTO5MOpvqFal\n0XXo3xYhBOJNPQhiHjqqGtXwJ9jy8KUogztgAAC/awD+LqX591O5+gs5ik5B\nCsuphqJbegv2+VlDGvDoIcBeuuEA/jtnWh5ef8GxhuDPYLJwjJnKk76Ad/g6\ns+VNwh7SLU4C\n=cC1e\n-----END PGP SIGNATURE-----\n"
+    },
+    {
+      "id": "doc_1790565421270_b8al",
+      "documentName": "Bá»i cáº£nh lá»ch sá»­ giai Äoáº¡n 1996.docx",
+      "fileHash": "93d7f656937a0ac53de08ea5bdb3f3cc2e44be77e888fce75d5da6d2de5a09f3",
+      "fileSize": 460118,
+      "signType": "detached_signature",
+      "signerKeyID": "FFF2E94DF63162E9",
+      "signerUser": "FFF2E94DF63162E9",
+      "signedAt": "2026-09-28T03:17:01.270Z",
+      "signatureArmored": "-----BEGIN PGP SIGNATURE-----\n\nwrsEABYKAG0Fgmq53C0JEP/y6U32MWLpRRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcme3TvxKhA8xAI7XeQ7sQZn2xbh+HS3pz8I+LOnB\n9qqe+RYhBMUgTs1RHof5H6rpHP/y6U32MWLpAAAaRwEA0eX+4X3isrFe4Bc1\n4Ip3TSvBcktB+xTskX0dn44+ocMBAN/9v6P98NHS0vVp2+KHg7rWWDgiy3AI\nqFEYiRPCZ3EC\n=0+0c\n-----END PGP SIGNATURE-----\n"
+    },
+    {
+      "id": "doc_1790564115900_9rim",
+      "documentName": "joshua-hanson-e616t35Vbeg-unsplash.jpg",
+      "fileHash": "6c22d3d8d9a28e49ed1dc6701fe04b5b39449f1e90f5e3e4dcfcb5e80933501a",
+      "fileSize": 3256958,
+      "signType": "detached_signature",
+      "signerKeyID": "0E280E4F7CAAE605",
+      "signerUser": "0E280E4F7CAAE605",
+      "signedAt": "2026-09-28T02:55:15.900Z",
+      "signatureArmored": "-----BEGIN PGP SIGNATURE-----\n\nwrsEABYKAG0Fgmq51xMJEA4oDk98quYFRRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcmfj++BJEaFcsVFHIcDKsQiTEH9IqOTcCnW0AD3L\naDpB/hYhBMpW2WKoilqsRF+MAQ4oDk98quYFAACNRwEAm/8Jq8tiWqSY+xnM\nQCIDamXCr8lQwKhhHjs0bX41aMsA/02VawcEMMNP5tax+YT4GW5lIlv1kF7B\nQ9rdLwskxHMP\n=G5JA\n-----END PGP SIGNATURE-----\n"
+    }
+  ],
   "b2b_messages": [
     {
       "id": "msg_demo_01",
@@ -133,6 +310,94 @@
     }
   ],
   "audit_logs": [
+    {
+      "id": "log_1790565666159_wi03e",
+      "action": "SIGN_DOCUMENT",
+      "actor": "D8F2F0A528833B60",
+      "details": "Ký số tài liệu [ndungg.docx] (detached_signature) bằng KeyID D8F2F0A528833B60",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T03:21:06.159Z"
+    },
+    {
+      "id": "log_1790565598358_pqp97",
+      "action": "SIGN_DOCUMENT",
+      "actor": "D8F2F0A528833B60",
+      "details": "Ký số tài liệu [van_ban_ky_so_2026-09-28.txt] (clearsigned) bằng KeyID D8F2F0A528833B60",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T03:19:58.358Z"
+    },
+    {
+      "id": "log_1790565596974_jey15",
+      "action": "SIGN_DOCUMENT",
+      "actor": "D8F2F0A528833B60",
+      "details": "Ký số tài liệu [van_ban_ky_so_2026-09-28.txt] (clearsigned) bằng KeyID D8F2F0A528833B60",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T03:19:56.974Z"
+    },
+    {
+      "id": "log_1790565539642_vherx",
+      "action": "ISSUE_CERTIFICATE",
+      "actor": "Corporate CA Administrator",
+      "details": "Cấp chứng chỉ OpenPGP cho [ntduong] <ab@gmail.com> (Kỹ sư Bảo mật, Phòng Công nghệ Thông tin) - KeyID: D8F2F0A528833B60",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T03:18:59.642Z"
+    },
+    {
+      "id": "log_1790565456344_ubypo",
+      "action": "VERIFY_DOCUMENT",
+      "actor": "Document Verifier",
+      "details": "Xác thực tài liệu thành công. Người ký: FFF2E94DF63162E9 (KeyID: FFF2E94DF63162E9) - CA Certified: true",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T03:17:36.344Z"
+    },
+    {
+      "id": "log_1790565421272_ozu62",
+      "action": "SIGN_DOCUMENT",
+      "actor": "FFF2E94DF63162E9",
+      "details": "Ký số tài liệu [Bá»i cáº£nh lá»ch sá»­ giai Äoáº¡n 1996.docx] (detached_signature) bằng KeyID FFF2E94DF63162E9",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T03:17:01.272Z"
+    },
+    {
+      "id": "log_1790565361877_vfg52",
+      "action": "ISSUE_CERTIFICATE",
+      "actor": "Corporate CA Administrator",
+      "details": "Cấp chứng chỉ OpenPGP cho [Đỗ Huy Quan] <anhham@ber.com> (Lốp , Phòng Công nghệ Thông tin) - KeyID: FFF2E94DF63162E9",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T03:16:01.877Z"
+    },
+    {
+      "id": "log_1790564162074_rqvad",
+      "action": "VERIFY_DOCUMENT",
+      "actor": "Document Verifier",
+      "details": "Xác thực tài liệu thành công. Người ký: 0E280E4F7CAAE605 (KeyID: 0E280E4F7CAAE605) - CA Certified: true",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T02:56:02.074Z"
+    },
+    {
+      "id": "log_1790564115901_hv8le",
+      "action": "SIGN_DOCUMENT",
+      "actor": "0E280E4F7CAAE605",
+      "details": "Ký số tài liệu [joshua-hanson-e616t35Vbeg-unsplash.jpg] (detached_signature) bằng KeyID 0E280E4F7CAAE605",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T02:55:15.901Z"
+    },
+    {
+      "id": "log_1790564028639_v3p1u",
+      "action": "ISSUE_CERTIFICATE",
+      "actor": "Corporate CA Administrator",
+      "details": "Cấp chứng chỉ OpenPGP cho [Lê Minh Quaa] <minhqia@gmail.com> (Kỹ sư Bảo mật, Phòng Công nghệ Thông tin) - KeyID: 0E280E4F7CAAE605",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T02:53:48.639Z"
+    },
+    {
+      "id": "log_1790563909933_4dlzw",
+      "action": "ISSUE_CERTIFICATE",
+      "actor": "Corporate CA Administrator",
+      "details": "Cấp chứng chỉ OpenPGP cho [Nguyen Van Test] <test@company.com> (Engineer, IT) - KeyID: 574D7FB071D4839B",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T02:51:49.933Z"
+    },
     {
       "id": "log_1790480574167_5948a",
       "action": "ISSUE_CERTIFICATE",
