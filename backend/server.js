@@ -3,6 +3,10 @@ import cors from 'cors';
 import multer from 'multer';
 import { store } from './store.js';
 import { PgpService } from './pgp-service.js';
+import { OpenPgpPacketInspector } from './pgp-packet-inspector.js';
+import { WebOfTrustAnalyzer } from './wot-analyzer.js';
+import { ShamirSecretSharing } from './shamir-service.js';
+import { MerkleTreeEngine } from './merkle-engine.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -366,6 +370,148 @@ app.get('/api/audit-logs', (req, res) => {
     res.json({ success: true, logs: db.audit_logs });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 7. RFC 4880 PACKET INSPECTOR (LOW-LEVEL PARSER)
+// ==========================================
+app.post('/api/inspector/analyze', (req, res) => {
+  try {
+    const { armoredData } = req.body;
+    if (!armoredData || !armoredData.trim()) {
+      return res.status(400).json({ success: false, error: 'Vui lòng cung cấp dữ liệu OpenPGP Armored (Key, Signature, hoặc Encrypted Message).' });
+    }
+
+    const report = OpenPgpPacketInspector.analyze(armoredData.trim());
+    res.json({ success: true, report });
+  } catch (err) {
+    res.status(400).json({ success: false, error: 'Lỗi bóc tách gói tin nhị phân: ' + err.message });
+  }
+});
+
+// ==========================================
+// 8. WEB OF TRUST (WOT) GRAPH & TRUST PATH ANALYTICS
+// ==========================================
+app.get('/api/wot/graph', (req, res) => {
+  try {
+    const db = store.read();
+    const graph = WebOfTrustAnalyzer.buildTrustGraph(db.certificates, db.key_directory, db.ca_config);
+    const resilience = WebOfTrustAnalyzer.analyzeNetworkResilience(graph);
+
+    res.json({
+      success: true,
+      graph,
+      resilience
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.post('/api/wot/path', (req, res) => {
+  try {
+    const { sourceFingerprint, targetFingerprint } = req.body;
+    if (!sourceFingerprint || !targetFingerprint) {
+      return res.status(400).json({ success: false, error: 'Yêu cầu Fingerprint của bên Nguồn và bên Đích.' });
+    }
+
+    const db = store.read();
+    const graph = WebOfTrustAnalyzer.buildTrustGraph(db.certificates, db.key_directory, db.ca_config);
+    const pathResult = WebOfTrustAnalyzer.findTrustPath(graph, sourceFingerprint, targetFingerprint);
+
+    res.json({ success: true, pathResult });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 9. SHAMIR'S SECRET SHARING (CA KEY SHARDING)
+// ==========================================
+app.post('/api/shamir/split', (req, res) => {
+  try {
+    const { secret, totalShares, threshold } = req.body;
+    const db = store.read();
+    // Mặc định lấy Passphrase Root CA nếu người dùng không nhập secret riêng
+    const textToSplit = secret || (process.env.CA_PASSPHRASE || 'EnterpriseRootCAPassphrase@2026');
+    const n = parseInt(totalShares, 10) || 5;
+    const k = parseInt(threshold, 10) || 3;
+
+    const shares = ShamirSecretSharing.split(textToSplit, n, k);
+    store.logAudit('SHAMIR_KEY_SHARDING', 'Security Officer', `Phân rã bí mật Root CA thành ${n} mảnh với ngưỡng an toàn ${k}-of-${n}`);
+
+    res.json({
+      success: true,
+      totalShares: n,
+      threshold: k,
+      shares
+    });
+  } catch (err) {
+    res.status(400).json({ success: false, error: 'Lỗi phân rã Shamir: ' + err.message });
+  }
+});
+
+app.post('/api/shamir/recover', (req, res) => {
+  try {
+    const { shares } = req.body;
+    if (!shares || !Array.isArray(shares) || shares.length === 0) {
+      return res.status(400).json({ success: false, error: 'Vui lòng cung cấp danh sách các mảnh khóa.' });
+    }
+
+    const recoveredSecret = ShamirSecretSharing.combine(shares);
+    store.logAudit('SHAMIR_KEY_RECONSTRUCTION', 'Multi-Admin Quorum', `Tái tạo thành công bí mật CA từ ${shares.length} mảnh khóa hợp lệ`);
+
+    res.json({
+      success: true,
+      recoveredSecret,
+      sharesCount: shares.length
+    });
+  } catch (err) {
+    res.status(400).json({ success: false, error: 'Khôi phục bí mật thất bại: ' + err.message });
+  }
+});
+
+// ==========================================
+// 10. MERKLE TREE AUDIT TRAIL & INDEPENDENT PROOF
+// ==========================================
+app.get('/api/merkle/status', (req, res) => {
+  try {
+    const db = store.read();
+    const tree = MerkleTreeEngine.buildTree(db.audit_logs);
+    res.json({
+      success: true,
+      merkleRoot: tree.root,
+      totalLeaves: tree.totalLeaves,
+      layersCount: tree.layersCount
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.get('/api/merkle/proof/:logId', (req, res) => {
+  try {
+    const { logId } = req.params;
+    const db = store.read();
+    const proof = MerkleTreeEngine.generateProof(db.audit_logs, logId);
+    res.json({ success: true, proof });
+  } catch (err) {
+    res.status(400).json({ success: false, error: err.message });
+  }
+});
+
+app.post('/api/merkle/verify', (req, res) => {
+  try {
+    const { leafHash, proofPath, merkleRoot } = req.body;
+    if (!leafHash || !proofPath || !merkleRoot) {
+      return res.status(400).json({ success: false, error: 'Thiếu leafHash, proofPath hoặc merkleRoot.' });
+    }
+
+    const verification = MerkleTreeEngine.verifyProof(leafHash, proofPath, merkleRoot);
+    res.json({ success: true, verification });
+  } catch (err) {
+    res.status(400).json({ success: false, error: 'Lỗi thẩm định Merkle Proof: ' + err.message });
   }
 });
 

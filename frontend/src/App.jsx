@@ -10,6 +10,10 @@ import EmployeePortalView from './components/EmployeePortalView';
 import PartnerPortalView from './components/PartnerPortalView';
 import PublicVerifierView from './components/PublicVerifierView';
 import IntegrationGuideView from './components/IntegrationGuideView';
+import PacketInspectorView from './components/PacketInspectorView';
+import WebOfTrustView from './components/WebOfTrustView';
+import ShamirKeyShardingView from './components/ShamirKeyShardingView';
+import MerkleAuditView from './components/MerkleAuditView';
 import IssueCertModal from './components/IssueCertModal';
 import ImportKeyModal from './components/ImportKeyModal';
 import RevokeCertModal from './components/RevokeCertModal';
@@ -134,6 +138,22 @@ export default function App() {
                     openIssueModal={() => setIsIssueModalOpen(true)}
                     openImportModal={() => setIsImportModalOpen(true)}
                   />
+                )}
+
+                {activeTab === 'wot' && (
+                  <WebOfTrustView caInfo={caInfo} />
+                )}
+
+                {activeTab === 'inspector' && (
+                  <PacketInspectorView caInfo={caInfo} />
+                )}
+
+                {activeTab === 'shamir' && (
+                  <ShamirKeyShardingView caInfo={caInfo} />
+                )}
+
+                {activeTab === 'merkle' && (
+                  <MerkleAuditView />
                 )}
 
                 {activeTab === 'certificates' && (

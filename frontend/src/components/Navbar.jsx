@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   ShieldCheck, Key, FileCheck, Users, Mail, Activity, 
-  Download, BookOpen, UserCheck, Globe, Search
+  Download, BookOpen, UserCheck, Globe, Search, Binary, Network, Split, GitCommit
 } from 'lucide-react';
 
 export default function Navbar({ 
@@ -13,6 +13,10 @@ export default function Navbar({
 }) {
   const adminNavItems = [
     { id: 'dashboard', label: 'Bảng điều khiển', icon: Activity },
+    { id: 'wot', label: 'Mạng lưới WoT & Graph', icon: Network },
+    { id: 'inspector', label: 'Bóc tách Gói RFC 4880', icon: Binary },
+    { id: 'shamir', label: 'Phân rã Shamir (k-of-n)', icon: Split },
+    { id: 'merkle', label: 'Sổ cái Merkle Tree', icon: GitCommit },
     { id: 'certificates', label: 'Chứng chỉ CA', icon: Key },
     { id: 'directory', label: 'Danh bạ Khóa & B2B', icon: Users },
     { id: 'signing', label: 'Ký & Xác thực số', icon: FileCheck },
