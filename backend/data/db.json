@@ -116,7 +116,30 @@
       "createdAt": "2026-09-27T03:42:54.173Z"
     }
   ],
-  "signed_documents": [],
+  "signed_documents": [
+    {
+      "id": "doc_1790482129855_08i4",
+      "documentName": "van_ban_ky_so_2026-09-27.txt",
+      "fileHash": "fdf785d0415ec441e0a3b9a782445371cde422d1cd782f4d7d36a8cadf6ddd8d",
+      "fileSize": 236,
+      "signType": "clearsigned",
+      "signerKeyID": "B054AB55212F1CBE",
+      "signerUser": "B054AB55212F1CBE",
+      "signedAt": "2026-09-27T04:08:49.856Z",
+      "signatureArmored": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA512\n\nPHIẾU DUYỆT ĐỀ XUẤT MUA SẮM TRANG THIẾT BỊ CNTT\r\nKính gửi: Ban Giám Đốc\r\nNội dung: Phê duyệt mua 05 máy tính trạm chuyên dụng và thiết bị token bảo mật PGP.\r\nTổng dự toán: 180,000,000 VND.\n-----BEGIN PGP SIGNATURE-----\n\nwrsEARYKAG0Fgmq4ltEJELBUq1UhLxy+RRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcmdR4Ju5wqMJCR+jJ6ZeIrUUHwe7J4l8cXWRK1f9\n/OjVfBYhBMF7VDfwe+wXPZe2VrBUq1UhLxy+AAAaIgEAvqk13ztljXCPyfH7\nUElDQXI3JGHMZIcnEzN5c1OlFs0BAOWhzfaF5KE6n00Z1Br2e/w1Gwp5x7N3\ng8py2mEBdvoA\n=ceW1\n-----END PGP SIGNATURE-----\n"
+    },
+    {
+      "id": "doc_1790482045947_fyra",
+      "documentName": "van_ban_ky_so_2026-09-27.txt",
+      "fileHash": "640f977da6570f4774007c526381c7c468f1fef753e4f226481dad4dd2ef2910",
+      "fileSize": 245,
+      "signType": "clearsigned",
+      "signerKeyID": "B054AB55212F1CBE",
+      "signerUser": "B054AB55212F1CBE",
+      "signedAt": "2026-09-27T04:07:25.947Z",
+      "signatureArmored": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA512\n\nHỢP ĐỒNG KINH TẾ SỐ: 8899/2026/HD-ENT\r\nBên A: Tập đoàn An ninh Doanh nghiệp\r\nBên B: Công ty Đối tác\r\nĐiều 1: Cung cấp giải pháp xác thực chữ ký số và bảo mật dữ liệu.\r\nGiá trị: 1,500,000,000 VND.\n-----BEGIN PGP SIGNATURE-----\n\nwrsEARYKAG0Fgmq4ln0JELBUq1UhLxy+RRQAAAAAABwAIHNhbHRAbm90YXRp\nb25zLm9wZW5wZ3Bqcy5vcmc1HktsLaiS6L7ex/ug3akbLY3l2xkhERJlDli4\nnY3lUxYhBMF7VDfwe+wXPZe2VrBUq1UhLxy+AACVDgD/XLKfj5+u9OQKz0IG\npJC0yfirxqu3rZ8twn4XhI/ctpIBAI266TpzXgFebFAbA4lhFyrMFRh/Bqy9\nQC7lVwo+VqoC\n=dgn6\n-----END PGP SIGNATURE-----\n"
+    }
+  ],
   "b2b_messages": [
     {
       "id": "msg_demo_01",
@@ -133,6 +156,30 @@
     }
   ],
   "audit_logs": [
+    {
+      "id": "log_1790482129858_eal60",
+      "action": "SIGN_DOCUMENT",
+      "actor": "B054AB55212F1CBE",
+      "details": "Ký số tài liệu [van_ban_ky_so_2026-09-27.txt] (clearsigned) bằng KeyID B054AB55212F1CBE",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-27T04:08:49.858Z"
+    },
+    {
+      "id": "log_1790482104562_97ztc",
+      "action": "VERIFY_DOCUMENT",
+      "actor": "Document Verifier",
+      "details": "Xác thực tài liệu thành công. Người ký: B054AB55212F1CBE (KeyID: B054AB55212F1CBE) - CA Certified: true",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-27T04:08:24.562Z"
+    },
+    {
+      "id": "log_1790482045954_g2ioj",
+      "action": "SIGN_DOCUMENT",
+      "actor": "B054AB55212F1CBE",
+      "details": "Ký số tài liệu [van_ban_ky_so_2026-09-27.txt] (clearsigned) bằng KeyID B054AB55212F1CBE",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-27T04:07:25.954Z"
+    },
     {
       "id": "log_1790480574167_5948a",
       "action": "ISSUE_CERTIFICATE",
