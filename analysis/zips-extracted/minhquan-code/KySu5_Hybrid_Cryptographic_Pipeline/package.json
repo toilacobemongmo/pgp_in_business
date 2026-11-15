@@ -1,0 +1,19 @@
+{
+  "name": "enterprise-openpgp-ca-engineer5",
+  "version": "1.0.0",
+  "description": "Phân hệ Kỹ sư 5: Hybrid Cryptographic Pipeline, Surreptitious Forwarding Defense (Subpacket 35), Streaming Detached Signatures (RAM < 50MB), & Stateless Public Verifier",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "node tests/test-engineer5.js",
+    "benchmark": "node tests/benchmark-stream.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "openpgp": "^5.11.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

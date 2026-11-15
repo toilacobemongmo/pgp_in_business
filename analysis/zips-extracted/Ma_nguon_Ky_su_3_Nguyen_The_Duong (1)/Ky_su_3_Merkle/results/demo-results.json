@@ -1,0 +1,45 @@
+{
+  "checkpoint": {
+    "version": "merkle-jcs-sha256-v1",
+    "treeSize": 5,
+    "rootHash": "fe05ca070acdbfb082cbc1e08f7ef50994d3234f87a70fd801304eb25eeb80f1"
+  },
+  "record": {
+    "id": 3,
+    "timestamp": "2026-11-11T09:00:02Z",
+    "actor": "Nguyen The Duong",
+    "action": "SIGN_DOCUMENT",
+    "resource": "sample-3",
+    "result": "SUCCESS"
+  },
+  "proof": {
+    "version": "merkle-jcs-sha256-v1",
+    "leafIndex": 2,
+    "treeSize": 5,
+    "auditPath": [
+      {
+        "direction": "right",
+        "hash": "97115c13b7d71f10faa1f61a8cf032c3e4603a8fc5bf6c15b6406b11be82fc2a"
+      },
+      {
+        "direction": "left",
+        "hash": "a404d124c917802e0ad954025e7f291e237b69357211ff9b23cdb2eb6f1dbe63"
+      },
+      {
+        "direction": "right",
+        "hash": "4c51b4df1f540bfc16afd97cc88eb4c3120e79ef6457f96a15c2e295a0ff1a90"
+      }
+    ]
+  },
+  "results": {
+    "originalRecordValid": true,
+    "tamperedRecordValid": false,
+    "originalDatabaseValid": true,
+    "editedDatabaseValid": false,
+    "deletedDatabaseValid": false,
+    "reorderedDatabaseValid": false,
+    "forgedProofAgainstTrustedRootValid": false,
+    "forgedProofAgainstForgedRootValid": true
+  },
+  "note": "Last true is expected: trusting an attacker-controlled root defeats tamper detection."
+}

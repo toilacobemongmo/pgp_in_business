@@ -1,0 +1,66 @@
+TEST EXECUTION SUMMARY
+================================================================================
+
+Engineer: KS2
+Test: tests/engineer2-api-smoke.mjs
+Command: node tests/engineer2-api-smoke.mjs
+Exit code: 0 (PASS)
+Elapsed: 1.28s
+--------------------------------------------------------------------------------
+
+Engineer: KS2
+Test: tests/engineer2-api-auth.test.mjs
+Command: node tests/engineer2-api-auth.test.mjs
+Exit code: 0 (PASS)
+Elapsed: 3.54s
+--------------------------------------------------------------------------------
+
+Engineer: KS2
+Test: tests/engineer2-quorum-ca.test.mjs
+Command: node tests/engineer2-quorum-ca.test.mjs
+Exit code: 0 (PASS)
+Elapsed: 0.13s
+--------------------------------------------------------------------------------
+
+Engineer: KS2
+Test: tests/engineer2-quorum-shards.test.mjs
+Command: node tests/engineer2-quorum-shards.test.mjs
+Exit code: 0 (PASS)
+Elapsed: 0.37s
+--------------------------------------------------------------------------------
+
+Engineer: KS2
+Test: tests/engineer2-demo-key-gate.test.mjs
+Command: node tests/engineer2-demo-key-gate.test.mjs
+Exit code: 0 (PASS)
+Elapsed: 0.76s
+--------------------------------------------------------------------------------
+
+Engineer: KS2
+Test: tests/engineer2-ttl-expiry.test.mjs
+Command: node tests/engineer2-ttl-expiry.test.mjs
+Exit code: 0 (PASS)
+Elapsed: 2.57s
+--------------------------------------------------------------------------------
+
+Engineer: KS3
+Test: test/merkle-engine.test.js
+Command: cd "analysis\zips-extracted\Ma_nguon_Ky_su_3_Nguyen_The_Duong (1)\Ky_su_3_Merkle" && node test/merkle-engine.test.js
+Exit code: 0 (PASS)
+Elapsed: 0.34s
+--------------------------------------------------------------------------------
+
+Engineer: KS4
+Test: wot-analyzer.test.js
+Command: cd "analysis\zips-extracted\PGP_KySu4_WoT_Source\PGP_KySu4_WoT_Source" && node wot-analyzer.test.js
+Exit code: 1 (FAIL)
+Elapsed: 0.07s
+--------------------------------------------------------------------------------
+
+Engineer: KS5
+Test: run-demo.js
+Command: cd "analysis\zips-extracted\OpenPGP_Packet_Inspector_Demo\pgp_demo" && node run-demo.js
+Exit code: 1 (FAIL)
+Elapsed: 0.14s
+--------------------------------------------------------------------------------
+

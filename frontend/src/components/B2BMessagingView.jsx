@@ -58,21 +58,26 @@ export default function B2BMessagingView({
         throw new Error('Vui lòng chọn cả đơn vị gửi và đối tác nhận.');
       }
 
-      // Lấy Private Key của người gửi (nếu là CA root thì lấy từ CA Config hoặc nếu là nhân viên thì lấy demoPrivateKey)
-      let senderPrivKey = sender.demoPrivateKeyArmored;
-      if (sender.isCA && caInfo?.privateKeyArmored) {
-        senderPrivKey = caInfo.privateKeyArmored;
-      }
+      // Kỹ sư 2: Private Key của Root CA không còn lưu plaintext ở client và không có
+      // passphrase hardcode. Client gửi `senderIsCA: true` + KeyID; backend sẽ ký bằng
+      // session RAM chỉ khi CA đã UNSEALED (ngược lại trả 423 Locked).
+      let senderPrivKey = sender.isCA ? null : sender.demoPrivateKeyArmored;
 
-      if (!senderPrivKey) {
+      if (sender.isCA) {
+        // Chỉ cho ký khi backend xác nhận Root CA đã UNSEALED (isSealed === false).
+        if (caInfo?.isSealed !== false) {
+          throw new Error('Root CA đang SEALED. Hãy Unseal bằng đủ ngưỡng mảnh Shamir (k-of-n) trước khi ký bản tin.');
+        }
+      } else if (!senderPrivKey) {
         throw new Error('Không tìm thấy Private Key của bên gửi để thực hiện ký số.');
       }
 
       const res = await CA_API.sendB2BMessage({
         senderOrg: sender.organizationName,
         senderEmail: sender.contactEmail || caInfo.email,
-        senderPrivateKeyArmored: senderPrivKey,
-        senderPassphrase: sender.isCA ? 'EnterpriseRootCAPassphrase@2026' : '',
+        senderIsCA: Boolean(sender.isCA),
+        senderKeyID: sender.isCA ? caInfo?.keyID : sender.keyID,
+        senderPrivateKeyArmored: senderPrivKey || undefined,
         recipientOrg: recipient.organizationName,
         recipientEmail: recipient.contactEmail,
         recipientPublicKeyArmored: recipient.publicKeyArmored,
@@ -116,15 +121,17 @@ export default function B2BMessagingView({
       const recipient = (directory || []).find(d => d.keyID === selectedMessage.recipientKeyID);
       const sender = (directory || []).find(d => d.keyID === selectedMessage.senderKeyID);
 
-      let recipientPrivKey = recipient?.demoPrivateKeyArmored || recipient?.privateKeyArmoredDemo;
-      let passphrase = '';
+      const isCaRecipient = selectedMessage.recipientKeyID === caInfo?.keyID;
+      let recipientPrivKey = isCaRecipient
+        ? null
+        : (recipient?.demoPrivateKeyArmored || recipient?.privateKeyArmoredDemo);
 
-      if (selectedMessage.recipientKeyID === caInfo?.keyID) {
-        recipientPrivKey = caInfo.privateKeyArmored;
-        passphrase = 'EnterpriseRootCAPassphrase@2026';
+      // Kỹ sư 2: khi bên nhận là Root CA, khóa chỉ tồn tại trong phiên RAM đã Unseal.
+      if (isCaRecipient && caInfo?.isSealed !== false) {
+        throw new Error('Root CA đang SEALED. Hãy Unseal bằng đủ ngưỡng mảnh Shamir (k-of-n) rồi thử lại.');
       }
 
-      if (!recipientPrivKey) {
+      if (!isCaRecipient && !recipientPrivKey) {
         throw new Error('Chưa có Private Key của bên nhận để giải mã bản tin này.');
       }
 
@@ -135,8 +142,8 @@ export default function B2BMessagingView({
 
       const res = await CA_API.decryptB2BMessage({
         encryptedPayloadArmored: selectedMessage.encryptedPayloadArmored,
-        recipientPrivateKeyArmored: recipientPrivKey,
-        recipientPassphrase: passphrase,
+        recipientIsCA: isCaRecipient,
+        recipientPrivateKeyArmored: recipientPrivKey || undefined,
         senderPublicKeyArmored: senderPubKey
       });
 

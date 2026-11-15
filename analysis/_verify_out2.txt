@@ -1,0 +1,49 @@
+MUC LUC paragraph index: 16
+  [Heading 1] 'MỤC LỤC'
+  [List Bullet] 'I.    TỔNG QUAN DỰ ÁN'
+  [List Bullet] 'II.   KỸ SƯ 1 — Pipeline Mật Mã Lai (Hybrid Cryptographic Pipeline)'
+  [List Bullet] 'III.  KỸ SƯ 2 — Bảo Vệ Root CA bằng Quorum (Shamir) & Seal/Unseal'
+  [List Bullet] 'IV.   KỸ SƯ 3 — Cây Merkle Kiểm Toán Tính Toàn Vẹn Nhật Ký'
+  [List Bullet] 'V.    KỸ SƯ 4 — Phân Tích Web of Trust (WoT)'
+  [List Bullet] 'VI.   KỸ SƯ 5 — Phân Tích Gói Tin OpenPGP & Kiểm Tra Tuân Thủ RFC'
+  [List Bullet] 'VII.  ĐÁNH GIÁ TÍCH HỢP & ĐIỂM GIAO NHAU'
+  [List Bullet] 'VIII. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN'
+  [List Bullet] 'IX.   TÀI LIỆU THAM KHẢO'
+  [Normal] ''
+  [Heading 1] 'I. TỔNG QUAN DỰ ÁN'
+  [Normal] 'Đề tài xây dựng một hệ thống Tổ chức Chứng thực (CA) doanh nghiệp theo chuẩn OpenPGP kết h'
+  [Heading 2] '1.1 Kiến trúc tổng thể'
+  [Normal] 'Hệ thống vận hành theo mô hình phân tầng, trong đó Root CA là trung tâm tin cậy và mọi hoạ'
+  [Normal] ''
+  [Normal] 'Toàn bộ backend được viết bằng Node.js ES Module, frontend bằng React/Vite. Dữ liệu được l'
+  [Heading 2] '1.2 Tóm tắt kết quả kiểm thử tổng hợp'
+  [Normal] ''
+  [Normal] 'Tổng: 356 assertion kiểm thử tự động PASS, 0 FAIL (không tính test manual Pipeline Kỹ sư 1'
+  [Normal] ''
+  [Heading 1] 'II. KỸ SƯ 1 (5) — HYBRID CRYPTOGRAPHIC PIPELINE'
+  [Normal] 'Phân hệ do Kỹ sư 5 (Minh Quân) phụ trách, tập trung vào pipeline mật mã lai Sign-then-Encr'
+  [Heading 2] '2.1 Pipeline mật mã 4 tầng'
+  [Normal] 'Pipeline áp dụng chuẩn RFC 9580 (Crypto-Refresh) theo thứ tự Sign-then-Encrypt:'
+  [Heading 2] '2.2 Xử lý stream tệp lớn — Backpressure 64 KB'
+
+--- RISK MATRIX (table with first cell 'Mức') ---
+Table #15: 5 rows
+  | Mức || Rủi ro || Hậu quả || Khuyến nghị
+  | Cao || wot-analyzer.js không phải thuật toán Kỹ sư 4 || Hai bản cho điểm tin cậy khác nhau trên cùng dữ liệu || Thay backend/wot-analyzer.js bằng phiên bản Kỹ sư 4
+  | Trung bình || Merkle chưa ghép với backend/store.js || Nhật ký có thể bị sửa mà không phát hiện được || Gọi MerkleEngine.append() trong JsonStore.logAudit()
+  | Thấp || Pipeline Kỹ sư 1 độc lập với Root CA Kỹ sư 2 || B2B message không qua quorum gate || Tích hợp unsealCA() vào HybridPgpService
+  | Thấp || Mảnh khóa Shamir trên đĩa dạng plaintext || Ai đọc được thư mục là đủ ngưỡng k để unseal || Mã hóa mảnh bằng khóa riêng của từng người giữ
+
+--- TEST SUMMARY (11-row table) ---
+Table #3
+  | Phân hệ || File kiểm thử || Kết quả || Phạm vi
+  | Kỹ sư 2 — Quorum CA || engineer2-quorum-ca.test.mjs || 46 / 46 || S1–S21 (Shamir), C0–C9 (trạng thái CA)
+  | Kỹ sư 2 — API Smoke || engineer2-api-smoke.mjs || 21 / 21 || A1–A9, vòng đời SEALED→issue→revoke→seal
+  | Kỹ sư 2 — Auth/Role || engineer2-api-auth.test.mjs || 107 / 107 || B1–B13, 401/403/200 mọi endpoint
+  | Kỹ sư 2 — Shard I/O || engineer2-quorum-shards.test.mjs || 47 / 47 || Ghi/đọc/xóa file mảnh 0600
+  | Kỹ sư 2 — Demo Gate || engineer2-demo-key-gate.test.mjs || 48 / 48 || Cờ DEMO_PLAINTEXT_KEYS ON/OFF
+  | Kỹ sư 2 — TTL Expiry || engineer2-ttl-expiry.test.mjs || 22 / 22 || E1–E8, TTL = 2s, 423 sau hết hạn
+  | Kỹ sư 3 — Merkle || merkle-engine.test.js || 20 / 20 || Nhóm 01–20, 100k bản ghi
+  | Kỹ sư 4 — WoT || wot-analyzer.test.js || 12 / 12 || Dijkstra, bottleneck, independent flow
+  | Kỹ sư 5 — Packet Inspector || run-demo.js || 33 / 33 || CRC, MPI, partial body, weak hash, GPG verify
+  | Kỹ sư 5 — Hybrid Pipeline || test-engineer5.js || Manual || Sign+Encrypt, Surreptitious Forwarding, Stream 2GB

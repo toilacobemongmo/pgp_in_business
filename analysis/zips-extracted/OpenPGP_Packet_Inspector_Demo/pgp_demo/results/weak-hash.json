@@ -1,0 +1,68 @@
+{
+  "scope": "Educational structural inspection; no cryptographic verification",
+  "status": "issues_found",
+  "coverage": "partial",
+  "armor": {
+    "present": false
+  },
+  "packets": [
+    {
+      "offset": 0,
+      "tag": 2,
+      "format": "new",
+      "partial": false,
+      "indeterminate": false,
+      "bodyLength": 307,
+      "endOffset": 313,
+      "details": {
+        "version": 4,
+        "supported": true,
+        "signatureType": 0,
+        "publicKeyAlgorithm": 1,
+        "algorithm": "RSA",
+        "hashAlgorithm": 2,
+        "hash": "SHA-1",
+        "hashPrefix": "8dd7",
+        "subpackets": [
+          {
+            "type": 2,
+            "critical": false,
+            "hashed": true,
+            "value": "2026-11-14T07:58:35.000Z",
+            "decoded": true
+          },
+          {
+            "type": 33,
+            "critical": false,
+            "hashed": true,
+            "value": "04a14fa23d41afcca4320ba9626f3ffa1a12800604",
+            "decoded": true
+          },
+          {
+            "type": 16,
+            "critical": false,
+            "hashed": false,
+            "value": "6f3ffa1a12800604",
+            "decoded": true
+          }
+        ],
+        "mpis": [
+          {
+            "bits": 2046,
+            "bytes": 256,
+            "hex": "3fc23f601fe559d5aa04c1b7d697634581ba5bc3f9cb53c5f599fec8da423bdef19c95d5cf4d67ee6c974ca0103c683f21f003ee75a5bd96915bb855f074224ac24a04a43d725efb8d94f415f010c3da1608ba20ea39528cc6f18a50118bb82b8e7223f92f44c50177a60654d417829f61cfe05bf7e6e690c3e491b451a214ccf3628e2a0648e6c744448ec9b0a28bceef13a968f2935370d6b21a0e9928a076a5a5c210cb25e5c0f6435059aeb1b8c12161603a08f22a0a96a983f687fa85cfb6daa822ddb68a1c1401a5201e86ec4c7a76942095ae1abe5194c874799226065b1de1adcd0abfb8d8d7225c66e76d365c99d1a28be830b1952e989697c61fe3"
+          }
+        ],
+        "remainder": 0
+      }
+    }
+  ],
+  "findings": [
+    {
+      "level": "policy",
+      "code": "WEAK_SIGNATURE_HASH",
+      "offset": 0,
+      "hash": "SHA-1"
+    }
+  ]
+}

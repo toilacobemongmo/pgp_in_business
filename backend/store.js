@@ -4,8 +4,19 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.join(__dirname, 'data');
-const DB_FILE = path.join(DATA_DIR, 'db.json');
+export const DATA_DIR = path.join(__dirname, 'data');
+
+// Cho phép test/CI trỏ sang file DB riêng để không phá dữ liệu demo.
+// Chỉ nhận đường dẫn tuyệt đối nằm trong thư mục data của backend.
+const DB_FILE = (() => {
+  const override = process.env.DB_FILE_OVERRIDE;
+  if (!override) return path.join(DATA_DIR, 'db.json');
+  const resolved = path.resolve(override);
+  if (!resolved.startsWith(path.resolve(DATA_DIR) + path.sep)) {
+    throw new Error('DB_FILE_OVERRIDE phải nằm trong thư mục backend/data.');
+  }
+  return resolved;
+})();
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {

@@ -1,0 +1,72 @@
+File: Bao_cao_tong_hop_ATTT.docx
+Size: 49,603 bytes (48.4 KB)
+Paragraphs: 167
+Tables: 15
+Headings: 38
+
+--- HEADINGS ---
+  [Heading 1] MỤC LỤC
+  [Heading 1] I. TỔNG QUAN DỰ ÁN
+  [Heading 2] 1.1 Kiến trúc tổng thể
+  [Heading 2] 1.2 Tóm tắt kết quả kiểm thử tổng hợp
+  [Heading 1] II. KỸ SƯ 1 (5) — HYBRID CRYPTOGRAPHIC PIPELINE
+  [Heading 2] 2.1 Pipeline mật mã 4 tầng
+  [Heading 2] 2.2 Xử lý stream tệp lớn — Backpressure 64 KB
+  [Heading 2] 2.3 Chống Surreptitious Forwarding
+  [Heading 2] 2.4 Hạn chế và điểm cần lưu ý
+  [Heading 1] III. KỸ SƯ 2 — BẢO VỆ ROOT CA BẰNG QUORUM (SHAMIR) & SEAL/UNSEAL
+  [Heading 2] 3.1 Lỗ hổng trạng thái ban đầu
+  [Heading 2] 3.2 Thay đổi đã triển khai
+  [Heading 2] 3.3 Kết quả kiểm thử
+  [Heading 2] 3.4 Hạn chế còn lại
+  [Heading 1] IV. KỸ SƯ 3 — CÂY MERKLE KIỂM TOÁN TÍNH TOÀN VẸN NHẬT KÝ
+  [Heading 2] 4.1 Cơ sở lý thuyết — Cây Merkle RFC 6962
+  [Heading 2] 4.2 Chuẩn hóa JSON (RFC 8785)
+  [Heading 2] 4.3 API và độ phức tạp
+  [Heading 2] 4.4 Kết quả kiểm thử và benchmark
+  [Heading 2] 4.5 Hạn chế và hướng tích hợp
+  [Heading 1] V. KỸ SƯ 4 — PHÂN TÍCH WEB OF TRUST (WoT)
+  [Heading 2] 5.1 Mô hình đồ thị Dijkstra có trọng số
+  [Heading 2] 5.2 Luồng độc lập và điểm nghẽn (SPoF)
+  [Heading 2] 5.3 Lưu ý quan trọng: Hai phiên bản wot-analyzer.js
+  [Heading 2] 5.4 Kết quả kiểm thử
+  [Heading 1] VI. KỸ SƯ 5 — PHÂN TÍCH GÓI TIN OPENPGP & KIỂM TRA TUÂN THỦ RFC
+  [Heading 2] 6.1 Phạm vi triển khai
+  [Heading 2] 6.2 Kiểm tra ranh giới và giới hạn tài nguyên
+  [Heading 2] 6.3 Kết quả kiểm thử — 33/33 PASS
+  [Heading 2] 6.4 Hạn chế
+  [Heading 1] VII. ĐÁNH GIÁ TÍCH HỢP & ĐIỂM GIAO NHAU
+  [Heading 2] 7.1 Điểm giao nhau kỹ thuật giữa các phân hệ
+  [Heading 2] 7.2 Rủi ro tích hợp
+  [Heading 2] 7.3 Điểm mạnh tổng thể
+  [Heading 1] VIII. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+  [Heading 2] 8.1 Kết luận
+  [Heading 2] 8.2 Hướng phát triển
+  [Heading 1] IX. TÀI LIỆU THAM KHẢO
+
+--- TABLE SIZES ---
+  Table 1: 4 rows x 2 cols | first cell: 'Học phần'
+  Table 2: 6 rows x 3 cols | first cell: 'Phân hệ'
+  Table 3: 11 rows x 4 cols | first cell: 'Phân hệ'
+  Table 4: 5 rows x 3 cols | first cell: 'Tầng'
+  Table 5: 5 rows x 5 cols | first cell: 'Kích thước'
+  Table 6: 8 rows x 3 cols | first cell: 'Mã'
+  Table 7: 8 rows x 3 cols | first cell: 'File kiểm thử'
+  Table 8: 8 rows x 3 cols | first cell: 'Phương thức'
+  Table 9: 9 rows x 2 cols | first cell: 'Thông số'
+  Table 10: 5 rows x 2 cols | first cell: 'Loại chứng thực'
+  Table 11: 6 rows x 3 cols | first cell: 'Tiêu chí'
+  Table 12: 9 rows x 2 cols | first cell: 'Hạng mục'
+  Table 13: 7 rows x 2 cols | first cell: 'Ca'
+  Table 14: 5 rows x 4 cols | first cell: 'Dữ liệu/Dịch vụ'
+  Table 15: 5 rows x 4 cols | first cell: 'Mức'
+
+--- FIRST 5 NON-EMPTY PARAGRAPHS ---
+  [Normal] TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
+  [Normal] KHOA CÔNG NGHỆ THÔNG TIN
+  [Normal] BÁO CÁO TỔNG HỢP
+  [Normal] AN TOÀN THÔNG TIN — BÀI TẬP LỚN
+  [Normal] Enterprise OpenPGP Certificate Authority &
+B2B Secure Exchange
+
+VERIFICATION COMPLETE

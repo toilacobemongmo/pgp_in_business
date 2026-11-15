@@ -1,0 +1,62 @@
+{
+  "scope": "Educational structural inspection; no cryptographic verification",
+  "status": "no_error_in_implemented_checks",
+  "coverage": "partial",
+  "armor": {
+    "present": true,
+    "label": "PGP PUBLIC KEY BLOCK",
+    "crc": "match",
+    "expected": 14479933,
+    "actual": 14479933
+  },
+  "packets": [
+    {
+      "offset": 0,
+      "tag": 6,
+      "format": "new",
+      "partial": false,
+      "indeterminate": false,
+      "bodyLength": 51,
+      "endOffset": 57,
+      "details": {
+        "version": 4,
+        "created": 1794643115,
+        "algorithm": 22,
+        "name": "EdDSALegacy",
+        "supported": true,
+        "oid": "2b06010401da470f01",
+        "curve": "Ed25519Legacy",
+        "point": {
+          "bits": 263,
+          "bytes": 33,
+          "hex": "40f26891d24a26e6e72bf93b634c4e40a01c92603b7d3045dbfd9ff028144029de"
+        }
+      }
+    },
+    {
+      "offset": 57,
+      "tag": 14,
+      "format": "new",
+      "partial": false,
+      "indeterminate": false,
+      "bodyLength": 56,
+      "endOffset": 119,
+      "details": {
+        "version": 4,
+        "created": 1794643115,
+        "algorithm": 18,
+        "name": "ECDH",
+        "supported": true,
+        "oid": "2b060104019755010501",
+        "curve": "Curve25519Legacy",
+        "point": {
+          "bits": 263,
+          "bytes": 33,
+          "hex": "4042b32e7982dc06ef544c5158a4357fc57130887e013e7137dfa882fd28489766"
+        },
+        "kdf": "010809"
+      }
+    }
+  ],
+  "findings": []
+}

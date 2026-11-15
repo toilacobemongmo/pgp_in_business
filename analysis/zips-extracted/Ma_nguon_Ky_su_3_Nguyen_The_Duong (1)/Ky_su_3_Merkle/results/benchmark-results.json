@@ -1,0 +1,22 @@
+{
+  "node": "v24.22.1",
+  "platform": "linux/x64",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "count": 100000,
+  "leafIndex": 50000,
+  "buildMs": 1156.596396,
+  "proofMs": 0.1808739999999034,
+  "verifyMeanMs": 0.05244370900000012,
+  "verifyIterations": 1000,
+  "appendMs": 0.6831359999998767,
+  "proofHashes": 17,
+  "hashPayloadBytes": 544,
+  "proofJsonBytes": 1710,
+  "rssMiB": 292.578125,
+  "checkpoint": {
+    "version": "merkle-jcs-sha256-v1",
+    "treeSize": 100000,
+    "rootHash": "18508a98cd56e7cd6118de90ed72eeb165da50cb1c61391582fa32a4a2079490"
+  },
+  "note": "Single local run, warmed verification mean; timings depend on machine and load. RSS is a sample, not peak."
+}

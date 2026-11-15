@@ -1,0 +1,18 @@
+KET QUA KIEM THU BAN BAN GIAO
+Lenh da chay: node --test --test-reporter=tap test/merkle-engine.test.js
+Moi truong: Node.js v24.22.1, Linux x64
+Ngay lap ban ban giao: 11/11/2026
+Exit code: 0
+Tests: 20
+Pass: 20
+Fail: 0
+Cancelled: 0
+Skipped: 0
+Todo: 0
+Duration from test runner: 440.546055 ms
+
+Day la ban tom tat tu dau ra thuc te cua test runner, khong phai anh chup man hinh.
+Dau ra TAP day du duoc luu trong results/test-run.txt.
+Test 10 doi chieu root voi ham de quy tham chieu doc lap, va kiem tra tat ca
+8.256 vi tri la cua cay co kich thuoc tu 1 den 128, ca khi dung moi va them dan.
+Chi tiet ca kiem thu nam trong test/merkle-engine.test.js.

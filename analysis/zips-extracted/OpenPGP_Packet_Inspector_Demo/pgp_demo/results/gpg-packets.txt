@@ -1,0 +1,9 @@
+# off=0 ctb=c2 tag=2 hlen=6 plen=307 new-ctb
+:signature packet: algo 1, keyid 91C1038A8DB1D320
+	version 4, created 1794362429, md5len 0, sigclass 0x00
+	digest algo 8, begin of digest 83 c5
+	hashed subpkt 2 len 4 (sig created 2026-11-11)
+	hashed subpkt 33 len 21 (issuer fpr v4 52F2D2A18FFDCD567B9F597891C1038A8DB1D320)
+	subpkt 16 len 8 (issuer key ID 91C1038A8DB1D320)
+	data: [2047 bits]
+gpg: keybox '/tmp/pgp-report-zQJiSu/pubring.kbx' created

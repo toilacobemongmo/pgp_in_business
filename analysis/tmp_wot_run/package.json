@@ -1,0 +1,13 @@
+{
+  "name": "enterprise-openpgp-wot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Directed Web of Trust path analysis engine for the Enterprise OpenPGP project",
+  "main": "backend/wot-analyzer.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

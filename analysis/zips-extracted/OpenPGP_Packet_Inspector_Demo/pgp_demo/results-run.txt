@@ -1,0 +1,154 @@
+{
+  "tests": 33,
+  "passed": 33,
+  "failed": 0,
+  "real": {
+    "available": true,
+    "node": "v24.22.1",
+    "gpg": "gpg (GnuPG) 2.4.7",
+    "signatureHash": "SHA-256",
+    "keyTags": [
+      6,
+      14
+    ],
+    "curves": [
+      "Ed25519Legacy",
+      "Curve25519Legacy"
+    ],
+    "truncated": "TRUNCATED at body offset 6: need 307"
+  },
+  "results": [
+    {
+      "name": "CRC known vector 123456789",
+      "status": "PASS"
+    },
+    {
+      "name": "New header Tag 2",
+      "status": "PASS"
+    },
+    {
+      "name": "Old header one octet",
+      "status": "PASS"
+    },
+    {
+      "name": "Old header two octets",
+      "status": "PASS"
+    },
+    {
+      "name": "Old header four octets",
+      "status": "PASS"
+    },
+    {
+      "name": "Old indeterminate boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "New length 191",
+      "status": "PASS"
+    },
+    {
+      "name": "New length 192",
+      "status": "PASS"
+    },
+    {
+      "name": "New length 8383",
+      "status": "PASS"
+    },
+    {
+      "name": "New length 8384",
+      "status": "PASS"
+    },
+    {
+      "name": "Partial body 512 plus 3",
+      "status": "PASS"
+    },
+    {
+      "name": "Reject partial signature packet",
+      "status": "PASS"
+    },
+    {
+      "name": "Truncated partial final header",
+      "status": "PASS"
+    },
+    {
+      "name": "Invalid bit 7",
+      "status": "PASS"
+    },
+    {
+      "name": "Truncated body",
+      "status": "PASS"
+    },
+    {
+      "name": "MPI nine bits",
+      "status": "PASS"
+    },
+    {
+      "name": "Truncated MPI",
+      "status": "PASS"
+    },
+    {
+      "name": "Subpacket length 224 is not partial",
+      "status": "PASS"
+    },
+    {
+      "name": "Subpacket zero length",
+      "status": "PASS"
+    },
+    {
+      "name": "Block weak signature hash 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Block weak signature hash 2",
+      "status": "PASS"
+    },
+    {
+      "name": "Synthetic signature SHA256",
+      "status": "PASS"
+    },
+    {
+      "name": "Unknown critical subpacket",
+      "status": "PASS"
+    },
+    {
+      "name": "CRC match",
+      "status": "PASS"
+    },
+    {
+      "name": "CRC mismatch diagnostic only",
+      "status": "PASS"
+    },
+    {
+      "name": "CRC absent accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "Version 6 signature explicitly unsupported",
+      "status": "PASS"
+    },
+    {
+      "name": "Native v6 key algorithm 25",
+      "status": "PASS"
+    },
+    {
+      "name": "Native v6 key algorithm 27",
+      "status": "PASS"
+    },
+    {
+      "name": "Bad armor Base64",
+      "status": "PASS"
+    },
+    {
+      "name": "GPG rejects modified message",
+      "status": "PASS"
+    },
+    {
+      "name": "Real RSA detached signature parsed and GPG verified",
+      "status": "PASS"
+    },
+    {
+      "name": "Node generated ECC keys recognized",
+      "status": "PASS"
+    }
+  ]
+}

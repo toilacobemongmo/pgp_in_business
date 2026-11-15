@@ -1,0 +1,3 @@
+gpg: Signature made Wed Nov 11 09:00:29 2026 +07
+gpg:                using RSA key 52F2D2A18FFDCD567B9F597891C1038A8DB1D320
+gpg: BAD signature from "Packet Demo <demo@example.invalid>" [unknown]

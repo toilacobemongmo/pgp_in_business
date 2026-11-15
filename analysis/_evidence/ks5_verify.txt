@@ -1,0 +1,21 @@
+============================================================
+ KS5 - OPENPGP PACKET INSPECTOR (khong phu thuoc gpg)
+============================================================
+  ✓ PASS  public.asc armorType :: PUBLIC KEY BLOCK
+  ✓ PASS  public.asc co it nhat 1 packet :: packets=2
+  ✓ PASS  public.asc co Public-Key/Subkey packet :: found=2
+    tags: Public-Key Packet, Public-Subkey Packet | totalBytes= 119
+  ✓ PASS  signature.asc co Signature packet (tag 2) :: found=1
+    sigType= undefined | hash= undefined | pubKeyAlgo= undefined
+  ✗ FAIL  signature.asc parse signatureType
+  ✗ FAIL  signature.asc parse hashAlgorithm
+  ✗ FAIL  signature.asc parse publicKeyAlgorithm
+  ✗ FAIL  message.txt co Symmetric-Encrypted/SED packet :: found=0
+    tags: 
+  ✗ FAIL  bad-crc.asc phat hien loi CRC
+  ✗ FAIL  truncated.pgp biet nem loi khi phan tich
+  ✗ FAIL  signature-sha1-mutated.pgp phat hien SHA-1/weak hash
+  ✓ PASS  rsa-public.pgp phan tich duoc binary key :: packets=1 tags=3
+============================================================
+ KET QUA: 5 PASS / 7 FAIL / 12 TOTAL
+============================================================

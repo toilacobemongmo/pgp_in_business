@@ -1,0 +1,126 @@
+
+=== Running: node tests/engineer2-api-smoke.mjs ===
+Exit code: 0, Elapsed: 1.80s
+  A7  có revocation certificate (armor PUBLIC KEY BLOCK + comment)
+  ✅ PASS  A7  packet tag = 2 (Signature)
+  ✅ PASS  A7  signatureType = 32 (keyRevocation)
+  ✅ PASS  A7  khóa đã bị thu hồi thực sự (isRevoked = true)
+  ✅ PASS  A8  POST /api/ca/seal -> 200
+  ✅ PASS  A8  sau seal isSealed = true
+  ✅ PASS  A9  issue sau khi seal lại -> 423
+
+============================================================
+ KẾT QUẢ: 21 PASS / 0 FAIL / 21 TOTAL
+============================================================
+
+
+=== Running: node tests/engineer2-api-auth.test.mjs ===
+Exit code: 0, Elapsed: 3.54s
+SS  B12.4 issue khi SEALED + không token -> 401 (auth kiểm tra TRƯỚC state)
+
+[B13] Fail-closed khi không cấu hình token nào
+  ✅ PASS  B13.1 server khởi động lại được
+  ✅ PASS  B13.2 không token nào được cấu hình -> 401 (fail-closed)
+  ✅ PASS  B13.3 token cũ không còn hiệu lực khi env rỗng -> 401
+  ✅ PASS  B13.4 route công khai vẫn 200
+
+============================================================
+ KẾT QUẢ: 107 PASS / 0 FAIL / 107 TOTAL
+============================================================
+
+
+=== Running: node tests/engineer2-quorum-ca.test.mjs ===
+Exit code: 0, Elapsed: 0.13s
+SS  C6  sealCA idempotent khi đã SEALED
+  ✅ PASS  C6  sau sealCA vẫn SEALED
+  ✅ PASS  C7  unsealedAt = null sau khi seal
+  ✅ PASS  C7  sealExpiresAt = null sau khi seal
+  ✅ PASS  C8  pgp-service.js không còn chuỗi passphrase mặc định
+  ✅ PASS  C8  pgp-service.js đọc passphrase từ biến môi trường
+  ✅ PASS  C9  TTL đọc từ CA_UNSEAL_TTL_MS
+
+============================================================
+ KẾT QUẢ: 46 PASS / 0 FAIL / 46 TOTAL
+============================================================
+
+
+=== Running: node tests/engineer2-quorum-shards.test.mjs ===
+Exit code: 0, Elapsed: 0.35s
+hiểm bị làm sạch, file vẫn nằm trong thư mục mảnh
+  ✅ PASS  B7.2 writeShards([]) bị từ chối
+  ✅ PASS  B7.3 hằng số mode file = 0600
+  ✅ PASS  B7.4 hằng số mode thư mục = 0700
+
+▶ B8. Dọn dẹp
+  ✅ PASS  B8.1 purgeShards() xóa hết file mảnh
+  ✅ PASS  B8.2 không còn file rác trong quorum-shards
+  ✅ PASS  B8.3 đã xóa DB tạm
+
+======================================================================
+KẾT QUẢ: 47 PASS / 0 FAIL / 47 TOTAL
+======================================================================
+
+
+=== Running: node tests/engineer2-demo-key-gate.test.mjs ===
+Exit code: 0, Elapsed: 0.65s
+ng chỉ, DB vẫn sạch khóa demo
+  ✅ PASS  G6.14 ký số bằng khóa client tự sinh vẫn OK
+  ✅ PASS  G6.15 chữ ký là chuỗi armored hợp lệ
+
+▶ G7. Sinh chứng chỉ thật với cờ BẬT -> có khóa demo (không phá luồng cũ)
+  ✅ PASS  G7.1 cờ BẬT -> certificates có demoPrivateKeyArmored
+  ✅ PASS  G7.2 cờ BẬT -> đối tác B2B có privateKeyArmoredDemo
+  ✅ PASS  G7.3 khóa demo của đối tác là armored private key
+  ✅ PASS  G7.4 hai chế độ cho kết quả KHÁC nhau (cờ có tác dụng thật)
+
+ KẾT QUẢ: 48 PASS / 0 FAIL / 48 TOTAL
+
+
+=== Running: node tests/engineer2-ttl-expiry.test.mjs ===
+Exit code: 0, Elapsed: 2.53s
+ sau expiry) ────
+  ✅ PASS  E8.1 unsealCA hoạt động lại sau khi TTL hết hạn
+  ✅ PASS  E8.2 alreadyUnsealed = false (session đã expire)
+  ✅ PASS  E8.3 CA unsealed sau lần re-unseal
+  ✅ PASS  E8.4 sealCA("test-teardown") → isSealed = true
+
+── Cleanup ───────────────────────────────────────────────────
+  purgeShards() OK
+  temp DB unlinked
+
+═══════════════════════════════════════════════════════════════
+  TOTAL: 22  PASS: 22  FAIL: 0
+═══════════════════════════════════════════════════════════════
+
+
+
+=== Running: cd "analysis\zips-extracted\Ma_nguon_Ky_su_3_Nguyen_The_Duong (1)\Ky_su_3_Merkle" && node test/merkle-engine.test.js ===
+Exit code: 0, Elapsed: 0.39s
+heckpoint (0.3472ms)
+✔ 16 Caller mutations cannot alter internal records, proof or checkpoint (0.225ms)
+✔ 17 Invalid append is atomic and invalid indexes throw (0.4839ms)
+✔ 18 Old proofs require old checkpoints after append (0.1679ms)
+✔ 19 Legacy verifyProof API remains callable from instance and export (0.108ms)
+✔ 20 Demonstrate trust boundary: recomputed malicious root is not evidence (0.1268ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 286.4523
+
+
+=== Running: cd "analysis\zips-extracted\PGP_KySu4_WoT_Source\PGP_KySu4_WoT_Source" && node wot-analyzer.test.js ===
+Exit code: 1, Elapsed: 0.12s
+
+
+=== Running: cd "analysis\zips-extracted\OpenPGP_Packet_Inspector_Demo\pgp_demo" && node run-demo.js ===
+Exit code: 1, Elapsed: 0.16s
+
+
+
+=== ALL TESTS COMPLETE ===
+Results saved to analysis\_evidence\test_runs.json
+Summary saved to analysis\_evidence\test_summary.txt

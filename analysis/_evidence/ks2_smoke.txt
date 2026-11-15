@@ -1,0 +1,28 @@
+============================================================
+ KỸ SƯ 2 — SMOKE TEST API (HTTP end-to-end)
+============================================================
+  ✅ PASS  A0  backend khởi động và trả /api/ca/status
+  ✅ PASS  A1  GET /api/ca/status -> 200
+  ✅ PASS  A1  Root CA mặc định SEALED
+  ✅ PASS  A2  issue khi SEALED -> 423
+  ✅ PASS  A2  mã lỗi CA_SEALED
+  ✅ PASS  A3  unseal với mảnh rác -> 400
+  ✅ PASS  A4  split không secret khi SEALED -> 423
+  ✅ PASS  A5  unseal với đúng k=3 mảnh -> 200
+  ✅ PASS  A5  sau unseal isSealed = false
+  ✅ PASS  A5  status phản ánh UNSEALED
+  ✅ PASS  A5  status có sealExpiresAt
+  ✅ PASS  A6  issue khi UNSEALED -> 200
+  ✅ PASS  A6  trả về id chứng chỉ
+  ✅ PASS  A7  revoke khi UNSEALED -> 200
+  ✅ PASS  A7  có revocation certificate (armor PUBLIC KEY BLOCK + comment)
+  ✅ PASS  A7  packet tag = 2 (Signature)
+  ✅ PASS  A7  signatureType = 32 (keyRevocation)
+  ✅ PASS  A7  khóa đã bị thu hồi thực sự (isRevoked = true)
+  ✅ PASS  A8  POST /api/ca/seal -> 200
+  ✅ PASS  A8  sau seal isSealed = true
+  ✅ PASS  A9  issue sau khi seal lại -> 423
+
+============================================================
+ KẾT QUẢ: 21 PASS / 0 FAIL / 21 TOTAL
+============================================================

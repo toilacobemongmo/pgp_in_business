@@ -1,0 +1,191 @@
+SECTIONS 1
+ sec0 page 7772400 x 10058400 (21.59cm x 27.94cm) margins L3.00 R2.01 T2.49 B2.49
+
+--- STYLES ---
+  Heading 1 | font= None | size= 203200 | bold= True | italic= None
+      align= CENTER (1) | spacing= None None | first_indent= None
+  Heading 2 | font= None | size= 190500 | bold= True | italic= None
+      align= LEFT (0) | spacing= None None | first_indent= None
+  Heading 3 | font= Calibri | size= None | bold= True | italic= None
+      align= None | spacing= None 0 | first_indent= None
+  Title | font= Calibri | size= 330200 | bold= None | italic= None
+      align= None | spacing= 1.0 190500 | first_indent= None
+  List Paragraph | font= None | size= None | bold= None | italic= None
+      align= None | spacing= None None | first_indent= None
+  List Bullet | font= None | size= None | bold= None | italic= None
+      align= None | spacing= None None | first_indent= None
+  Caption | font= None | size= 114300 | bold= True | italic= None
+      align= None | spacing= 1.0 None | first_indent= None
+
+--- PARAGRAPHS (first 70) ---
+[0] style=normal align=CENTER (1) font=Times New Roman size=203200 bold=True ital=None | HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+[1] style=normal align=CENTER (1) font=Times New Roman size=203200 bold=True ital=None | KHOA AN TOÀN THÔNG TIN
+[3] style=normal align=CENTER (1) font=Times New Roman size=203200 bold=True ital=None | BÁO CÁO BÀI TẬP LỚN
+[4] style=normal align=CENTER (1) font=Times New Roman size=203200 bold=True ital=None | ĐỀ TÀI: NGHIÊN CỨU, THIẾT KẾ VÀ TRIỂN KHAI
+HỆ THỐNG PHÒNG THỦ CHỦ ĐỘNG
+[7] style=normal align=CENTER (1) font=Times New Roman size=190500 bold=True ital=None | HÀ NỘI 2026
+[8] style=Heading 1 align=None font=None size=None bold=None ital=None | MỤC LỤC
+[10] style=Heading 1 align=CENTER (1) font=None size=None bold=None ital=None | TÓM TẮT
+[11] style=normal align=None font=None size=None bold=None ital=None | Trong bối cảnh các cuộc tấn công không gian mạng ngày càng gia tăng về mức độ tinh vi và tần su
+[12] style=normal align=None font=None size=None bold=None ital=None | Kết quả thực nghiệm trên môi trường Lab mô phỏng đa kịch bản và môi trường mạng Internet thực t
+[14] style=Heading 1 align=None font=None size=None bold=None ital=None | DANH MỤC THUẬT NGỮ VÀ TỪ VIẾT TẮT
+[15] style=normal align=CENTER (1) font=Times New Roman size=None bold=True ital=None | Bảng 0.1: Bảng giải nghĩa các thuật ngữ viết tắt trong bài báo cáo
+[19] style=Heading 1 align=None font=None size=177800 bold=None ital=None | DANH MỤC HÌNH VẼ MINH HỌA
+[20] style=normal align=CENTER (1) font=Times New Roman size=None bold=True ital=None | Bảng 0.2: Danh mục các hình vẽ và biểu đồ trong bài báo cáo
+[25] style=Heading 1 align=None font=None size=None bold=None ital=None | DANH MỤC BẢNG BIỂU DỮ LIỆU
+[26] style=normal align=CENTER (1) font=Times New Roman size=None bold=True ital=None | Bảng 0.3: Danh mục bảng biểu dữ liệu
+[27] style=normal align=LEFT (0) font=None size=None bold=None ital=None | TÓM TẮT	5
+[30] style=Heading 1 align=None font=None size=None bold=None ital=None | CHƯƠNG 1: TỔNG QUAN VÀ ĐẶT VẤN ĐỀ
+[31] style=Heading 2 align=None font=None size=None bold=None ital=None | 1.1 Bối cảnh an ninh mạng và thực trạng tấn công dịch vụ truy cập từ xa
+[32] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Trong kỷ nguyên chuyển đổi số và bùng nổ hạ tầng điện toán đám mây, dịch vụ SSH và Telnet đóng 
+[33] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Theo các báo cáo an ninh mạng toàn cầu gần đây, phần lớn lưu lượng rà quét trái phép trên Inter
+[34] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Hậu quả của việc máy chủ SSH bị xâm phạm là vô cùng nghiêm trọng: kẻ tấn công ngay lập tức biến
+[35] style=Heading 2 align=None font=None size=None bold=None ital=None | 1.2 Sự bế tắc của mô hình phòng thủ thụ động
+[36] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Trong nhiều thập kỷ qua, các chiến lược bảo mật mạng chủ yếu dựa trên triết lý phòng thủ chu vi
+[37] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Thứ nhất, vấn đề bội thực cảnh báo giả: Các hệ thống IDS truyền thống dựa vào chữ ký tĩnh liên 
+[38] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Thứ hai, độ trễ phản ứng quá lớn: Quy trình xử lý sự cố truyền thống phụ thuộc hoàn toàn vào co
+[39] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Thứ ba, sự thiếu hụt thông tin tình báo đối phương: Phòng thủ thụ động chỉ biết chặn và bỏ qua 
+[40] style=Heading 2 align=None font=None size=None bold=None ital=None | 1.3 Khái niệm công nghệ bẫy Honeypot và sự dịch chuyển sang phòng thủ chủ động (Active Defense)
+[41] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Để khắc phục sự mù mờ về thông tin của phòng thủ thụ động, công nghệ bẫy mồi (Honeypot) đã ra đ
+[42] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Trong lĩnh vực giám sát dịch vụ SSH/Telnet, Cowrie được đánh giá là một trong những giải pháp b
+[43] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Tuy nhiên, xu hướng phòng thủ hiện đại trên thế giới không còn dừng lại ở việc thụ động thu thậ
+[44] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Đánh lừa có chủ đích: Dẫn dụ kẻ tấn công vào ma trận các thông tin giả mạo (như tài khoản giả
+[45] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Trinh sát ngược (Reverse Reconnaissance): Ngay khi kẻ tấn công chạm vào bẫy, hệ thống lập tức
+[46] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Tự động hóa phản ứng sự cố (SOAR): Đồng bộ hóa quy trình phát hiện, phân tích và ngăn chặn tr
+[47] style=normal align=CENTER (1) font=None size=None bold=None ital=True | Bảng 1.1: So sánh sự khác biệt bản chất giữa mô hình ứng dụng Cowrie và phòng thủ chủ động
+[50] style=Heading 2 align=LEFT (0) font=None size=None bold=None ital=None | 1.4 Đối tượng, phạm vi và giới hạn nghiên cứu
+[51] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Đối tượng nghiên cứu: Các hành vi, kỹ thuật và phương thức tấn công nhắm vào dịch vụ truy cập
+[52] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Phạm vi triển khai: Hệ thống được xây dựng và triển khai trên nền tảng hệ điều hành máy chủ L
+[53] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Giới hạn nghiên cứu: bài báo cáo tập trung vào phân tích và phản ứng các cuộc tấn công nhắm v
+[54] style=Heading 2 align=LEFT (0) font=None size=None bold=None ital=None | 1.5 Bố cục toàn văn của bài báo cáo
+[55] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Nội dung báo cáo bài báo cáo được kết cấu thành 6 chương chính cùng các phần phụ lục và danh mụ
+[56] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Chương 1: Tổng quan và đặt vấn đề, phân tích bối cảnh, thực trạng tấn công SSH, hạn chế của p
+[57] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Chương 2: Cơ sở lý thuyết và khung công nghệ - Trình bày nền tảng lý thuyết về bẫy Honeypot, 
+[58] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Chương 3: Thiết kế kiến trúc hệ thống Active Defense - Trình bày thiết kế chi tiết 5 phân lớp
+[59] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Chương 4: Hiện thực hóa và mã nguồn - Chi tiết hóa quá trình cài đặt môi trường, tùy biến Hon
+[60] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Chương 5: Thử nghiệm thực tế, đánh giá và phân tích tấn công - Trình bày kết quả kiểm nghiệm 
+[61] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | • Chương 6: Kết luận và hướng phát triển - Tổng kết các đóng góp đạt được, chỉ ra những hạn chế
+[63] style=Heading 1 align=None font=None size=None bold=None ital=None | CHƯƠNG 2: CƠ SỞ LÝ THUYẾT VÀ KHUNG CÔNG NGHỆ
+[64] style=Heading 2 align=LEFT (0) font=None size=None bold=None ital=None | 2.1 Bản chất và phân loại công nghệ bẫy Honeypot
+[65] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Thuật ngữ Honeypot được giới thiệu lần đầu tiên trong lĩnh vực an toàn thông tin bởi Clifford S
+[66] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | Dựa trên mức độ tương tác cho phép kẻ tấn công thực hiện, công nghệ Honeypot được phân chia thà
+[67] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | 1. Honeypot tương tác thấp: Hệ thống chỉ mô phỏng các tầng giao thức mạng cơ bản (chẳng hạn như
+[68] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | 2. Honeypot tương tác trung bình: Hệ thống mô phỏng một môi trường ứng dụng và hệ thống tệp tin
+[69] style=normal align=JUSTIFY (3) font=Times New Roman size=None bold=None ital=None | 3. Honeypot tương tác cao: Hệ thống sử dụng máy ảo hoặc máy chủ vật lý thực sự chạy hệ điều hàn
+
+--- TABLES ---
+ table0 rows=5 cols=2 style=None
+     Họ và tên: | NGUYỄN GIA HÀO
+     Mã sinh viên: | B24DCAT088
+     Mã học phần: | INT1487
+     Tên lớp: | INT1487-20261-03
+ table1 rows=15 cols=3 style=None
+     Thuật ngữ | Tên đầy đủ tiếng Anh | Ý nghĩa
+     SOC | Security Operations Center | Trung tâm điều hành và giám sát an nin
+     SOAR | Security Orchestration, Automation, an | Nền tảng điều phối, tự động hóa và phả
+     IOC | Indicators of Compromise | Dấu hiệu chỉ điểm xâm nhập (IP, Hash, 
+ table2 rows=35 cols=3 style=None
+     Ký hiệu | Tên hình minh họa | Trang
+     Hình 2.1 | Mô hình phân loại Honeypot theo mức độ | 20
+     Hình 2.2 | Kiến trúc mô phỏng hệ thống tệp và lện | 22
+     Hình 2.3 | Vòng đời xử lý sự cố an ninh chuẩn NIS | 29
+ table3 rows=12 cols=3 style=None
+     Ký hiệu | Tên bảng dữ liệu | Trang
+     Bảng 0.1 | Bảng giải nghĩa các thuật ngữ viết tắt | 7
+     Bảng 0.2 | Danh mục các hình vẽ và biểu đồ trong  | 9
+     Bảng 0.3 | Danh mục bảng biểu dữ liệu | 14
+ table4 rows=10 cols=3 style=None
+     Tiêu chí Đánh giá | Mô hình ứng dụng Cowrie | Phòng thủ chủ động
+     Phạm vi triển khai | Chỉ cài Cowrie đơn lẻ và kịch bản thôn | Kiến trúc Mini-SOC 5 phân lớp hoàn chỉ
+     Cơ chế Xử lý Log | Đọc nhật ký tuyến tính, gửi tin nhắn t | Bộ phân tích luồng JSON bất đồng bộ.
+     Động cơ tương quan sự kiện | Không có. Một sự kiện đăng nhập thất b | Động cơ tương quan tự phát triển, ánh 
+ table5 rows=6 cols=5 style=None
+     Dòng Honeypot | Mức độ tương tác | Dịch vụ mô phỏng chính | Ưu điểm nổi bật | Hạn chế chính
+     Dionaea | Medium-Interaction | SMB, HTTP, FTP, TFTP, MSSQL | Chuyên bắt giữ sâu mạng (Worms) và mã  | Không hỗ trợ tương tác dòng lệnh SSH c
+     Cowrie | Medium-Interaction | SSH, Telnet, SFTP | Giả lập shell Linux chân thực, ghi log | Cần tinh chỉnh để tránh bị hacker phát
+     Conpot | Low-Medium | ICS/SCADA, Modbus, S7Comm, BACnet | Thu thập thông tin tấn công vào hạ tần | Chỉ phù hợp với hệ thống công nghiệp đ
+ table6 rows=6 cols=3 style=None
+     Tiêu chí so sánh | Tấn công ngược | Phòng thủ chủ động
+     Tính hợp pháp | Trái pháp luật (Điều 287 BLHS, Luật AN | Hợp pháp
+     Đối tượng tác động | Tác động trực tiếp vào máy chủ của IP  | Tác động trong phạm vi tài nguyên và h
+     Mục tiêu tác chiến | Cố gắng phá hủy, xâm nhập hoặc DoS máy | Thu thập tình báo (OSINT), làm kiệt qu
+ table7 rows=4 cols=4 style=None
+     Thành phần tham số | Đơn vị đo lường | Giá trị thực nghiệm bài báo cáo | Ý nghĩa
+     Cdefender | USD / sự cố | 0.0054 USD (~130 VNĐ) | Tối ưu hóa nhờ SOAR tự động 1.2s và Cl
+     Cadversary | USD / sự cố | 8.50 USD (~210.000 VNĐ) | Thiệt hại do cháy IP, giam socket Tarp
+     ACIR | Tỷ lệ (Ratio) | 1.574 (ACIR >> 1) | Bên phòng thủ bỏ ra 1 đồng, buộc hacke
+ table8 rows=8 cols=5 style=None
+     Mã Sự kiện Cowrie | Kỹ thuật MITRE ATT&CK | Tên kỹ thuật | Mức độ nguy hại | Hành động SOAR khuyến nghị
+     cowrie.login.failed (đạt ngưỡng) | T1110.001 | Brute Force: Password Guessing | HIGH | Tarpit giam lỏng + Chặn Firewall
+     cowrie.login.success | T1078 | Valid Accounts: Initial Access | CRITICAL | Trinh sát ngược tức thì + Kích hoạt bẫ
+     cowrie.command.input (uname, whoami) | T1082 | System Information Discovery | MEDIUM | Ghi nhật ký telemetry + Giám sát phiên
+ table9 rows=4 cols=4 style=None
+     Dải điểm Novelty | Bản chất tác nhân | Kỹ thuật đặc trưng | Hành động SOAR thích ứng
+     N < 0.20 (Thấp) | Commodity Botnet / Script-Kiddie | uname -a, cat /proc/cpuinfo, wget/curl | Chuyển TCP Tarpit hoặc chèn iptables D
+     0.20 <= N < 0.60 (Trung bình) | Rà quét bán tự động / Recon | ip a, ifconfig, netstat, crontab -l, p | Ghi log Telemetry, tính mã băm SHA256 
+     N >= 0.60 (Cao) | Tin tặc thủ công / APT / Zero-day | docker.sock, socat, base64 payload, AW | Kích hoạt Deep Deception, gài Honeytok
+ table10 rows=4 cols=5 style=None
+     Mã node cảm biến | Phân vùng triển khai | Dải mạng Subnet | Dịch vụ bẫy mồi hoạt động | Loại mồi nhử Honeytoken
+     sensor-dmz-01 | DMZ Public Web | 192.168.10.0/24 | Cowrie SSH (Port 2222) + HTTP Canary ( | /root/.bash_history, db_backup.sql
+     sensor-cloud-aws-02 | AWS Cloud VPC | 10.0.1.0/24 | Decoy SSH Shell + Fake Cloud Admin Por | /root/.aws/credentials (AWS Canary IAM
+     sensor-internal-lan-03 | Corporate Internal LAN | 172.16.0.0/16 | Decoy Lateral Port + Fake SMB File Sha | Active Directory Decoy Admin SPN
+ table11 rows=1 cols=1 style=None
+     iptables -I INPUT 1 -p tcp --dport 222
+ table12 rows=1 cols=1 style=None
+     [honeypot]
+hostname = corp-db-master-0
+ table13 rows=1 cols=1 style=None
+     def _peek_ssh_banner(self, client_sock
+ table14 rows=1 cols=1 style=None
+     class CowrieLogListener:
+    def __ini
+ table15 rows=1 cols=1 style=None
+     # Xử lý phát hiện Brute Force T1110.00
+ table16 rows=1 cols=1 style=None
+     class CommandNoveltyScorer:
+    def __
+ table17 rows=1 cols=1 style=None
+     def safe_reverse_port_scan(self, ip: s
+ table18 rows=1 cols=1 style=None
+     def process_beacon_callback(self, toke
+ table19 rows=1 cols=1 style=None
+     def _extract_static_iocs(self, content
+ table20 rows=1 cols=1 style=None
+     def block_ip(self, ip: str, duration_s
+ table21 rows=1 cols=1 style=None
+     # Bố cục nút bấm Inline Keyboard tương
+ table22 rows=1 cols=1 style=None
+     class CanaryRequestHandler(BaseHTTPReq
+ table23 rows=12 cols=3 style=None
+     Module tệp tin | Trách nhiệm kỹ thuật cốt lõi | Thư viện / Giao thức chính sử dụng
+     core/mini_ssh_honeypot.py | Bẫy SSH tương tác cao, giả lập Linux V | paramiko, socket, threading, json
+     core/canary_server.py | Cổng HTTP Webhook bẫy khử ẩn danh, bóc | http.server, urllib, threading
+     core/cowrie_listener.py | Theo dõi và phân tích luồng JSON thời  | json, os, time, threading
+ table24 rows=7 cols=3 style=None
+     Giai đoạn xử lý sự cố | Quy trình thủ công | Hệ sinh thái SOAR
+     Phát hiện & đọc nhật ký | Chờ chuyên viên mở bảng điều khiển (3  | Xử lý luồng nhật ký thời gian thực (< 
+     Tương quan & Ánh xạ MITRE | Tra cứu bảng kỹ thuật thủ công (2 - 3  | Động cơ tương quan tự động (< 50 ms)
+     Trinh sát ngược | Mở trình duyệt tra cứu AbuseIPDB, Shod | Giao diện trinh sát ngược tự động (1.8
+ table25 rows=7 cols=5 style=None
+     STT | Khu vực địa lý | Quốc gia | Số lượt | Tỷ lệ %
+     1 | Bắc Mỹ (North America) | Hoa Kỳ (US) | 127 | 78.9%
+     2 | Tây Âu (Western Europe) | Đức (DE) | 10 | 6.2%
+     3 | Đông Á (Asia-Pacific) | Hồng Kông (HK) | 8 | 5.0%
+ table26 rows=1 cols=1 style=None
+     icacls "C:\path\to\ssh-key.key" /inher
+ table27 rows=1 cols=1 style=None
+     sudo fallocate -l 2G /swapfile && sudo
+ table28 rows=1 cols=1 style=None
+     python scripts/test_live_honeypot.py -
+ table29 rows=1 cols=1 style=None
+     sudo apt-get update && sudo apt-get in
+ table30 rows=1 cols=1 style=None
+     sudo iptables -t nat -A PREROUTING -p 
+ table31 rows=1 cols=1 style=None
+     cd /path/to/soc-honeynet-active-defens
+ table32 rows=1 cols=1 style=None
+     python3 scripts/simulate_attack.py
+pyt
+
+MEDIA: ['word/media/image15.jpg', 'word/media/image24.png', 'word/media/image23.jpg', 'word/media/image10.jpg', 'word/media/image2.jpg', 'word/media/image29.jpg', 'word/media/image28.png', 'word/media/image8.png', 'word/media/image11.png', 'word/media/image31.jpg', 'word/media/image22.jpg', 'word/media/image9.jpg', 'word/media/image25.jpg', 'word/media/image5.png', 'word/media/image1.jpg', 'word/media/image17.jpg', 'word/media/image16.png', 'word/media/image30.jpg', 'word/media/image12.png', 'word/media/image18.png', 'word/media/image34.jpg', 'word/media/image21.jpg', 'word/media/image13.jpg', 'word/media/image26.jpg', 'word/media/image35.jpg', 'word/media/image6.png', 'word/media/image20.jpg', 'word/media/image33.jpg', 'word/media/image4.jpg', 'word/media/image27.png', 'word/media/image3.jpg', 'word/media/image19.jpg', 'word/media/image32.jpg', 'word/media/image14.png', 'word/media/image7.png']
+has toc field: True

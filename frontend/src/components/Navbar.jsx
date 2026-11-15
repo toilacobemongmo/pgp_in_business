@@ -1,15 +1,25 @@
 import React from 'react';
-import { 
-  ShieldCheck, Key, FileCheck, Users, Mail, Activity, 
-  Download, BookOpen, UserCheck, Globe, Search, Binary, Network, Split, GitCommit
+import {
+  ShieldCheck, Key, FileCheck, Users, Mail, Activity,
+  Download, BookOpen, Binary, Network, Split, GitCommit, LogOut
 } from 'lucide-react';
 
-export default function Navbar({ 
-  activeTab, 
-  setActiveTab, 
-  caInfo, 
-  userRole, 
-  setUserRole 
+const ROLE_LABELS = {
+  admin: '👑 1. CA Administrator (Quản trị)',
+  employee: '👩‍💻 2. Cán bộ Doanh nghiệp (Nội bộ)',
+  partner: '🏢 3. Đối tác B2B (Doanh nghiệp Ngoài)',
+  public: '🔍 4. Người Thẩm tra (Công khai)',
+};
+
+export default function Navbar({
+  activeTab,
+  setActiveTab,
+  caInfo,
+  userRole,
+  setUserRole,
+  allowedViews = ['public'],
+  serverRole = 'public',
+  onLogout
 }) {
   const adminNavItems = [
     { id: 'dashboard', label: 'Bảng điều khiển', icon: Activity },
@@ -42,11 +52,15 @@ export default function Navbar({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo & System Brand */}
-          <div 
-            className="flex items-center gap-3 cursor-pointer shrink-0" 
+          <div
+            className="flex items-center gap-3 cursor-pointer shrink-0"
             onClick={() => {
-              setUserRole('admin');
-              setActiveTab('dashboard');
+              if (allowedViews.includes('admin')) {
+                setUserRole('admin');
+                setActiveTab('dashboard');
+              } else {
+                setActiveTab('dashboard');
+              }
             }}
           >
             <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 ring-1 ring-cyan-400/30">
@@ -63,7 +77,9 @@ export default function Navbar({
             </div>
           </div>
 
-          {/* Right Action: ROLE SWITCHER (Chuyển đổi góc nhìn vai trò người dùng) */}
+          {/* Right Action: ROLE SWITCHER.
+              Danh sách chỉ chứa các góc nhìn mà server đã cấp quyền cho token hiện tại
+              (allowedViews), nên đây KHÔNG còn là cửa hậu chiếm quyền admin ở client. */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
               <span className="text-[11px] font-semibold text-slate-400 pl-2 hidden md:inline">
@@ -86,11 +102,31 @@ export default function Navbar({
                     : 'bg-teal-950/80 text-teal-300 border-teal-700'
                 }`}
               >
-                <option value="admin">👑 1. CA Administrator (Quản trị)</option>
-                <option value="employee">👩‍💻 2. Cán bộ Doanh nghiệp (Nội bộ)</option>
-                <option value="partner">🏢 3. Đối tác B2B (Doanh nghiệp Ngoài)</option>
-                <option value="public">🔍 4. Người Thẩm tra (Công khai)</option>
+                {allowedViews.map((role) => (
+                  <option key={role} value={role}>{ROLE_LABELS[role] || role}</option>
+                ))}
               </select>
+            </div>
+
+            {/* Danh tính do máy chủ xác nhận + đăng xuất */}
+            <div className="hidden md:flex items-center gap-2 bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800 text-xs">
+              <span
+                className={`h-2 w-2 rounded-full ${
+                  serverRole === 'public' ? 'bg-slate-500' : 'bg-emerald-400'
+                }`}
+              ></span>
+              <span className="font-mono text-slate-400">
+                server: {serverRole}
+              </span>
+              {onLogout && (
+                <button
+                  onClick={onLogout}
+                  title="Xóa token khỏi phiên trình duyệt"
+                  className="hover:text-rose-300 text-slate-500 p-0.5"
+                >
+                  <LogOut className="h-3.5 w-3.5" />
+                </button>
+              )}
             </div>
 
             {/* Root CA Status pill (chỉ hiện khi màn hình đủ rộng) */}

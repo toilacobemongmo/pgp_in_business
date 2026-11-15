@@ -20,6 +20,9 @@ export default function ShamirKeyShardingView({ caInfo }) {
   const [recovering, setRecovering] = useState(false);
   const [splitError, setSplitError] = useState('');
   const [recoverError, setRecoverError] = useState('');
+  const [unsealing, setUnsealing] = useState(false);
+  const [unsealResult, setUnsealResult] = useState(null);
+  const [sealing, setSealing] = useState(false);
 
   const handleSplit = async () => {
     setSplitting(true);
@@ -42,6 +45,14 @@ export default function ShamirKeyShardingView({ caInfo }) {
     }
   };
 
+  const collectShares = () => {
+    const lines = sharesInput.split('\n').map(l => l.trim()).filter(l => l.startsWith('SHR-'));
+    if (lines.length === 0) {
+      throw new Error('Không tìm thấy định dạng mảnh SHR-kOFn-... hợp lệ.');
+    }
+    return lines;
+  };
+
   const handleRecover = async () => {
     if (!sharesInput.trim()) {
       setRecoverError('Vui lòng dán ít nhất k mảnh khóa (mỗi mảnh trên một dòng).');
@@ -51,11 +62,7 @@ export default function ShamirKeyShardingView({ caInfo }) {
     setRecoverError('');
     setRecoveredSecret(null);
     try {
-      const lines = sharesInput.split('\n').map(l => l.trim()).filter(l => l.startsWith('SHR-'));
-      if (lines.length === 0) {
-        throw new Error('Không tìm thấy định dạng mảnh SHR-kOFn-... hợp lệ.');
-      }
-      const res = await CA_API.recoverSecretShamir(lines);
+      const res = await CA_API.recoverSecretShamir(collectShares());
       if (res.success) {
         setRecoveredSecret(res);
       } else {
@@ -65,6 +72,46 @@ export default function ShamirKeyShardingView({ caInfo }) {
       setRecoverError(err.response?.data?.error || err.message || 'Lỗi khi gọi API phục hồi khóa.');
     } finally {
       setRecovering(false);
+    }
+  };
+
+  // Kỹ sư 2: mở phiên Root CA trong RAM bằng đúng ngưỡng k mảnh (không hiển thị secret ra UI)
+  const handleUnseal = async () => {
+    if (!sharesInput.trim()) {
+      setRecoverError('Vui lòng dán ít nhất k mảnh khóa (mỗi mảnh trên một dòng).');
+      return;
+    }
+    setUnsealing(true);
+    setRecoverError('');
+    setUnsealResult(null);
+    try {
+      const res = await CA_API.unsealCA(collectShares());
+      if (res.success) {
+        setUnsealResult(res);
+      } else {
+        setRecoverError(res.error || 'Unseal thất bại.');
+      }
+    } catch (err) {
+      setRecoverError(err.response?.data?.error || err.message || 'Lỗi khi gọi API Unseal CA.');
+    } finally {
+      setUnsealing(false);
+    }
+  };
+
+  const handleSeal = async () => {
+    setSealing(true);
+    setRecoverError('');
+    try {
+      const res = await CA_API.sealCA();
+      if (res.success) {
+        setUnsealResult(null);
+      } else {
+        setRecoverError(res.error || 'Seal thất bại.');
+      }
+    } catch (err) {
+      setRecoverError(err.response?.data?.error || err.message || 'Lỗi khi gọi API Seal CA.');
+    } finally {
+      setSealing(false);
     }
   };
 
@@ -116,13 +163,13 @@ export default function ShamirKeyShardingView({ caInfo }) {
           <div className="space-y-3">
             <div>
               <label className="text-xs font-semibold text-slate-300 block mb-1">
-                Bí Mật Cần Phân Rã (Để trống sẽ tự động lấy Passphrase Master của CA):
+                Bí Mật Cần Phân Rã (Để trống để phân rã Passphrase Root CA từ phiên đã Unseal):
               </label>
               <input
                 type="text"
                 value={secretInput}
                 onChange={(e) => setSecretInput(e.target.value)}
-                placeholder="EnterpriseRootCAPassphrase@2026 (hoặc chuỗi Private Key bất kỳ)"
+                placeholder="Nhập chuỗi bí mật bất kỳ — không dùng passphrase mặc định"
                 className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-xs text-purple-200 font-mono focus:ring-1 focus:ring-purple-500"
               />
             </div>
@@ -239,23 +286,52 @@ export default function ShamirKeyShardingView({ caInfo }) {
               </div>
             )}
 
-            <button
-              onClick={handleRecover}
-              disabled={recovering}
-              className="w-full py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg font-medium text-xs shadow-lg shadow-emerald-600/30 transition-all disabled:opacity-50"
-            >
-              {recovering ? 'Đang giải đa thức nội suy f(0)...' : 'Tái Tạo & Mở Khóa Phiên Quản Trị (Lagrange)'}
-            </button>
+            <div className="grid grid-cols-1 gap-2">
+              <button
+                onClick={handleUnseal}
+                disabled={unsealing}
+                className="w-full py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg font-medium text-xs shadow-lg shadow-emerald-600/30 transition-all disabled:opacity-50"
+              >
+                {unsealing ? 'Đang nội suy f(0) & giải mã Private Key...' : 'Unseal Root CA (k-of-n quorum) — mở phiên RAM'}
+              </button>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={handleRecover}
+                  disabled={recovering}
+                  className="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg font-medium text-[11px] transition-all disabled:opacity-50"
+                >
+                  {recovering ? 'Đang giải f(0)...' : 'Chỉ xem bí mật f(0)'}
+                </button>
+                <button
+                  onClick={handleSeal}
+                  disabled={sealing || caInfo?.isSealed === true}
+                  className="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg font-medium text-[11px] transition-all disabled:opacity-40"
+                >
+                  {sealing ? 'Đang seal...' : 'Seal Root CA ngay'}
+                </button>
+              </div>
+            </div>
           </div>
+
+          {unsealResult && (
+            <div className="mt-4 pt-4 border-t border-slate-800 space-y-1">
+              <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4" /> Root CA đã UNSEALED — phiên RAM sẽ tự Seal sau {Math.round((unsealResult.unsealTtlMs || 0) / 1000)}s
+              </span>
+              <p className="text-[11px] text-slate-400">
+                Private Key chỉ nằm trong bộ nhớ tiến trình, không ghi ra đĩa và không trả về trình duyệt.
+              </p>
+            </div>
+          )}
 
           {recoveredSecret && (
             <div className="mt-4 pt-4 border-t border-slate-800 space-y-2">
-              <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
-                <Check className="w-4 h-4" /> Tái tạo thành công từ {recoveredSecret.sharesCount} mảnh khóa hợp lệ!
+              <span className="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                <AlertCircle className="w-4 h-4" /> Tái tạo bí mật từ {recoveredSecret.sharesCount} mảnh hợp lệ (chỉ để kiểm chứng)
               </span>
-              <div className="p-3 bg-slate-950 border border-emerald-800/60 rounded-lg">
-                <span className="text-[10px] uppercase tracking-wider text-slate-400 block mb-1">Bí Mật Khôi Phục (f(0)):</span>
-                <code className="text-sm font-bold text-emerald-300 font-mono break-all">
+              <div className="p-3 bg-slate-950 border border-amber-800/60 rounded-lg">
+                <span className="text-[10px] uppercase tracking-wider text-slate-400 block mb-1">Bí Mật Khôi Phục (f(0)) — Không chia sẻ:</span>
+                <code className="text-sm font-bold text-amber-300 font-mono break-all">
                   {recoveredSecret.recoveredSecret}
                 </code>
               </div>

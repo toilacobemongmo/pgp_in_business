@@ -1,10 +1,166 @@
 import * as openpgp from 'openpgp';
 import crypto from 'crypto';
 import { store } from './store.js';
+import { ShamirSecretSharing } from './shamir-service.js';
+import { writeShards, SHARD_DIR } from './quorum-shard-store.js';
+import { isDemoPlaintextKeysEnabled } from './demo-mode.js';
 
-const CA_DEFAULT_PASSPHRASE = process.env.CA_PASSPHRASE || 'EnterpriseRootCAPassphrase@2026';
+/**
+ * KỸ SƯ 2 — Quản trị Root CA & Quorum Protection
+ *
+ * Passphrase không còn hardcode trong mã nguồn. Server chỉ chạy được khi
+ * biến môi trường CA_PASSPHRASE được nạp (ví dụ qua file .env không commit).
+ * Nếu thiếu, thao tác khởi tạo/quản trị CA sẽ báo lỗi cấu hình thay vì dùng
+ * một mật khẩu mặc định ai cũng biết.
+ */
+const CA_PASSPHRASE_ENV = 'CA_PASSPHRASE';
+
+// Thời gian Unseal tối đa (mặc định 5 phút) trước khi CA tự động niêm phong lại
+const UNSEAL_TTL_MS = Number(process.env.CA_UNSEAL_TTL_MS || 5 * 60 * 1000);
+
+/**
+ * Trạng thái phiên làm việc của Root CA. Chỉ tồn tại trong RAM của tiến trình,
+ * không bao giờ ghi xuống đĩa.
+ * @type {{ privateKey: object|null, unsealedAt: number|null, expiresAt: number|null, timer: any }}
+ */
+const caSession = {
+  privateKey: null,
+  unsealedAt: null,
+  expiresAt: null,
+  timer: null
+};
+
+function readCaPassphrase() {
+  const value = process.env[CA_PASSPHRASE_ENV];
+  if (!value || value.trim().length < 12) {
+    throw new Error(
+      `Biến môi trường ${CA_PASSPHRASE_ENV} chưa được cấu hình hoặc ngắn hơn 12 ký tự. ` +
+      'Không dùng passphrase mặc định vì lý do an toàn.'
+    );
+  }
+  return value;
+}
 
 export class PgpService {
+  /**
+   * Trạng thái niêm phong hiện tại của Root CA (dùng cho API /api/ca/status).
+   */
+  static getSealState() {
+    const isUnsealed = Boolean(caSession.privateKey) && Date.now() < (caSession.expiresAt || 0);
+    return {
+      isSealed: !isUnsealed,
+      unsealedAt: isUnsealed ? new Date(caSession.unsealedAt).toISOString() : null,
+      expiresAt: isUnsealed ? new Date(caSession.expiresAt).toISOString() : null,
+      ttlMs: UNSEAL_TTL_MS
+    };
+  }
+
+  static sealCA(reason = 'manual') {
+    if (caSession.timer) {
+      clearTimeout(caSession.timer);
+      caSession.timer = null;
+    }
+    caSession.privateKey = null;
+    caSession.unsealedAt = null;
+    caSession.expiresAt = null;
+    try {
+      store.logAudit('CA_SEAL', 'Security Officer', `Root CA đã được niêm phong lại (lý do: ${reason})`);
+    } catch (_) {
+      // store có thể chưa sẵn sàng trong ngữ cảnh test
+    }
+    return PgpService.getSealState();
+  }
+
+  static _armAutoSeal() {
+    if (caSession.timer) clearTimeout(caSession.timer);
+    caSession.timer = setTimeout(() => {
+      PgpService.sealCA('auto-timeout');
+    }, UNSEAL_TTL_MS);
+    // Không giữ tiến trình sống chỉ vì timer này
+    if (typeof caSession.timer.unref === 'function') caSession.timer.unref();
+  }
+
+  /**
+   * Yêu cầu khóa riêng Root CA đã được Unseal. Ném lỗi 423 nếu chưa.
+   */
+  static requireUnsealed() {
+    const state = PgpService.getSealState();
+    if (state.isSealed) {
+      const err = new Error('Root CA đang ở trạng thái SEALED. Cần tập hợp đủ mảnh Quorum và gọi /api/ca/unseal trước.');
+      err.statusCode = 423;
+      err.code = 'CA_SEALED';
+      throw err;
+    }
+    return caSession.privateKey;
+  }
+
+  /**
+   * Tái tạo passphrase CA từ các mảnh Shamir, giải mã khóa riêng và giữ trong RAM.
+   * @param {string[]} shareKeys
+   */
+  static async unsealCA(shareKeys) {
+    const sealed = PgpService.getSealState();
+    if (!sealed.isSealed) {
+      return { success: true, alreadyUnsealed: true, state: PgpService.getSealState() };
+    }
+
+    const db = store.read();
+    const caConfig = db.ca_config;
+    if (!caConfig || !caConfig.privateKeyArmored) {
+      const err = new Error('Root CA chưa được khởi tạo hoặc không có khóa riêng để mở niêm phong.');
+      err.statusCode = 409;
+      throw err;
+    }
+
+    // Bước 1: Khôi phục passphrase từ Quorum (ngưỡng k được ghi trong từng mảnh)
+    const recovered = ShamirSecretSharing.tryCombine(shareKeys);
+    if (!recovered.ok) {
+      const err = new Error(`Unseal thất bại: ${recovered.reason}`);
+      err.statusCode = 400;
+      throw err;
+    }
+
+    // Bước 2: Thử giải mã khóa riêng bằng passphrase vừa khôi phục
+    let decryptedKey;
+    try {
+      decryptedKey = await openpgp.decryptKey({
+        privateKey: await openpgp.readPrivateKey({ armoredKey: caConfig.privateKeyArmored }),
+        passphrase: recovered.secret
+      });
+    } catch (e) {
+      const err = new Error('Unseal thất bại: các mảnh khóa không tái tạo đúng passphrase của Root CA.');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    caSession.privateKey = decryptedKey;
+    caSession.unsealedAt = Date.now();
+    caSession.expiresAt = Date.now() + UNSEAL_TTL_MS;
+    PgpService._armAutoSeal();
+
+    store.logAudit(
+      'CA_UNSEAL',
+      'Multi-Admin Quorum',
+      `Root CA được Unseal bằng ${shareKeys.length} mảnh khóa, phiên làm việc ${Math.round(UNSEAL_TTL_MS / 1000)}s`
+    );
+
+    return { success: true, alreadyUnsealed: false, state: PgpService.getSealState() };
+  }
+
+  /**
+   * Trả khóa riêng CA đã giải mã, ưu tiên phiên Unseal trong RAM.
+   * Nếu CA đang SEALED thì từ chối (không fallback về passphrase môi trường cho
+   * các thao tác quản trị, tránh vô hiệu hóa cơ chế Quorum).
+   */
+  static _getOperatingCaKey() {
+    const state = PgpService.getSealState();
+    if (!state.isSealed) return caSession.privateKey;
+
+    const err = new Error('Root CA đang ở trạng thái SEALED. Cần gọi /api/ca/unseal với đủ mảnh Quorum trước khi thực hiện thao tác này.');
+    err.statusCode = 423;
+    err.code = 'CA_SEALED';
+    throw err;
+  }
   /**
    * Khởi tạo hoặc tải thông tin Corporate Root CA
    */
@@ -12,8 +168,11 @@ export class PgpService {
     const db = store.read();
     if (db.ca_config && db.ca_config.publicKeyArmored) {
       console.log('✅ Corporate Root CA already initialized. Fingerprint:', db.ca_config.fingerprint);
+      console.log('🔒 Root CA ở trạng thái SEALED — cần Quorum unseal trước khi cấp/thu hồi chứng chỉ.');
       return db.ca_config;
     }
+
+    const passphrase = readCaPassphrase();
 
     console.log('⚡ Generating Corporate Root CA Master Keypair...');
     const caKey = await openpgp.generateKey({
@@ -22,7 +181,7 @@ export class PgpService {
         name: 'Enterprise Corporate Root CA',
         email: 'ca-root@enterprise-security.internal'
       }],
-      passphrase: CA_DEFAULT_PASSPHRASE
+      passphrase
     });
 
     const pubKey = await openpgp.readKey({ armoredKey: caKey.publicKey });
@@ -44,7 +203,42 @@ export class PgpService {
       revocationCertificateArmored: caKey.revocationCertificate
     };
 
+    // Lưu ý kiến trúc: khóa riêng vẫn nằm trong db.json (đã mã hóa bằng passphrase
+    // trong envelope OpenPGP của openpgp.js, KHÔNG phải plaintext), và CA khởi động
+    // luôn ở trạng thái SEALED. Muốn sử dụng phải Unseal bằng Quorum.
+    caConfig.isSealed = true;
+
     db.ca_config = caConfig;
+
+    // Tự động sinh bộ mảnh Quorum mặc định (3-of-5) ngay sau khi khởi tạo,
+    // để nhóm có thể bàn giao mảnh cho các Quản trị viên An ninh.
+    //
+    // WORKSTREAM B: mảnh được ghi ra FILE RIÊNG (0600) trong
+    // backend/data/quorum-shards/ — KHÔNG chỉ in console (mất khi đóng terminal)
+    // và KHÔNG lưu vào db.json. Thư mục này nằm trong .gitignore.
+    try {
+      const quorumShares = ShamirSecretSharing.split(passphrase, 5, 3);
+      const writtenFiles = writeShards(quorumShares);
+      console.warn('');
+      console.warn('='.repeat(78));
+      console.warn('🚨 BỘ MẢNH QUORUM 3-OF-5 ĐÃ ĐƯỢC GHI XUỐNG ĐĨA — XỬ LÝ NGAY');
+      console.warn('='.repeat(78));
+      console.warn(`Thư mục: ${SHARD_DIR}`);
+      writtenFiles.forEach((f) => console.warn(`   ${f.fileName}  ->  ${f.holderRole}`));
+      console.warn('');
+      console.warn('BẮT BUỘC:');
+      console.warn('  1. Bàn giao MỖI mảnh cho MỘT NGƯỜI GIỮ KHÁC NHAU (5 người).');
+      console.warn('  2. Không gửi mảnh qua email/chat/ticket.');
+      console.warn('  3. Bàn giao xong thì XÓA thư mục trên khỏi server:');
+      console.warn('       rmdir /s /q backend\\data\\quorum-shards   (Windows)');
+      console.warn('       rm -rf backend/data/quorum-shards          (Linux/macOS)');
+      console.warn('  4. Mất >= 3 mảnh = mất vĩnh viễn khả năng unseal Root CA.');
+      console.warn('='.repeat(78));
+      console.warn('');
+    } catch (shareErr) {
+      console.error('❌ Không sinh/ghi được bộ mảnh Quorum:', shareErr.message);
+      console.error('   Root CA vẫn đã được tạo nhưng sẽ KHÔNG thể unseal nếu không có mảnh.');
+    }
 
     // Seed initial Enterprise Key Directory with CA key itself
     db.key_directory = [
@@ -88,7 +282,8 @@ export class PgpService {
         department: 'Phòng Kế toán & Tài chính',
         role: 'Kế toán trưởng',
         validityDays: 365,
-        notes: 'Cấp chữ ký số để duyệt chi ngân sách và hóa đơn điện tử'
+        notes: 'Cấp chữ ký số để duyệt chi ngân sách và hóa đơn điện tử',
+        _bypassSeal: true
       });
 
       // 2. Tạo chứng chỉ cho Giám đốc Pháp chế
@@ -98,7 +293,8 @@ export class PgpService {
         department: 'Ban Pháp chế & Tuân thủ',
         role: 'Trưởng ban Pháp chế',
         validityDays: 365,
-        notes: 'Ký số hợp đồng thương mại và văn bản pháp lý'
+        notes: 'Ký số hợp đồng thương mại và văn bản pháp lý',
+        _bypassSeal: true
       });
 
       // 3. Tạo một đối tác doanh nghiệp ngoài (External B2B Partner: FINCORP)
@@ -122,7 +318,9 @@ export class PgpService {
         fingerprint: partnerPub.getFingerprint(),
         keyID: partnerPub.getKeyID().toHex().toUpperCase(),
         publicKeyArmored: partnerKey.publicKey,
-        privateKeyArmoredDemo: partnerKey.privateKey, // Lưu demo để test gửi nhận tin nhắn mật
+        // WORKSTREAM C: khóa riêng demo (plaintext) chỉ lưu khi DEMO_PLAINTEXT_KEYS=1.
+        // Mặc định KHÔNG ghi gì vào db.json.
+        ...(isDemoPlaintextKeysEnabled() ? { privateKeyArmoredDemo: partnerKey.privateKey } : {}),
         trustLevel: 'verified_partner',
         isCA: false,
         notes: 'Đối tác cung ứng vốn và dịch vụ thanh toán quốc tế đã xác thực danh tính.',
@@ -130,9 +328,11 @@ export class PgpService {
       });
 
       // 4. Tạo một tin nhắn mẫu B2B an toàn giữa Enterprise và FINCORP
+      //    Dùng khóa riêng CA vừa sinh trong phiên khởi tạo (không đọc lại từ đĩa),
+      //    nên không cần Unseal cho bước seed.
       const caPrivKey = await openpgp.decryptKey({
         privateKey: await openpgp.readPrivateKey({ armoredKey: caConfig.privateKeyArmored }),
-        passphrase: CA_DEFAULT_PASSPHRASE
+        passphrase: readCaPassphrase()
       });
 
       const sampleMsgText = JSON.stringify({
@@ -183,18 +383,28 @@ export class PgpService {
     role,
     validityDays = 365,
     customPublicKeyArmored = null,
-    notes = ''
+    notes = '',
+    _bypassSeal = false
   }) {
     const db = store.read();
     const caConfig = db.ca_config;
     if (!caConfig) throw new Error('CA chưa được khởi tạo.');
 
-    const caPrivKey = await openpgp.decryptKey({
-      privateKey: await openpgp.readPrivateKey({ armoredKey: caConfig.privateKeyArmored }),
-      passphrase: CA_DEFAULT_PASSPHRASE
-    });
+    // KỸ SƯ 2: Cổng Quorum. Chỉ được ký cấp chứng chỉ khi CA đã được Unseal.
+    // Luồng seed nội bộ ngay sau khi khởi tạo truyền _bypassSeal=true vì
+    // khóa riêng vừa được sinh trong cùng phiên.
+    let caPrivKey;
+    if (_bypassSeal) {
+      caPrivKey = await openpgp.decryptKey({
+        privateKey: await openpgp.readPrivateKey({ armoredKey: caConfig.privateKeyArmored }),
+        passphrase: readCaPassphrase()
+      });
+    } else {
+      caPrivKey = PgpService._getOperatingCaKey();
+    }
 
     let generatedPrivateKeyArmored = null;
+    let generatedRevocationCertificateArmored = null;
     let targetPublicKeyArmored = customPublicKeyArmored;
 
     if (!targetPublicKeyArmored) {
@@ -205,6 +415,12 @@ export class PgpService {
       });
       targetPublicKeyArmored = userKeypair.publicKey;
       generatedPrivateKeyArmored = userKeypair.privateKey;
+      // KỸ SƯ 2: openpgp v6 CHỈ sinh revocation certificate tại thời điểm generateKey
+      // (Packet Tag 2). Nếu bỏ qua đây thì KHÔNG THỂ sinh lại sau này, vì
+      // getRevocationCertificate() trên key đã parse lại sẽ ném
+      // "Could not find valid key revocation signature in key <id>".
+      // Vì vậy phải lưu ngay vào chứng chỉ để phục vụ thu hồi về sau.
+      generatedRevocationCertificateArmored = userKeypair.revocationCertificate || null;
     }
 
     // Đọc public key của user
@@ -237,8 +453,11 @@ export class PgpService {
       caKeyID: caConfig.keyID,
       certifiedPublicKeyArmored: certifiedArmored,
       originalPublicKeyArmored: targetPublicKeyArmored,
-      // Lưu tạm private key demo nếu CA tự sinh để người dùng tải về
-      demoPrivateKeyArmored: generatedPrivateKeyArmored,
+      // Revocation certificate sinh sẵn lúc tạo khóa (chỉ có khi CA tự sinh khóa).
+      revocationCertificateArmored: generatedRevocationCertificateArmored || null,
+      // WORKSTREAM C: trước đây luôn ghi khóa riêng PLAINTEXT vào db.json.
+      // Nay chỉ ghi khi DEV-ONLY flag bật; mặc định field không tồn tại.
+      ...(isDemoPlaintextKeysEnabled() ? { demoPrivateKeyArmored: generatedPrivateKeyArmored } : {}),
       notes: notes || 'Chứng chỉ chữ ký số nội bộ cấp bởi Corporate CA'
     };
 
@@ -256,7 +475,7 @@ export class PgpService {
       fingerprint,
       keyID,
       publicKeyArmored: certifiedArmored,
-      demoPrivateKeyArmored: generatedPrivateKeyArmored,
+      ...(isDemoPlaintextKeysEnabled() ? { demoPrivateKeyArmored: generatedPrivateKeyArmored } : {}),
       trustLevel: 'corporate_certified',
       isCA: false,
       notes: `${role} - ${department}`,
@@ -291,9 +510,69 @@ export class PgpService {
       throw new Error('Chứng chỉ này đã bị thu hồi trước đó.');
     }
 
+    // KỸ SƯ 2: Thu hồi là thao tác quản trị nhạy cảm — bắt buộc CA đã Unseal.
+    // Gọi _getOperatingCaKey() ở đây mang tính "cổng quorum": nó ném CA_SEALED khi
+    // Root CA đang niêm phong. Khóa trả về không dùng để ký vì openpgp v6 không hỗ trợ
+    // ký revocation certificate bằng khóa bên thứ ba (xem giải thích bên dưới).
+    PgpService._getOperatingCaKey();
+
+    // Thu hồi khóa theo RFC 4880 — CHỈ dùng API thực sự tồn tại trong openpgp v6.3.2.
+    //
+    // Hạn chế đã kiểm chứng bằng thực nghiệm (xem analysis bên dưới):
+    //   - openpgp v6 KHÔNG export createRevocationCertificate().
+    //   - getRevocationCertificate() chỉ dùng được trên đối tượng khóa ngay trong
+    //     phiên generateKey(); sau khi đóng gói armor rồi readKey lại thì ném
+    //     "Could not find valid key revocation signature in key <id>".
+    //   - vì vậy certificate (Packet Tag 2) phải được sinh SẴN lúc generateKey và
+    //     lưu trong chứng chỉ (trường revocationCertificateArmored).
+    //
+    // Ở đây ta thực hiện 2 việc tách biệt:
+    //   (1) Sinh trạng thái khóa ĐÃ THU HỒI bằng revokeKey() trên private key
+    //       (openpgp giải mã được khóa demo nếu CA tự sinh) -> isRevoked() = true.
+    //   (2) Đính kèm revocation certificate đã lưu sẵn để có thể phân phối công khai.
+    // Nếu không có private key (khóa do người dùng tự sinh/nhập), chỉ bước (2) chạy.
+    let revocationCertificateArmored = cert.revocationCertificateArmored || null;
+    let revokedPublicKeyArmored = null;
+    let revocationError = null;
+
+    try {
+      const employeeKey = await openpgp.readKey({
+        armoredKey: cert.certifiedPublicKeyArmored || cert.originalPublicKeyArmored
+      });
+
+      // (2) Xác minh certificate lưu sẵn thực sự áp dụng được lên khóa này.
+      if (revocationCertificateArmored) {
+        const applied = await employeeKey.applyRevocationCertificate(
+          revocationCertificateArmored,
+          new Date(),
+          openpgp.config
+        );
+        revokedPublicKeyArmored = applied.toPublic().armor();
+      }
+
+      // (1) Nếu có private key demo thì sinh luôn trạng thái khóa bị thu hồi.
+      if (cert.demoPrivateKeyArmored) {
+        const employeePrivKey = await openpgp.readPrivateKey({ armoredKey: cert.demoPrivateKeyArmored });
+        const revoked = await openpgp.revokeKey({
+          key: employeePrivKey,
+          reasonForRevocation: {
+            flag: openpgp.enums.reasonForRevocation.keyCompromised,
+            string: reason
+          },
+          format: 'armored'
+        });
+        revokedPublicKeyArmored = typeof revoked === 'string' ? revoked : revoked.publicKey;
+      }
+    } catch (e) {
+      revocationError = e.message;
+    }
+
     cert.status = 'revoked';
     cert.revokedAt = new Date().toISOString();
     cert.revocationReason = reason;
+    cert.revocationSignatureArmored = revocationCertificateArmored;
+    cert.revokedPublicKeyArmored = revokedPublicKeyArmored;
+    if (revocationError) cert.revocationSignatureError = revocationError;
 
     // Cập nhật trạng thái trong Directory
     const dirEntry = db.key_directory.find(k => k.fingerprint === cert.fingerprint);
@@ -499,15 +778,25 @@ export class PgpService {
     senderEmail,
     senderPrivateKeyArmored,
     senderPassphrase = '',
+    senderIsCA = false,
     recipientOrg,
     recipientEmail,
     recipientPublicKeyArmored,
     subject,
     content
   }) {
-    let senderPriv = await openpgp.readPrivateKey({ armoredKey: senderPrivateKeyArmored });
-    if (senderPassphrase) {
-      senderPriv = await openpgp.decryptKey({ privateKey: senderPriv, passphrase: senderPassphrase });
+    let senderPriv;
+    if (senderIsCA) {
+      // Kỹ sư 2: ký bằng khóa Root CA chỉ khi phiên đã UNSEALED, không dùng passphrase từ client.
+      senderPriv = PgpService._getOperatingCaKey();
+    } else {
+      if (!senderPrivateKeyArmored) {
+        throw new Error('Thiếu Private Key của bên gửi để ký số.');
+      }
+      senderPriv = await openpgp.readPrivateKey({ armoredKey: senderPrivateKeyArmored });
+      if (senderPassphrase) {
+        senderPriv = await openpgp.decryptKey({ privateKey: senderPriv, passphrase: senderPassphrase });
+      }
     }
     const senderPub = senderPriv.toPublic();
     const recipientPub = await openpgp.readKey({ armoredKey: recipientPublicKeyArmored });
@@ -560,11 +849,21 @@ export class PgpService {
     encryptedPayloadArmored,
     recipientPrivateKeyArmored,
     recipientPassphrase = '',
+    recipientIsCA = false,
     senderPublicKeyArmored
   }) {
-    let recipientPriv = await openpgp.readPrivateKey({ armoredKey: recipientPrivateKeyArmored });
-    if (recipientPassphrase) {
-      recipientPriv = await openpgp.decryptKey({ privateKey: recipientPriv, passphrase: recipientPassphrase });
+    let recipientPriv;
+    if (recipientIsCA) {
+      // Kỹ sư 2: giải mã bằng khóa Root CA trong phiên RAM, không nhận khóa/passphrase từ client.
+      recipientPriv = PgpService._getOperatingCaKey();
+    } else {
+      if (!recipientPrivateKeyArmored) {
+        throw new Error('Thiếu Private Key của bên nhận để giải mã.');
+      }
+      recipientPriv = await openpgp.readPrivateKey({ armoredKey: recipientPrivateKeyArmored });
+      if (recipientPassphrase) {
+        recipientPriv = await openpgp.decryptKey({ privateKey: recipientPriv, passphrase: recipientPassphrase });
+      }
     }
 
     const senderPub = await openpgp.readKey({ armoredKey: senderPublicKeyArmored });

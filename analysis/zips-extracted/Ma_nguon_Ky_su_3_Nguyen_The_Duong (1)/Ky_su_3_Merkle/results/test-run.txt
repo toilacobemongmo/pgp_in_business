@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: 01 Empty tree: known SHA-256 vector and no proof
+ok 1 - 01 Empty tree: known SHA-256 vector and no proof
+  ---
+  duration_ms: 2.517371
+  type: 'test'
+  ...
+# Subtest: 02 One leaf: empty path and changed record fails
+ok 2 - 02 One leaf: empty path and changed record fails
+  ---
+  duration_ms: 1.654702
+  type: 'test'
+  ...
+# Subtest: 03 Nested objects and integer-like keys use UTF-16 lexical order
+ok 3 - 03 Nested objects and integer-like keys use UTF-16 lexical order
+  ---
+  duration_ms: 0.442452
+  type: 'test'
+  ...
+# Subtest: 04 Unicode key sorting uses code units, not locale or code points
+ok 4 - 04 Unicode key sorting uses code units, not locale or code points
+  ---
+  duration_ms: 0.366726
+  type: 'test'
+  ...
+# Subtest: 05 Finite number serialization and negative zero
+ok 5 - 05 Finite number serialization and negative zero
+  ---
+  duration_ms: 0.315989
+  type: 'test'
+  ...
+# Subtest: 06 Strings preserve content; Unicode is not normalized
+ok 6 - 06 Strings preserve content; Unicode is not normalized
+  ---
+  duration_ms: 0.556515
+  type: 'test'
+  ...
+# Subtest: 07 Reject invalid JSON values and lone surrogates
+ok 7 - 07 Reject invalid JSON values and lone surrogates
+  ---
+  duration_ms: 0.37611
+  type: 'test'
+  ...
+# Subtest: 08 Reject cycles, Date, getters, symbols, sparse and extended arrays
+ok 8 - 08 Reject cycles, Date, getters, symbols, sparse and extended arrays
+  ---
+  duration_ms: 0.538427
+  type: 'test'
+  ...
+# Subtest: 09 Array order matters; null-prototype objects and shared subobjects work
+ok 9 - 09 Array order matters; null-prototype objects and shared subobjects work
+  ---
+  duration_ms: 0.444475
+  type: 'test'
+  ...
+# Subtest: 10 All roots and all leaves for sizes 1 to 128 match recursive oracle
+ok 10 - 10 All roots and all leaves for sizes 1 to 128 match recursive oracle
+  ---
+  duration_ms: 292.441864
+  type: 'test'
+  ...
+# Subtest: 11 Five leaves split 4+1 without duplicating the last leaf
+ok 11 - 11 Five leaves split 4+1 without duplicating the last leaf
+  ---
+  duration_ms: 0.495031
+  type: 'test'
+  ...
+# Subtest: 12 Changed content, sibling, root and direction are detected
+ok 12 - 12 Changed content, sibling, root and direction are detected
+  ---
+  duration_ms: 0.411425
+  type: 'test'
+  ...
+# Subtest: 13 Malformed hex, invalid direction and missing/extra path fail closed
+ok 13 - 13 Malformed hex, invalid direction and missing/extra path fail closed
+  ---
+  duration_ms: 0.291402
+  type: 'test'
+  ...
+# Subtest: 14 Proof binds valid leaf index, tree size, version and trusted checkpoint
+ok 14 - 14 Proof binds valid leaf index, tree size, version and trusted checkpoint
+  ---
+  duration_ms: 0.397163
+  type: 'test'
+  ...
+# Subtest: 15 Editing, deletion, insertion and reordering ledger fail old checkpoint
+ok 15 - 15 Editing, deletion, insertion and reordering ledger fail old checkpoint
+  ---
+  duration_ms: 0.285674
+  type: 'test'
+  ...
+# Subtest: 16 Caller mutations cannot alter internal records, proof or checkpoint
+ok 16 - 16 Caller mutations cannot alter internal records, proof or checkpoint
+  ---
+  duration_ms: 0.213985
+  type: 'test'
+  ...
+# Subtest: 17 Invalid append is atomic and invalid indexes throw
+ok 17 - 17 Invalid append is atomic and invalid indexes throw
+  ---
+  duration_ms: 0.648144
+  type: 'test'
+  ...
+# Subtest: 18 Old proofs require old checkpoints after append
+ok 18 - 18 Old proofs require old checkpoints after append
+  ---
+  duration_ms: 0.159823
+  type: 'test'
+  ...
+# Subtest: 19 Legacy verifyProof API remains callable from instance and export
+ok 19 - 19 Legacy verifyProof API remains callable from instance and export
+  ---
+  duration_ms: 0.134044
+  type: 'test'
+  ...
+# Subtest: 20 Demonstrate trust boundary: recomputed malicious root is not evidence
+ok 20 - 20 Demonstrate trust boundary: recomputed malicious root is not evidence
+  ---
+  duration_ms: 0.200834
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 440.546055

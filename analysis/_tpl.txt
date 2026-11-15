@@ -1,0 +1,188 @@
+=== .aKetqua/pgp.docx | paras 378 | tables 12
+   page 7772400 10058400 margins L/R/T/B 1080135 720090 720090 720090
+   [normal|CENTER (1)] HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+   [normal|CENTER (1)] KHOA AN TOÀN THÔNG TIN
+   [normal|CENTER (1)] BÁO CÁO BÀI TẬP LỚN
+   [normal|CENTER (1)] HỌC PHẦN: CƠ SỞ AN TOÀN THÔNG TIN
+   [normal|CENTER (1)] MÃ HỌC PHẦN: INT1472
+   [normal|CENTER (1)] ĐỀ TÀI:
+   [normal|CENTER (1)] ỨNG DỤNG OPENPGP TRONG DOANH NGHIỆP: CHỨNG THỰC KHÓA NỘI BỘ, KÝ SỐ TÀI LIỆU VÀ TRAO ĐỔI DỮ LIỆU B2B
+   [normal|CENTER (1)] HÀ NỘI - 2026
+   [normal|JUSTIFY (3)] PHÂN CÔNG NHIỆM VỤ NHÓM THỰC HIỆN
+   [Heading 2|None] Tóm tắt đề tài
+   [normal|JUSTIFY (3)] Báo cáo nghiên cứu việc ứng dụng OpenPGP để chứng thực khóa nhân sự, ký số tài liệu và trao đổi dữ l
+   [normal|JUSTIFY (3)] Bài toán đặt ra xuất phát từ các giao dịch hợp đồng, báo giá và chứng từ có nhiều bên tham gia. Kênh
+   [normal|JUSTIFY (3)] Phương pháp nghiên cứu gồm đọc mã nguồn tại commit 0996e10a9c621831feaf5e984735498be7cdab13, lập bản
+   [normal|JUSTIFY (3)] Kết quả cho thấy dự án có cấu trúc minh họa tương đối đầy đủ cho một trung tâm tin cậy: tạo CA, cấp 
+   [normal|JUSTIFY (3)] Đóng góp của báo cáo là giải thích cụ thể các giới hạn đó và xây dựng hướng hoàn thiện có thể kiểm c
+   [Heading 1|None] Mục lục
+   [normal|None] Thuật ngữ và quy ước đọc kết quả 	5
+   [normal|None] Chương 1 Bối cảnh và yêu cầu hệ thống
+   [normal|None] Bảo vệ giao dịch trong doanh nghiệp số	6
+   [normal|None] Kịch bản hợp đồng và trao đổi B2B	7
+   [normal|None] Tài sản ranh giới tin cậy và tác nhân đe dọa	8
+   [normal|None] Mục tiêu bảo mật và quyết định nghiệp vụ	9
+   [normal|None] Yêu cầu phi chức năng và tiêu chí đánh giá	10
+   [normal|None] Chương 2 Cơ sở OpenPGP và mô hình tin cậy
+   [normal|None] OpenPGP trong hệ thống tiêu chuẩn mật mã	11
+   [normal|None] Mã hóa đối xứng và khóa phiên	12
+   [normal|None] Mật mã khóa công khai và trao đổi khóa	13
+   [normal|None] Hàm băm và dấu vết nội dung tài liệu	14
+   [normal|None] Khóa chính khóa con và User ID	15
+   [normal|None] Phân tích sơ đồ mã hóa và giải mã B2B	16
+   [normal|None] Phân tích sơ đồ ký số và chứng thực Corporate CA	17
+   [normal|None] Hết hạn thu hồi và xác minh theo thời gian	18
+   [normal|None] Chương 3 Kiến trúc và thiết kế dữ liệu
+   [normal|None] Kiến trúc ba lớp và trách nhiệm từng thành phần	19
+   [normal|None] Hợp đồng REST và danh mục 14 endpoint	20
+   [normal|None] Lược đồ dữ liệu và liên kết bằng fingerprint	21
+   [normal|None] Danh bạ khóa và ý nghĩa của mức tin cậy	22
+   [normal|None] Nhất quán dữ liệu và tình huống mất cập nhật	23
+   [normal|None] Thiết kế audit và giới hạn của bằng chứng kiểm toán	24
+   [normal|None] Chương 4 Xây dựng các chức năng mật mã
+   [normal|None] Khởi tạo Root CA và xử lý cấu hình bí mật	25
+   MEDIA: ['word/media/image5.png', 'word/media/image3.jpg', 'word/media/image2.jpg', 'word/media/image4.jpg', 'word/media/image1.jpg', 'word/media/image6.jpg']
+
+=== minhquan-csattt-btl/minhquan-csattt.docx | paras 51 | tables 7
+   page 7772400 10058400 margins L/R/T/B 868680 868680 777240 777240
+   [Normal|CENTER (1)] BỘ GIÁO DỤC VÀ ĐÀO TẠO — ĐỒ ÁN TỐT NGHIỆP KỸ SƯ CÔNG NGHỆ THÔNG TIN
+   [Normal|CENTER (1)] BÁO CÁO NGHIÊN CỨU CHUYÊN SÂU & TRIỂN KHAI KỸ THUẬT
+PHÂN HỆ KỸ SƯ 5: HYBRID CRYPTOGRAPHIC PIPELINE &
+   [Normal|CENTER (1)] Dự án: Enterprise OpenPGP Certificate Authority & B2B Secure Exchange
+(Hạ Tầng Trung Tâm Chứng Thực 
+   [Normal|None] 1. TỔNG QUAN PHÂN HỆ KỸ SƯ 5 TRONG KIẾN TRÚC ENTERPRISE OPENPGP CA
+   [Normal|None] Trong kiến trúc tổng thể của hệ thống Enterprise OpenPGP Certificate Authority & B2B Secure Exchange
+   [Normal|None] 2. KIẾN TRÚC PIPELINE SIGN-THEN-ENCRYPT & PHÒNG CHỐNG TẤN CÔNG
+   [Normal|None] 2.1. Luồng Xử Lý Mật Mã Lai 4 Tầng (Cryptographic Pipeline)
+   [Normal|None] Để đảm bảo đồng thời tính xác thực nguồn gốc (Authenticity), tính chống chối bỏ (Non-repudiation), t
+   [Normal|None] 2.2. Triệt Tiêu Tấn Công Surreptitious Forwarding qua Subpacket 35
+   [Normal|None] Tấn công Surreptitious Forwarding (được Don Davis phân tích kinh điển trong các giao thức Sign-then-
+   [Normal|None] Giải pháp kiến trúc của Kỹ sư 5: Khi Alice thực hiện Sign-then-Encrypt, hệ thống bắt buộc trích xuất
+   [Normal|None] 2.3. Phòng Ngừa Toàn Diện Lỗ Hổng EFail (CVE-2017-17688)
+   [Normal|None] Lỗ hổng EFail khai thác tính dẻo (malleability) của chế độ mã hóa CFB trong gói tin OpenPGP cũ Tag 9
+   [List Bullet|None] Lớp 1 — Cấm tuyệt đối Packet Tag 9: Trước khi gọi hàm giải mã, bộ phân tích kiểm tra cấu trúc gói ti
+   [List Bullet|None] Lớp 2 — Ép buộc SEIPD có xác thực toàn vẹn: Chỉ chấp nhận gói tin Tag 18 (SEIPD v1 có Modification D
+   [List Bullet|None] Lớp 3 — Atomic Stream Commitment: Toàn bộ dữ liệu giải mã chỉ được giải phóng cho tầng ứng dụng sau 
+   [Normal|None] 3. STREAMING DETACHED SIGNATURE & KIỂM SOÁT BACKPRESSURE (RAM < 50MB)
+   [Normal|None] 3.1. Giải Quyết Bài Toán Tràn Bộ Nhớ Heap & Hạn Chế Hai Lượt Đọc của PureEdDSA
+   [Normal|None] Trong môi trường doanh nghiệp B2B, các tệp hồ sơ đấu thầu, bản vẽ kỹ thuật CAD, video nghiệm thu hoặ
+   [Normal|None] Phân hệ Kỹ sư 5 giải quyết triệt để hai nút thắt này thông qua kiến trúc Single-Pass Stream Accumula
+   [List Bullet|None] Single-Pass SHA-512 Hashing: Theo chuẩn OpenPGP Detached Signature, luồng dữ liệu tệp tin chỉ đi qua
+   [List Bullet|None] Cơ chế Backpressure 64KB: Node.js ReadStream được cấu hình highWaterMark = 64 * 1024 (64KB). Khi hàn
+   [Normal|None] 3.2. Bảng Đánh Giá Hiệu Năng & Mức Chiếm Dụng Bộ Nhớ Thực Nghiệm
+   [Normal|None] 4. CHUẨN HÓA CLEARSIGN (RFC 4880) & CỔNG STATELESS PUBLIC VERIFIER
+   [Normal|None] 4.1. Chuẩn Hóa Văn Bản Clearsign Theo RFC 4880 Section 7.1
+   [Normal|None] Khi truyền tải các thông báo chính sách hoặc email ký rõ (Clearsigned Text) qua các hệ thống trung g
+   [List Bullet|None] Chuẩn hóa ký tự ngắt dòng: Chuyển đổi toàn bộ LF (\n) thành cặp CRLF (\r\n) đồng nhất trên toàn văn 
+   [List Bullet|None] Trailing Whitespace Stripping: Cắt bỏ toàn bộ ký tự khoảng trắng (0x20) và tab (0x09) ở cuối mỗi dòn
+   [List Bullet|None] Dash-Escaping: Mọi dòng bắt đầu bằng ký tự dấu gạch ngang '-' đều được chèn thêm tiền tố '- ' để trá
+   [Normal|None] 4.2. Cổng Thẩm Tra Công Khai Không Trạng Thái (Stateless Public Verifier - Zero-Disk)
+   [Normal|None] API POST /api/v1/pgp/verify-detached tại backend/server.js cung cấp cổng kiểm định chữ ký tách rời c
+   [List Bullet|None] Không ghi tệp tạm ra ổ đĩa (No Temp Files): Sử dụng multer.memoryStorage() kết hợp Readable.from(buf
+   [List Bullet|None] Triệt tiêu lỗ hổng TOCTOU (Time-of-Check to Time-of-Use): Do không tồn tại tệp trung gian trên hệ th
+   [List Bullet|None] Chống rò rỉ dữ liệu nhạy cảm: Hợp đồng B2B của đối tác không bao giờ để lại dấu vết trên phân vùng ổ
+   [Normal|None] 5. KẾ HOẠCH TRIỂN KHAI 4 TUẦN & KỊCH BẢN DEMO HỘI ĐỒNG
+   [Normal|None] 5.1. Đóng Góp Trong Lộ Trình R&D 4 Tuần (WBS)
+   [Normal|None] 5.2. Kịch Bản Trình Diễn Thực Tế Trước Hội Đồng (Phút 04:00 - 08:30)
+   [Normal|None] 6. BỘ CÂU HỎI PHẢN BIỆN CHUYÊN SÂU DÀNH CHO KỸ SƯ 5
+   [Normal|None] Câu hỏi Q5.1: Làm thế nào đảm bảo việc xử lý tệp 2GB không gây tràn bộ nhớ Node.js Heap?
+   [Normal|None] Trả lời: Thay vì nạp toàn bộ tệp vào RAM bằng fs.readFile(), phân hệ sử dụng Stream Transformer có k
+   [Normal|None] Câu hỏi Q5.2: Lỗ hổng EFail (CVE-2017-17688) được phòng ngừa triệt để như thế nào trong pipeline?
+   MEDIA: []
+
+=== Bao_cao_Ky_su_3_Nguyen_The_Duong.docx | paras 153 | tables 9
+   page 7772400 10058400 margins L/R/T/B 777240 685800 658495 621665
+   [Title|None] Báo cáo phần việc kỹ sư 3
+   [Normal|None] Cây Merkle và kiểm tra tính toàn vẹn nhật ký
+   [Normal|None] Đề tài  Enterprise OpenPGP CA & B2B Secure Exchange
+   [Normal|None] Người phụ trách  Nguyễn Thế Dương
+Module bàn giao  backend/merkle-engine.js
+Phiên bản  1.0.0
+Ngày lậ
+   [Heading 2|None] Mục tiêu và kết quả
+   [Normal|None] Phân hệ tạo cây Merkle từ các bản ghi hoạt động của hệ thống PGP, sinh bằng chứng cho từng bản ghi v
+   [Normal|None] Bản bàn giao đã chạy đạt 20 trên 20 nhóm kiểm thử. Đã đo thử trên 100.000 bản ghi và kiểm tra các tì
+   [Heading 2|None] Phạm vi theo phân công
+   [Heading 2|None] Trạng thái tích hợp
+   [Normal|None] Đây là phần triển khai độc lập dựa trên bản đặc tả được cung cấp. Chưa có mã nguồn dự án chung để xá
+   [Heading 1|None] 1 Cơ sở cây Merkle
+   [Normal|None] Mỗi lá đại diện một bản ghi. Các mã băm được ghép từ dưới lên để tạo root. Thứ tự bản ghi là một phầ
+   [Normal|CENTER (1)] Hình 1  Cây năm lá với nhánh trái bốn lá và nhánh phải một lá
+   [Heading 2|None] Các phép băm áp dụng
+   [Normal|None] H_empty = SHA256(chuoi byte rong)
+   [Normal|None] H_leaf  = SHA256(0x00 || UTF8(CanonicalJSON(record)))
+   [Normal|None] H_node  = SHA256(0x01 || leftHash || rightHash)
+   [Normal|None] Ký hiệu || là nối byte. 0x00 và 0x01 là một byte thực, không phải chuỗi ký tự. Hai tiền tố phân biệt
+   [Heading 2|None] Ví dụ với năm bản ghi
+   [Normal|None] Năm bản ghi D0 đến D4 được băm thành H0 đến H4. H01 kết hợp H0 và H1; H23 kết hợp H2 và H3; H0123 kế
+   [Normal|None] Để kiểm tra D2, cần H3, H01 và H4. Bộ kiểm tra lần lượt dựng lại H23, H0123 rồi root. Nếu root dựng 
+   [Heading 1|None] 2 Chuẩn hóa dữ liệu và bản ghi nhật ký
+   [Heading 2|None] Đầu vào thống nhất
+   [Normal|None] Module nhận giá trị JSON thuần trong bộ nhớ. Hàm canonicalize tự tạo chuỗi JSON theo thứ tự khóa UTF
+   [Normal|None] canonicalize({ b: 2, a: 1 })
+   [Normal|None] // {"a":1,"b":2}
+   [Normal|None] canonicalize({ "2": 2, "10": 10 })
+   [Normal|None] // {"10":10,"2":2}
+   [Normal|None] Mã nguồn ghép chuỗi từng thuộc tính thay vì sắp xếp rồi gọi JSON.stringify trên cả object; cách làm 
+   [Heading 2|None] Bản ghi đề xuất cho hệ thống PGP
+   [Normal|None] {
+   [Normal|None] "id": 3,
+   [Normal|None] "timestamp": "2026-11-11T09:00:02Z",
+   [Normal|None] "actor": "Nguyen The Duong",
+   [Normal|None] "action": "SIGN_DOCUMENT",
+   [Normal|None] "resource": "sample-3",
+   [Normal|None] "result": "SUCCESS"
+   [Normal|None] }
+   [Normal|None] Đây là dữ liệu giả lập phục vụ demo. Module không bắt buộc một schema nghiệp vụ riêng; tầng ứng dụng
+   [Heading 2|None] Các đầu vào bị từ chối
+   [Normal|None] Hàm giữ nguyên khoảng trắng bên trong chuỗi và không chuẩn hóa Unicode NFC/NFD. Hai chuỗi nhìn giống
+   MEDIA: ['word/media/image1.png']
+
+=== Bao_cao_tong_hop_ATTT.docx | paras 167 | tables 15
+   page 7772400 10058400 margins L/R/T/B 1080135 720090 899795 899795
+   [Normal|CENTER (1)] TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
+   [Normal|CENTER (1)] KHOA CÔNG NGHỆ THÔNG TIN
+   [Normal|CENTER (1)] BÁO CÁO TỔNG HỢP
+   [Normal|CENTER (1)] AN TOÀN THÔNG TIN — BÀI TẬP LỚN
+   [Normal|CENTER (1)] Enterprise OpenPGP Certificate Authority &
+B2B Secure Exchange
+   [Heading 1|None] MỤC LỤC
+   [List Bullet|None] I.    TỔNG QUAN DỰ ÁN
+   [List Bullet|None] II.   KỸ SƯ 1 — Pipeline Mật Mã Lai (Hybrid Cryptographic Pipeline)
+   [List Bullet|None] III.  KỸ SƯ 2 — Bảo Vệ Root CA bằng Quorum (Shamir) & Seal/Unseal
+   [List Bullet|None] IV.   KỸ SƯ 3 — Cây Merkle Kiểm Toán Tính Toàn Vẹn Nhật Ký
+   [List Bullet|None] V.    KỸ SƯ 4 — Phân Tích Web of Trust (WoT)
+   [List Bullet|None] VI.   KỸ SƯ 5 — Phân Tích Gói Tin OpenPGP & Kiểm Tra Tuân Thủ RFC
+   [List Bullet|None] VII.  ĐÁNH GIÁ TÍCH HỢP & ĐIỂM GIAO NHAU
+   [List Bullet|None] VIII. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+   [List Bullet|None] IX.   TÀI LIỆU THAM KHẢO
+   [Heading 1|None] I. TỔNG QUAN DỰ ÁN
+   [Normal|None] Đề tài xây dựng một hệ thống Tổ chức Chứng thực (CA) doanh nghiệp theo chuẩn OpenPGP kết hợp kênh tr
+   [Heading 2|None] 1.1 Kiến trúc tổng thể
+   [Normal|None] Hệ thống vận hành theo mô hình phân tầng, trong đó Root CA là trung tâm tin cậy và mọi hoạt động mật
+   [Normal|None] Toàn bộ backend được viết bằng Node.js ES Module, frontend bằng React/Vite. Dữ liệu được lưu trong f
+   [Heading 2|None] 1.2 Tóm tắt kết quả kiểm thử tổng hợp
+   [Normal|None] Tổng: 356 assertion kiểm thử tự động PASS, 0 FAIL (không tính test manual Pipeline Kỹ sư 1/5).
+   [Heading 1|None] II. KỸ SƯ 1 (5) — HYBRID CRYPTOGRAPHIC PIPELINE
+   [Normal|None] Phân hệ do Kỹ sư 5 (Minh Quân) phụ trách, tập trung vào pipeline mật mã lai Sign-then-Encrypt xử lý 
+   [Heading 2|None] 2.1 Pipeline mật mã 4 tầng
+   [Normal|None] Pipeline áp dụng chuẩn RFC 9580 (Crypto-Refresh) theo thứ tự Sign-then-Encrypt:
+   [Heading 2|None] 2.2 Xử lý stream tệp lớn — Backpressure 64 KB
+   [Normal|None] Thay vì nạp toàn bộ tệp vào RAM bằng fs.readFile(), phân hệ dùng Stream Transformer có kiểm soát áp 
+   [Heading 2|None] 2.3 Chống Surreptitious Forwarding
+   [Normal|None] Phân hệ nhúng Subpacket 35 (Intended Recipient Fingerprint) vào Signature Packet. Khi Bob giải mã gó
+   [Heading 2|None] 2.4 Hạn chế và điểm cần lưu ý
+   [List Bullet|None] Phân hệ standalone, chưa tích hợp với Root CA Kỹ sư 2 (dùng khóa độc lập).
+   [List Bullet|None] Test manual — chưa có bộ unit test tự động; benchmark cần chạy lại trên môi trường sản xuất.
+   [List Bullet|None] Chưa kiểm thử trên Windows (benchmark chạy trên linux/x64 AMD EPYC).
+   [Heading 1|None] III. KỸ SƯ 2 — BẢO VỆ ROOT CA BẰNG QUORUM (SHAMIR) & SEAL/UNSEAL
+   [Normal|None] Phân hệ do Kỹ sư 2 phụ trách. Phạm vi gồm backend/shamir-service.js, backend/pgp-service.js, backend
+   [Heading 2|None] 3.1 Lỗ hổng trạng thái ban đầu
+   [Heading 2|None] 3.2 Thay đổi đã triển khai
+   [Normal|None] shamir-service.js — Envelope v2 + Session Tag
+   [Normal|None] Cấu trúc: [0x02][sessionTag 8B][lenField 4B BE][secret][padding][tag 16B]
+Session tag 8 byte ngẫu nh
+   [Normal|None] pgp-service.js — Máy trạng thái Seal/Unseal
+   MEDIA: []
+
+ACTIVE_DEFENSE hits: ['c:\\Users\\ghaob\\Downloads\\ACTIVE_DEFENSE.docx']

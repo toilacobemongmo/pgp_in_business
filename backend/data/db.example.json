@@ -1,0 +1,15 @@
+{
+  "_comment": [
+    "MAU RONG CUA db.json — KHONG chua khoa rieng, KHONG chua du lieu that.",
+    "File that backend/data/db.json bi .gitignore loai bo va duoc tu sinh khi khoi dong.",
+    "JsonStore.init() se tao db.json tu defaultDb neu file chua ton tai;",
+    "PgpService.initCA() se sinh CA moi + seed du lieu mau ngay lan chay dau.",
+    "Ban sao file nay chi de xem cau truc schema; khong copy de ghi de db.json that."
+  ],
+  "ca_config": null,
+  "certificates": [],
+  "key_directory": [],
+  "signed_documents": [],
+  "b2b_messages": [],
+  "audit_logs": []
+}

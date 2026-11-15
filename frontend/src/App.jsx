@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
+import AuthLoginView from './components/AuthLoginView';
 import DashboardView from './components/DashboardView';
 import CertificatesView from './components/CertificatesView';
 import KeyDirectoryView from './components/KeyDirectoryView';
@@ -18,14 +19,30 @@ import IssueCertModal from './components/IssueCertModal';
 import ImportKeyModal from './components/ImportKeyModal';
 import RevokeCertModal from './components/RevokeCertModal';
 import KeyDetailModal from './components/KeyDetailModal';
-import { CA_API } from './api';
+import { CA_API, clearToken } from './api';
+
+// Các góc nhìn UI được ánh xạ từ quyền do MÁY CHỦ cấp.
+// 'public' không cần token; 3 role còn lại chỉ dùng được khi token khớp.
+const ROLE_TO_VIEWS = {
+  admin: ['admin', 'employee', 'partner', 'public'],
+  employee: ['employee', 'public'],
+  partner: ['partner', 'public'],
+  public: ['public'],
+};
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [loading, setLoading] = useState(true);
 
-  // Multi-user Role State: 'admin' | 'employee' | 'partner' | 'public'
-  const [userRole, setUserRole] = useState('admin');
+  // Quyền thực tế lấy từ server (/api/auth/whoami), KHÔNG phải state client.
+  // auth: null = chưa kiểm tra xong, { role, authenticated } sau khi kiểm tra.
+  const [auth, setAuth] = useState(null);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  // Góc nhìn UI đang chọn (chỉ được nằm trong ROLE_TO_VIEWS[auth.role]).
+  const [userRole, setUserRole] = useState('public');
+  // Người dùng chủ động chọn "tiếp tục với tư cách khách" (không có token).
+  const [publicMode, setPublicMode] = useState(false);
   const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
 
   // System states
@@ -42,40 +59,105 @@ export default function App() {
   const [revokeCertTarget, setRevokeCertTarget] = useState(null);
   const [detailKeyTarget, setDetailKeyTarget] = useState(null);
 
-  // Fetch all system data
-  const loadAllData = async () => {
+  // Fetch all system data.
+  // Lưu ý: với khách (public) các endpoint cần quyền sẽ trả 401/403.
+  // Dùng allSettled để một lời gọi bị từ chối không làm hỏng cả trang.
+  const loadAllData = useCallback(async () => {
     try {
-      const [statusRes, certsRes, dirRes, msgRes, logsRes] = await Promise.all([
+      const results = await Promise.allSettled([
         CA_API.getStatus(),
         CA_API.getCertificates(),
         CA_API.getDirectory(),
         CA_API.getMessages(),
         CA_API.getAuditLogs()
       ]);
+      const value = (i) => (results[i].status === 'fulfilled' ? results[i].value : null);
 
-      if (statusRes.success) {
+      const statusRes = value(0);
+      const certsRes = value(1);
+      const dirRes = value(2);
+      const msgRes = value(3);
+      const logsRes = value(4);
+
+      if (statusRes?.success) {
         setCaInfo(statusRes.ca);
         setMetrics(statusRes.metrics);
       }
-      if (certsRes.success) {
+      if (certsRes?.success) {
         setCertificates(certsRes.certificates);
         if (!selectedEmployeeId && certsRes.certificates.length > 0) {
           setSelectedEmployeeId(certsRes.certificates[0].id);
         }
       }
-      if (dirRes.success) setDirectory(dirRes.directory);
-      if (msgRes.success) setMessages(msgRes.messages);
-      if (logsRes.success) setAuditLogs(logsRes.logs);
+      // Danh bạ công khai → luôn tải được.
+      if (dirRes?.success) setDirectory(dirRes.directory);
+      if (msgRes?.success) setMessages(msgRes.messages);
+      if (logsRes?.success) setAuditLogs(logsRes.logs);
     } catch (err) {
       console.error('Lỗi tải dữ liệu hệ thống CA:', err);
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectedEmployeeId]);
+
+  // Hỏi server xem token hiện tại (nếu có) tương ứng role nào.
+  const checkAuth = useCallback(async () => {
+    try {
+      const who = await CA_API.whoami();
+      const role = who?.authenticated ? who.role : 'public';
+      setAuth({ role, authenticated: !!who?.authenticated });
+      setUserRole(role);
+      return role;
+    } catch {
+      setAuth({ role: 'public', authenticated: false });
+      setUserRole('public');
+      return 'public';
+    } finally {
+      setAuthChecked(true);
+    }
+  }, []);
 
   useEffect(() => {
-    loadAllData();
-  }, []);
+    (async () => {
+      setLoading(true);
+      await checkAuth();
+      await loadAllData();
+    })();
+  }, [checkAuth, loadAllData]);
+
+  const allowedViews = ROLE_TO_VIEWS[auth?.role] || ['public'];
+
+  // Chuyển góc nhìn: chỉ chấp nhận nếu server đã cấp quyền tương ứng.
+  const changeView = (nextView) => {
+    if (!allowedViews.includes(nextView)) return;
+    setUserRole(nextView);
+    if (nextView === 'admin') setActiveTab('dashboard');
+  };
+
+  const handleAuthenticated = async () => {
+    setLoading(true);
+    await checkAuth();
+    await loadAllData();
+  };
+
+  // Chưa kiểm tra xong quyền → không render nội dung nào để tránh nháy UI.
+  if (!authChecked) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center font-mono text-sm">
+        Đang kiểm tra quyền truy cập với máy chủ...
+      </div>
+    );
+  }
+
+  // Khách chưa đăng nhập (và chưa chọn "tiếp tục với tư cách khách") → hiện form.
+  if (!auth?.authenticated && !publicMode) {
+    return (
+      <AuthLoginView
+        onAuthenticated={handleAuthenticated}
+        onContinueAsPublic={() => setPublicMode(true)}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-white">
@@ -85,7 +167,15 @@ export default function App() {
         setActiveTab={setActiveTab}
         caInfo={caInfo}
         userRole={userRole}
-        setUserRole={setUserRole}
+        setUserRole={changeView}
+        allowedViews={allowedViews}
+        serverRole={auth?.role}
+        onLogout={() => {
+          clearToken();
+          setPublicMode(false);
+          setAuth({ role: 'public', authenticated: false });
+          setUserRole('public');
+        }}
       />
 
       {/* Main Content Area */}

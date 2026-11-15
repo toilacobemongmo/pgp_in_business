@@ -1,0 +1,14 @@
+{
+  "name": "pgp-engineer3-merkle-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone Merkle audit ledger for the Engineer 3 handoff",
+  "type": "commonjs",
+  "main": "backend/merkle-engine.js",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node --test test/merkle-engine.test.js",
+    "demo": "node examples/demo.js",
+    "benchmark": "node examples/benchmark.js"
+  }
+}
